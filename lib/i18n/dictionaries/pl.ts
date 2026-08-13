@@ -117,5 +117,7 @@ export const pl: Dictionary = {
     toggleNight: "Włącz wieczór przy ognisku",
     toggleDay: "Włącz dzień kodeksu",
     language: "Wybierz język",
+    menu: "Menu",
+    closeMenu: "Zamknij menu",
   },
 };

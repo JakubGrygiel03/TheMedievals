@@ -123,6 +123,13 @@ body {
   width: 100%;
   height: auto;
   border-radius: inherit;
+  transition: filter 0.45s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-folio:hover img {
+    filter: brightness(0.92);
+  }
 }
 
 .hero-folio::before {
@@ -369,6 +376,89 @@ select {
   box-shadow: 0 4px 10px rgb(28 25 23 / 0.08);
 }
 
+.desktop-nav {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-toggle {
+  display: inline-block;
+  white-space: nowrap;
+  border: 1px solid rgb(28 25 23 / 0.2);
+  background: var(--panel);
+  padding: 0.3rem 0.5rem;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  box-shadow: inset 0 0 0 1px rgb(139 30 30 / 0.1);
+}
+
+.mobile-nav-panel {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  right: 0;
+  z-index: 50;
+  width: 11.25rem;
+  overflow: hidden;
+  border: 1px solid rgb(28 25 23 / 0.18);
+  border-radius: 0.2rem;
+  background: var(--panel);
+  box-shadow:
+    0 1px 0 rgb(139 30 30 / 0.35),
+    0 10px 24px rgb(28 25 23 / 0.12);
+}
+
+.mobile-nav-panel ul {
+  margin: 0;
+  padding: 0.2rem 0;
+  list-style: none;
+  font-family: var(--font-cinzel), serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mobile-nav-panel a {
+  display: block;
+  padding: 0.42rem 0.85rem;
+  text-align: right;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.mobile-nav-panel li:last-child a {
+  border-bottom: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .mobile-nav-panel a:hover {
+    color: var(--vermilion);
+    background: rgb(28 25 23 / 0.07);
+  }
+}
+
+@media (min-width: 640px) {
+  .menu-toggle {
+    padding: 0.35rem 0.65rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .desktop-nav {
+    display: flex;
+  }
+
+  .menu-toggle,
+  .mobile-nav-panel {
+    display: none !important;
+  }
+}
+
 .brand-mark {
   display: inline-flex;
   flex-direction: column;
@@ -377,9 +467,9 @@ select {
   align-items: stretch;
   height: fit-content;
   font-family: var(--font-cinzel), serif;
-  font-size: 1.05rem;
+  font-size: 0.92rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--vermilion);
   line-height: 1;
@@ -393,6 +483,13 @@ select {
   background: var(--vermilion);
   transform-origin: left center;
   animation: rule-draw 0.8s 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (min-width: 400px) {
+  .brand-mark {
+    font-size: 1.05rem;
+    letter-spacing: 0.12em;
+  }
 }
 
 @media (min-width: 640px) {

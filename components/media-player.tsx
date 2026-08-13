@@ -13,10 +13,10 @@ export function MediaPlayer({ dictionary }: MediaPlayerProps) {
       eyebrow={dictionary.media.eyebrow}
       heading={dictionary.media.playerHeading}
     >
-      <p className="mt-6 max-w-3xl text-lg leading-relaxed text-[var(--ink-soft)]">
+      <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[var(--ink-soft)]">
         {dictionary.media.playerLead}
       </p>
-      <div className="mt-10 grid gap-6 lg:grid-cols-2 lg:items-stretch">
+      <div className="mt-5 grid gap-6 lg:grid-cols-2 lg:items-stretch">
         <div className="folio-panel h-full min-h-[32rem] overflow-hidden">
           <iframe
             src={siteConfig.embeds.spotify}

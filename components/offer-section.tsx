@@ -21,7 +21,7 @@ export function OfferSection({ lang, dictionary }: OfferSectionProps) {
       <p className="mt-6 max-w-3xl text-lg leading-relaxed text-[var(--ink-soft)]">
         {copy.lead}
       </p>
-      <StaggerList className="mt-10 grid gap-5 md:grid-cols-3">
+      <StaggerList className="mt-5 grid gap-5 md:grid-cols-3">
         {copy.items.map((item) => (
           <StaggerItem key={item.title} className="folio-panel p-6">
             <h3 className="font-cinzel text-lg text-lapis">{item.title}</h3>

@@ -50,7 +50,7 @@ export default async function HomePage({ params }: PageProps) {
   const concerts = await getPublishedConcerts();
 
   return (
-    <main id="tresc" className="relative z-10 flex flex-col gap-7 md:gap-8">
+    <main id="tresc" className="relative z-10 flex flex-col gap-8 md:gap-10">
       <EnsembleHero lang={lang} dictionary={dictionary} />
       <TrustStrip lang={lang} />
       <OfferSection lang={lang} dictionary={dictionary} />

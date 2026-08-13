@@ -110,5 +110,7 @@ export type Dictionary = {
     toggleNight: string;
     toggleDay: string;
     language: string;
+    menu: string;
+    closeMenu: string;
   };
 };

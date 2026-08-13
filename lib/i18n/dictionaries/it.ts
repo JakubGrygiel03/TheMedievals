@@ -117,5 +117,7 @@ export const it: Dictionary = {
     toggleNight: "Passa alla sera attorno al fuoco",
     toggleDay: "Passa al codice diurno",
     language: "Scegli la lingua",
+    menu: "Menu",
+    closeMenu: "Chiudi il menu",
   },
 };

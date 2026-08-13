@@ -117,5 +117,7 @@ export const en: Dictionary = {
     toggleNight: "Switch to campfire evening",
     toggleDay: "Switch to daylight codex",
     language: "Choose language",
+    menu: "Menu",
+    closeMenu: "Close menu",
   },
 };

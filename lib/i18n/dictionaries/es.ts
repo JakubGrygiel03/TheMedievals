@@ -117,5 +117,7 @@ export const es: Dictionary = {
     toggleNight: "Activar la noche junto al fuego",
     toggleDay: "Activar el códice de día",
     language: "Elegir idioma",
+    menu: "Menú",
+    closeMenu: "Cerrar menú",
   },
 };
