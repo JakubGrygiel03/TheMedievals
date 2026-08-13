@@ -12,7 +12,7 @@ type BookingCtaProps = {
 export function BookingCta({ lang, dictionary }: BookingCtaProps) {
   return (
     <Reveal>
-    <section className="relative z-20 mx-auto max-w-6xl px-5 py-20 text-center">
+    <section className="relative z-20 mx-auto max-w-6xl px-5 text-center">
       <EditorialHeading
         eyebrow={dictionary.booking.eyebrow}
         heading={dictionary.booking.heading}

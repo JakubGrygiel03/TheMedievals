@@ -3,7 +3,7 @@ import type { Locale } from "@/lib/i18n/config";
 
 export function TrustStrip({ lang }: { lang: Locale }) {
   return (
-    <ul className="mx-auto mt-8 grid max-w-6xl gap-4 px-5 sm:grid-cols-2 lg:grid-cols-4">
+    <ul className="mx-auto grid max-w-6xl gap-4 px-5 sm:grid-cols-2 lg:grid-cols-4">
       {trustPoints[lang].map((point) => (
         <li
           key={point}

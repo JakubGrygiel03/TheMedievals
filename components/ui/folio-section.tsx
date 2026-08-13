@@ -21,7 +21,7 @@ export function FolioSection({
     <Reveal>
       <section
         id={id}
-        className="relative z-20 mx-auto max-w-6xl px-5 py-16 md:py-24"
+        className="relative z-20 mx-auto max-w-6xl px-5"
       >
         <EditorialHeading eyebrow={eyebrow} heading={heading} goldWord={goldWord} />
         {children}

@@ -10,7 +10,7 @@ type EnsembleHeroProps = {
 
 export function EnsembleHero({ lang, dictionary }: EnsembleHeroProps) {
   return (
-    <section className="pt-3 pb-8 sm:pt-4">
+    <section className="pt-3 pb-2 sm:pt-4">
       <h1 className="sr-only">The Medievals</h1>
       <div className="hero-folio">
         <Image

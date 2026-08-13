@@ -13,10 +13,10 @@ type MemberCardsProps = {
 export function MemberCards({ lang, eyebrow, heading, lead }: MemberCardsProps) {
   return (
     <FolioSection id="miniatury" eyebrow={eyebrow} heading={heading}>
-      <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--ink-soft)]">
+      <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[var(--ink-soft)]">
         {lead}
       </p>
-      <StaggerList className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <StaggerList className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {members.map((member) => (
           <StaggerItem key={member.id} className="folio-panel p-6">
             <h3 className="font-cinzel text-xl">{member.name}</h3>

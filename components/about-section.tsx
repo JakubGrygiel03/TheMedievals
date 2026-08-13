@@ -17,12 +17,12 @@ export function AboutSection({ lang, dictionary }: AboutSectionProps) {
       eyebrow={dictionary.about.eyebrow}
       heading={dictionary.about.heading}
     >
-      <div className="mt-8 max-w-3xl space-y-5 text-lg leading-relaxed text-[var(--ink-soft)]">
+      <div className="mt-4 max-w-3xl space-y-4 text-lg leading-relaxed text-[var(--ink-soft)]">
         {copy.paragraphs.map((paragraph) => (
           <p key={paragraph.slice(0, 32)}>{paragraph}</p>
         ))}
       </div>
-      <p className="mt-8 max-w-3xl border-l-2 border-gold pl-5 text-lg">
+      <p className="mt-5 max-w-3xl border-l-2 border-gold pl-5 text-lg">
         <span className="font-cinzel text-sm tracking-wide text-vermilion">
           {dictionary.about.instrumentsLabel}:{" "}
         </span>
