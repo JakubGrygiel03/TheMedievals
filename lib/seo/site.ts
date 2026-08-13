@@ -1,6 +1,13 @@
+function resolveSiteUrl() {
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (explicit) return explicit.replace(/\/$/, "");
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
+  return "https://themedievals.pl";
+}
+
 export const siteConfig = {
   name: "The Medievals",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://themedievals.pl",
+  url: resolveSiteUrl(),
   email: "booking@themedievals.pl",
   social: {
     spotify: "https://open.spotify.com/artist/637sxsUGfwehtTHoUNnWER",
