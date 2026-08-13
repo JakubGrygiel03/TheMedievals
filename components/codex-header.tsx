@@ -19,24 +19,30 @@ export function CodexHeader({ lang, dictionary }: CodexHeaderProps) {
   ];
 
   return (
-    <header className="codex-masthead sticky top-0 z-40 border-b border-[var(--rule)] bg-[var(--header-bg)] backdrop-blur-md">
-      <nav
-        aria-label={dictionary.nav.home}
-        className="flex min-h-14 w-full min-w-0 max-w-full items-center justify-between gap-1.5 px-2 py-2 sm:min-h-16 sm:gap-5 sm:px-6 lg:justify-start lg:px-8"
-      >
-        <Link href={`/${lang}`} className="brand-mark">
-          The Medievals
-        </Link>
-        <span aria-hidden="true" className="hidden h-8 w-px shrink-0 bg-[var(--ink)]/30 lg:block" />
-        <SiteNav
-          links={links}
-          menuLabel={dictionary.a11y.menu}
-          closeLabel={dictionary.a11y.closeMenu}
-          languages={
-            <LanguageSwitcher lang={lang} label={dictionary.a11y.language} />
-          }
-        />
-      </nav>
+    <header className="codex-masthead z-40">
+      <div className="codex-masthead-bar">
+        <nav
+          aria-label={dictionary.nav.home}
+          className="flex min-h-14 w-full min-w-0 max-w-full items-center justify-between gap-1.5 px-2 py-2 sm:min-h-16 sm:gap-5 sm:px-6 lg:justify-start lg:px-8"
+        >
+          <Link href={`/${lang}`} className="brand-mark">
+            The Medievals
+          </Link>
+          <span
+            aria-hidden="true"
+            className="hidden h-8 w-px shrink-0 bg-[var(--ink)]/30 lg:block"
+          />
+          <SiteNav
+            links={links}
+            menuLabel={dictionary.a11y.menu}
+            closeLabel={dictionary.a11y.closeMenu}
+            languages={
+              <LanguageSwitcher lang={lang} label={dictionary.a11y.language} />
+            }
+          />
+        </nav>
+      </div>
+      <div className="h-14 sm:h-16 lg:hidden" aria-hidden="true" />
     </header>
   );
 }

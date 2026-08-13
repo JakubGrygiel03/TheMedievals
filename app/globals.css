@@ -53,7 +53,6 @@ iframe {
 .book-folio {
   padding-left: var(--book-margin);
   padding-right: var(--book-margin);
-  overflow-x: hidden;
 }
 
 .book-margin {
@@ -514,7 +513,28 @@ select {
 
 .codex-masthead {
   max-width: 100%;
-  animation: header-drop 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.codex-masthead-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 40;
+  border-bottom: 1px solid var(--rule);
+  background: #ecdcc4;
+}
+
+@media (min-width: 1024px) {
+  .codex-masthead-bar {
+    position: sticky;
+    right: auto;
+    left: auto;
+    background: var(--header-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    animation: header-drop 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
 }
 
 @keyframes ink-settle {
@@ -602,6 +622,7 @@ select {
   .book-margin-right,
   .ornament-rule,
   .codex-masthead,
+  .codex-masthead-bar,
   .nav-chip,
   .brand-mark::after {
     animation: none !important;
