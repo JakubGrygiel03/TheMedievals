@@ -56,7 +56,7 @@ export function SiteNav({
         ))}
       </ul>
 
-      <div className="ml-auto flex shrink-0 items-center gap-2 sm:gap-3 lg:ml-0">
+      <div className="ml-auto flex min-w-0 shrink items-center gap-1.5 sm:gap-3 lg:ml-0">
         <span
           aria-hidden="true"
           className="hidden h-8 w-px shrink-0 bg-[var(--ink)]/30 lg:block"
@@ -72,9 +72,10 @@ export function SiteNav({
             className="menu-toggle font-cinzel text-[13px] tracking-[0.06em]"
             aria-expanded={open}
             aria-controls="mobile-nav"
+            aria-label={open ? closeLabel : menuLabel}
             onClick={() => setOpen((value) => !value)}
           >
-            {open ? closeLabel : menuLabel}
+            {menuLabel}
           </button>
           {open ? (
             <div id="mobile-nav" className="mobile-nav-panel">

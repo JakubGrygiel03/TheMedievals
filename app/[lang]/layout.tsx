@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cinzel, Cormorant_Garamond, MedievalSharp } from "next/font/google";
 import { notFound } from "next/navigation";
 import { BookMargins } from "@/components/book-margins";
@@ -9,6 +9,7 @@ import { getPublishedConcerts } from "@/lib/concerts";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { isLocale, locales, type Locale } from "@/lib/i18n/config";
 import { localePath, siteConfig } from "@/lib/seo/site";
+import { desktopViewportScript } from "@/lib/desktop-viewport-script";
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -34,6 +35,11 @@ const medievalSharp = MedievalSharp({
 type LayoutProps = {
   children: React.ReactNode;
   params: Promise<{ lang: string }>;
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export function generateStaticParams() {
@@ -97,6 +103,9 @@ export default async function LangLayout({ children, params }: LayoutProps) {
 
   return (
     <html lang={lang} className={`${cinzel.variable} ${cormorant.variable} ${medievalSharp.variable} h-full`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: desktopViewportScript }} />
+      </head>
       <body className="book-folio min-h-full antialiased">
         <a
           href="#tresc"

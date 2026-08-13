@@ -22,7 +22,7 @@ export function CodexHeader({ lang, dictionary }: CodexHeaderProps) {
     <header className="codex-masthead sticky top-0 z-40 border-b border-[var(--rule)] bg-[var(--header-bg)] backdrop-blur-md">
       <nav
         aria-label={dictionary.nav.home}
-        className="flex min-h-16 w-full items-center justify-between gap-2 px-3 py-2 sm:gap-5 sm:px-6 lg:justify-start lg:px-8"
+        className="flex min-h-14 w-full min-w-0 max-w-full items-center justify-between gap-1.5 px-2 py-2 sm:min-h-16 sm:gap-5 sm:px-6 lg:justify-start lg:px-8"
       >
         <Link href={`/${lang}`} className="brand-mark">
           The Medievals

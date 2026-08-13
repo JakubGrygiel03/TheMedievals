@@ -34,9 +34,20 @@
 
 html,
 body {
+  max-width: 100%;
   background: var(--parchment);
   color: var(--ink);
   font-weight: 700;
+}
+
+html {
+  overflow-x: clip;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
 }
 
 .book-folio {
@@ -399,7 +410,9 @@ select {
   top: calc(100% + 0.4rem);
   right: 0;
   z-index: 50;
-  width: 11.25rem;
+  width: max-content;
+  min-width: 8.75rem;
+  max-width: min(12rem, calc(100vw - 1.25rem));
   overflow: hidden;
   border: 1px solid rgb(28 25 23 / 0.18);
   border-radius: 0.2rem;
@@ -416,7 +429,7 @@ select {
   font-family: var(--font-cinzel), serif;
   font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
@@ -463,16 +476,18 @@ select {
   display: inline-flex;
   flex-direction: column;
   align-self: center;
-  flex-shrink: 0;
+  flex-shrink: 1;
+  min-width: 0;
   align-items: stretch;
   height: fit-content;
   font-family: var(--font-cinzel), serif;
-  font-size: 0.92rem;
+  font-size: clamp(0.72rem, 3.8vw, 1.22rem);
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   color: var(--vermilion);
   line-height: 1;
+  white-space: nowrap;
 }
 
 .brand-mark::after {
@@ -485,16 +500,11 @@ select {
   animation: rule-draw 0.8s 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-@media (min-width: 400px) {
-  .brand-mark {
-    font-size: 1.05rem;
-    letter-spacing: 0.12em;
-  }
-}
-
 @media (min-width: 640px) {
   .brand-mark {
+    flex-shrink: 0;
     font-size: 1.22rem;
+    letter-spacing: 0.12em;
   }
 }
 
@@ -503,6 +513,7 @@ select {
 }
 
 .codex-masthead {
+  max-width: 100%;
   animation: header-drop 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
