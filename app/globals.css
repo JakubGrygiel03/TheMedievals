@@ -1,26 +1,511 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --parchment: #faf3e8;
+  --parchment-deep: #f0e4d2;
+  --ink: #1c1917;
+  --ink-soft: rgb(28 25 23 / 0.72);
+  --vermilion: #8b1e1e;
+  --lapis: #1c1917;
+  --gold: #8b1e1e;
+  --gold-bright: #8b1e1e;
+  --flame: #8b1e1e;
+  --rule: rgb(28 25 23 / 0.14);
+  --panel: #fffdf8;
+  --header-bg: rgb(236 220 196 / 0.96);
+  --book-margin: 0px;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --book-margin: clamp(5.75rem, 12vw, 10.5rem);
+  }
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-parchment: var(--parchment);
+  --color-parchment-deep: var(--parchment-deep);
+  --color-ink: var(--ink);
+  --color-vermilion: var(--vermilion);
+  --color-lapis: var(--lapis);
+  --color-gold: var(--gold);
+  --color-flame: var(--flame);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html,
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.book-folio {
+  padding-left: var(--book-margin);
+  padding-right: var(--book-margin);
+  overflow-x: hidden;
+}
+
+.book-margin {
+  display: none;
+  position: fixed;
+  top: 0;
+  z-index: 30;
+  width: var(--book-margin);
+  height: 100%;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+
+.book-margin-left {
+  left: 0;
+  background-image: url("/book-margin-left.jpg");
+  background-position: left center;
+  animation: margin-sway 34s ease-in-out infinite;
+}
+
+.book-margin-left::after,
+.book-margin-right::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1.75rem;
+  pointer-events: none;
+}
+
+.book-margin-left::after {
+  right: 0;
+  background: linear-gradient(to right, transparent, var(--parchment));
+}
+
+.book-margin-right {
+  right: 0;
+  background-image: url("/book-margin-right.jpg");
+  background-position: right center;
+  animation: margin-sway 38s ease-in-out infinite reverse;
+}
+
+.book-margin-right::after {
+  left: 0;
+  background: linear-gradient(to left, transparent, var(--parchment));
+}
+
+@media (min-width: 1024px) {
+  .book-margin {
+    display: block;
+  }
+}
+
+.hero-folio {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 1.5rem;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 1.5rem,
+    #000 calc(100% - 1.5rem),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 1.5rem,
+    #000 calc(100% - 1.5rem),
+    transparent 100%
+  );
+}
+
+.hero-folio img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: inherit;
+}
+
+.hero-folio::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  height: 1.15rem;
+  pointer-events: none;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  -webkit-mask-image: linear-gradient(to bottom, #000, transparent);
+  mask-image: linear-gradient(to bottom, #000, transparent);
+}
+
+.hero-folio::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, var(--parchment), transparent 0.95rem),
+    linear-gradient(to bottom, transparent calc(100% - 1.35rem), var(--parchment));
+}
+
+@media (min-width: 768px) {
+  .hero-folio {
+    width: 90%;
+    margin-inline: auto;
+    border-radius: 2rem;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 2rem,
+      #000 calc(100% - 2rem),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 2rem,
+      #000 calc(100% - 2rem),
+      transparent 100%
+    );
+  }
+}
+
+.hero-pitch {
+  max-width: 38rem;
+  text-wrap: balance;
+  font-weight: 700;
+  animation: rise-in 0.85s 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (min-width: 768px) {
+  .hero-pitch {
+    max-width: 90%;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), Georgia, serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+a,
+label,
+button,
+input,
+textarea,
+select {
+  font-weight: 700;
+}
+
+.font-body {
+  font-family: var(--font-body), Georgia, serif;
+  font-weight: 700;
+}
+
+.font-cinzel {
+  font-family: var(--font-cinzel), Georgia, serif;
+  font-weight: 700;
+}
+
+.editorial-eyebrow {
+  font-family: var(--font-cinzel), serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--vermilion);
+  margin-bottom: 0.45rem;
+}
+
+.editorial-title {
+  font-family: var(--font-cinzel), serif;
+  font-size: clamp(1.6rem, 3vw, 2.15rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+}
+
+.ornament-rule {
+  height: 1px;
+  width: 4rem;
+  margin-top: 0.85rem;
+  background: var(--vermilion);
+  transform-origin: left center;
+}
+
+.track-index {
+  font-family: var(--font-cinzel), serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--vermilion);
+}
+
+.trust-index {
+  font-family: var(--font-cinzel), serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--vermilion);
+}
+
+.trust-copy {
+  max-width: 14rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.folio-panel {
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+.folio-panel:hover {
+  transform: translateY(-4px) rotate(-0.35deg);
+  box-shadow: 0 10px 22px rgb(28 25 23 / 0.08);
+}
+
+.folio-input {
+  border: 1px solid var(--rule);
+  background: #fff;
+  color: var(--ink);
+  padding: 0.65rem 0.85rem;
+  font-family: var(--font-body), Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.folio-input:focus {
+  outline: 2px solid var(--vermilion);
+  outline-offset: 2px;
+}
+
+.codex-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--vermilion);
+  padding: 0.85rem 1.55rem;
+  font-family: var(--font-cinzel), serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.codex-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgb(139 30 30 / 0.18);
+}
+
+.codex-btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: none;
+}
+
+.codex-btn-primary {
+  background: var(--vermilion);
+  color: #f7f4ee;
+}
+
+.codex-btn-primary:hover {
+  background: #6f1616;
+}
+
+.codex-btn-secondary {
+  background: transparent;
+  color: var(--ink);
+}
+
+.codex-btn-secondary:hover {
+  background: var(--vermilion);
+  color: #f7f4ee;
+}
+
+.nav-chip {
+  display: inline-block;
+  white-space: nowrap;
+  border: 1px solid rgb(28 25 23 / 0.2);
+  background: var(--panel);
+  padding: 0.35rem 0.65rem;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  box-shadow: inset 0 0 0 1px rgb(139 30 30 / 0.1);
+  animation: rise-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.nav-chip:hover {
+  border-color: var(--vermilion);
+  color: var(--vermilion);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgb(28 25 23 / 0.08);
+}
+
+.brand-mark {
+  display: inline-flex;
+  flex-direction: column;
+  align-self: center;
+  flex-shrink: 0;
+  align-items: stretch;
+  height: fit-content;
+  font-family: var(--font-cinzel), serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--vermilion);
+  line-height: 1;
+}
+
+.brand-mark::after {
+  content: "";
+  display: block;
+  height: 2px;
+  margin-top: 0.12rem;
+  background: var(--vermilion);
+  transform-origin: left center;
+  animation: rule-draw 0.8s 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (min-width: 640px) {
+  .brand-mark {
+    font-size: 1.22rem;
+  }
+}
+
+.hero-actions {
+  animation: rise-in 0.85s 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.codex-masthead {
+  animation: header-drop 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes ink-settle {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes folio-open {
+  from {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes folio-drift {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.045);
+  }
+}
+
+@keyframes margin-sway {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes rule-draw {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes header-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-folio,
+  .hero-folio img,
+  .hero-pitch,
+  .hero-actions,
+  .book-margin-left,
+  .book-margin-right,
+  .ornament-rule,
+  .codex-masthead,
+  .nav-chip,
+  .brand-mark::after {
+    animation: none !important;
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+  }
+
+  .folio-panel:hover,
+  .nav-chip:hover,
+  .codex-btn:hover,
+  .codex-btn:active {
+    transform: none !important;
+  }
 }
