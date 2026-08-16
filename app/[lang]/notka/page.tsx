@@ -4,7 +4,8 @@ import { EditorialHeading } from "@/components/ui/editorial-heading";
 import { FolioBackLink } from "@/components/ui/folio-back-link";
 import { aboutCopy } from "@/lib/content";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
-import { isLocale, locales, type Locale } from "@/lib/i18n/config";
+import { isLocale } from "@/lib/i18n/config";
+import { hreflangMap, socialMetadata } from "@/lib/seo/metadata";
 import { localePath } from "@/lib/seo/site";
 
 type PageProps = {
@@ -18,17 +19,22 @@ export async function generateMetadata({
   if (!isLocale(lang)) return {};
 
   const dictionary = getDictionary(lang);
-  const languages = Object.fromEntries(
-    locales.map((locale) => [locale, localePath(locale, "/notka")]),
-  ) as Record<Locale, string>;
+  const title = dictionary.organizers.pressNote;
+  const description = dictionary.meta.pressDescription;
 
   return {
-    title: `${dictionary.organizers.pressNote} | The Medievals`,
-    description: dictionary.about.lead,
+    title,
+    description,
     alternates: {
       canonical: localePath(lang, "/notka"),
-      languages: { ...languages, "x-default": localePath("pl", "/notka") },
+      languages: hreflangMap("/notka"),
     },
+    ...socialMetadata({
+      lang,
+      title: `${title} | The Medievals`,
+      description,
+      path: "/notka",
+    }),
   };
 }
 

@@ -4,7 +4,8 @@ import { ContactForm } from "@/components/contact-form";
 import { DirectContact } from "@/components/direct-contact";
 import { EditorialHeading } from "@/components/ui/editorial-heading";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
-import { isLocale, locales, type Locale } from "@/lib/i18n/config";
+import { isLocale } from "@/lib/i18n/config";
+import { hreflangMap, socialMetadata } from "@/lib/seo/metadata";
 import { localePath } from "@/lib/seo/site";
 
 type PageProps = {
@@ -18,17 +19,22 @@ export async function generateMetadata({
   if (!isLocale(lang)) return {};
 
   const dictionary = getDictionary(lang);
-  const languages = Object.fromEntries(
-    locales.map((locale) => [locale, localePath(locale, "/kontakt")]),
-  ) as Record<Locale, string>;
+  const title = dictionary.contact.heading;
+  const description = dictionary.meta.contactDescription;
 
   return {
-    title: `${dictionary.contact.heading} | The Medievals`,
-    description: dictionary.contact.lead,
+    title,
+    description,
     alternates: {
       canonical: localePath(lang, "/kontakt"),
-      languages: { ...languages, "x-default": localePath("pl", "/kontakt") },
+      languages: hreflangMap("/kontakt"),
     },
+    ...socialMetadata({
+      lang,
+      title: `${title} | The Medievals`,
+      description,
+      path: "/kontakt",
+    }),
   };
 }
 

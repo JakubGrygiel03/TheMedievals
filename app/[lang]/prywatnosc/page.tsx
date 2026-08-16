@@ -3,8 +3,9 @@ import { notFound } from "next/navigation";
 import { EditorialHeading } from "@/components/ui/editorial-heading";
 import { FolioBackLink } from "@/components/ui/folio-back-link";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
-import { isLocale, locales, type Locale } from "@/lib/i18n/config";
+import { isLocale } from "@/lib/i18n/config";
 import { privacyCopy } from "@/lib/privacy";
+import { hreflangMap, socialMetadata } from "@/lib/seo/metadata";
 import { localePath } from "@/lib/seo/site";
 
 type PageProps = {
@@ -18,18 +19,23 @@ export async function generateMetadata({
   if (!isLocale(lang)) return {};
 
   const copy = privacyCopy[lang];
-  const languages = Object.fromEntries(
-    locales.map((locale) => [locale, localePath(locale, "/prywatnosc")]),
-  ) as Record<Locale, string>;
+  const title = copy.heading;
+  const description = copy.intro;
 
   return {
-    title: `${copy.heading} | The Medievals`,
-    description: copy.intro,
+    title,
+    description,
     alternates: {
       canonical: localePath(lang, "/prywatnosc"),
-      languages: { ...languages, "x-default": localePath("pl", "/prywatnosc") },
+      languages: hreflangMap("/prywatnosc"),
     },
     robots: { index: true, follow: true },
+    ...socialMetadata({
+      lang,
+      title: `${title} | The Medievals`,
+      description,
+      path: "/prywatnosc",
+    }),
   };
 }
 

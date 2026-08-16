@@ -4,9 +4,13 @@ export const en: Dictionary = {
   meta: {
     title: "The Medievals – Early Music Ensemble",
     description:
-      "The Medievals is an early-music ensemble. Book a concert for a castle, festival, wedding or dance workshop. Replica instruments, 13th- and 15th-century dress, songs in original languages.",
+      "The Medievals early-music ensemble. Book medieval concerts for castles, festivals, tournaments, weddings and dance workshops. booking@themedievals.pl.",
     keywords:
-      "early music ensemble, medieval music band, early music concerts, historical event music, historical dance workshops",
+      "early music ensemble, medieval music band, medieval music concert, historical wedding music, castle concert, knightly tournament music, historical fair music, medieval dance workshops, early music booking",
+    contactDescription:
+      "Book a medieval music concert with The Medievals — castles, festivals, weddings and dance workshops. We reply within 48 hours.",
+    pressDescription:
+      "Press note for The Medievals early-music ensemble: line-up, instruments and artistic profile for organizers and media.",
   },
   nav: {
     home: "Home",
@@ -35,7 +39,7 @@ export const en: Dictionary = {
   },
   about: {
     eyebrow: "The ensemble",
-    heading: "About us",
+    heading: "The Medievals early music ensemble",
     goldWord: "",
     lead: "Courtly and popular music of the 14th–15th centuries. Dress from iconography, artisan replica instruments.",
     instrumentsLabel: "Instruments",
@@ -77,7 +81,7 @@ export const en: Dictionary = {
   },
   offer: {
     eyebrow: "Offer",
-    heading: "Performance formats",
+    heading: "Medieval concerts and event music",
     goldWord: "play",
   },
   organizers: {
@@ -90,12 +94,12 @@ export const en: Dictionary = {
   },
   portfolio: {
     eyebrow: "Past work",
-    heading: "Portfolio",
+    heading: "Where we play: castles, tournaments, fairs",
     lead: "Selected kinds of venues and events we play.",
   },
   gallery: {
     eyebrow: "Photos",
-    heading: "Gallery",
+    heading: "Early-music ensemble gallery",
     lead: "Moments from concerts and sessions — how we look on stage and off.",
   },
   booking: {
@@ -106,7 +110,7 @@ export const en: Dictionary = {
     cta: "Write to us",
   },
   contact: {
-    heading: "Contact",
+    heading: "Book a concert",
     lead: "A short quote form: date, place, type of event. We reply within 48 hours.",
     name: "Name",
     email: "Email",

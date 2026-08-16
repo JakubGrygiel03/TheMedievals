@@ -4,9 +4,13 @@ export const pl: Dictionary = {
   meta: {
     title: "The Medievals – Zespół Muzyki Dawnej",
     description:
-      "Zespół muzyki dawnej The Medievals. Zamówcie koncert na zamek, festiwal, ślub lub warsztat tańca. Kopie instrumentów, stroje z XV i XIII wieku, pieśni w językach oryginalnych.",
+      "Zespół muzyki średniowiecznej The Medievals. Koncerty na zamki, festiwale, turnieje i jarmarki, oprawa ślubów oraz warsztaty tańca. Booking: booking@themedievals.pl.",
     keywords:
-      "zespół muzyki dawnej, muzyka średniowieczna zespół, koncerty muzyki dawnej, oprawa muzyczna wydarzeń historycznych, warsztaty tańca historycznego",
+      "zespół muzyki dawnej, zespół muzyki średniowiecznej, koncert muzyki średniowiecznej, oprawa muzyczna ślubu, koncert na zamek, turniej rycerski muzyka, jarmark historyczny, warsztaty tańca średniowiecznego, booking zespołu muzyki dawnej",
+    contactDescription:
+      "Zamówcie koncert muzyki średniowiecznej — The Medievals: zamki, festiwale, śluby i warsztaty tańca. Odpowiadamy w ciągu 48 godzin.",
+    pressDescription:
+      "Notka prasowa zespołu muzyki dawnej The Medievals: skład, instrumentarium i profil artystyczny dla organizatorów oraz mediów.",
   },
   nav: {
     home: "Strona główna",
@@ -35,7 +39,7 @@ export const pl: Dictionary = {
   },
   about: {
     eyebrow: "O zespole",
-    heading: "O nas",
+    heading: "Zespół muzyki dawnej The Medievals",
     goldWord: "",
     lead: "Muzyka dworska i plebejska XIV–XV wieku. Stroje z ikonografii, rzemieślnicze repliki instrumentów.",
     instrumentsLabel: "Instrumentarium",
@@ -77,7 +81,7 @@ export const pl: Dictionary = {
   },
   offer: {
     eyebrow: "Oferta",
-    heading: "Formaty występów",
+    heading: "Koncerty i oprawa muzyki średniowiecznej",
     goldWord: "zagrać",
   },
   organizers: {
@@ -90,12 +94,12 @@ export const pl: Dictionary = {
   },
   portfolio: {
     eyebrow: "Realizacje",
-    heading: "Portfolio",
+    heading: "Gdzie gramy: zamki, turnieje, jarmarki",
     lead: "Wybrane typy miejsc i wydarzeń, na których gramy.",
   },
   gallery: {
     eyebrow: "Zdjęcia",
-    heading: "Galeria",
+    heading: "Galeria zespołu muzyki dawnej",
     lead: "Fragmenty występów i sesji — tak wyglądamy na scenie i przed nią.",
   },
   booking: {
@@ -106,7 +110,7 @@ export const pl: Dictionary = {
     cta: "Napiszcie do nas",
   },
   contact: {
-    heading: "Kontakt",
+    heading: "Zamów koncert",
     lead: "Formularz szybkiej wyceny: data, miejsce, rodzaj wydarzenia. Odpowiadamy w ciągu 48 godzin.",
     name: "Imię i nazwisko",
     email: "E-mail",

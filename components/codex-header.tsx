@@ -21,7 +21,11 @@ export function CodexHeader({ lang, dictionary }: CodexHeaderProps) {
     },
     { href: `/${lang}#galeria`, label: dictionary.nav.gallery },
     { href: `/${lang}#program`, label: dictionary.nav.program },
-    { href: `/${lang}#organizator`, label: dictionary.nav.press },
+    {
+      href: `/${lang}#organizator`,
+      label: dictionary.nav.press,
+      desktop: lang === "es" || lang === "it" ? false : undefined,
+    },
     { href: `/${lang}#kontakt`, label: dictionary.nav.contact },
   ];
 

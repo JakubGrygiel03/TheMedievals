@@ -3,6 +3,8 @@ export type Dictionary = {
     title: string;
     description: string;
     keywords: string;
+    contactDescription: string;
+    pressDescription: string;
   };
   nav: {
     home: string;

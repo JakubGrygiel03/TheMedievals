@@ -10,7 +10,8 @@ import { OrganizerZone } from "@/components/organizer-zone";
 import { PortfolioSection } from "@/components/portfolio-section";
 import { RepertoireSection } from "@/components/repertoire-section";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
-import { isLocale, locales, type Locale } from "@/lib/i18n/config";
+import { isLocale } from "@/lib/i18n/config";
+import { hreflangMap, socialMetadata } from "@/lib/seo/metadata";
 import { localePath } from "@/lib/seo/site";
 import { notFound } from "next/navigation";
 
@@ -25,18 +26,20 @@ export async function generateMetadata({
   if (!isLocale(lang)) return {};
 
   const dictionary = getDictionary(lang);
-  const languages = Object.fromEntries(
-    locales.map((locale) => [locale, localePath(locale)]),
-  ) as Record<Locale, string>;
 
   return {
-    title: dictionary.meta.title,
+    title: { absolute: dictionary.meta.title },
     description: dictionary.meta.description,
     keywords: dictionary.meta.keywords.split(", "),
     alternates: {
       canonical: localePath(lang),
-      languages: { ...languages, "x-default": localePath("pl") },
+      languages: hreflangMap(),
     },
+    ...socialMetadata({
+      lang,
+      title: dictionary.meta.title,
+      description: dictionary.meta.description,
+    }),
   };
 }
 

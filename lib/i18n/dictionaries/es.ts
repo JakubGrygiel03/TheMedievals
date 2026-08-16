@@ -4,9 +4,13 @@ export const es: Dictionary = {
   meta: {
     title: "The Medievals – Ensemble de música antigua",
     description:
-      "The Medievals es un ensemble de música antigua. Reservad un concierto para un castillo, festival, boda o taller de danza. Réplicas de instrumentos, indumentaria de los siglos XIII y XV.",
+      "Ensemble de música medieval The Medievals. Conciertos para castillos, festivales, torneos, bodas y talleres de danza. booking@themedievals.pl.",
     keywords:
-      "ensemble de música antigua, grupo de música medieval, conciertos de música antigua, talleres de danza histórica",
+      "ensemble de música antigua, grupo de música medieval, concierto de música medieval, música para boda histórica, concierto en castillo, torneo de caballería, feria histórica, talleres de danza medieval, booking música antigua",
+    contactDescription:
+      "Reservad un concierto de música medieval con The Medievals: castillos, festivales, bodas y talleres de danza. Respondemos en 48 horas.",
+    pressDescription:
+      "Nota de prensa del ensemble The Medievals: formación, instrumentos y perfil artístico para organizadores y medios.",
   },
   nav: {
     home: "Inicio",
@@ -35,7 +39,7 @@ export const es: Dictionary = {
   },
   about: {
     eyebrow: "El ensemble",
-    heading: "Sobre nosotros",
+    heading: "Ensemble de música antigua The Medievals",
     goldWord: "",
     lead: "Música cortesana y popular de los siglos XIV–XV. Indumentaria según la iconografía, réplicas artesanales.",
     instrumentsLabel: "Instrumentos",
@@ -77,7 +81,7 @@ export const es: Dictionary = {
   },
   offer: {
     eyebrow: "Oferta",
-    heading: "Formatos de actuación",
+    heading: "Conciertos y música medieval para eventos",
     goldWord: "tocar",
   },
   organizers: {
@@ -90,12 +94,12 @@ export const es: Dictionary = {
   },
   portfolio: {
     eyebrow: "Trabajos",
-    heading: "Portfolio",
+    heading: "Dónde tocamos: castillos, torneos, ferias",
     lead: "Tipos de lugares y eventos en los que actuamos.",
   },
   gallery: {
     eyebrow: "Fotos",
-    heading: "Galería",
+    heading: "Galería del ensemble de música antigua",
     lead: "Momentos de conciertos y sesiones — así nos veis en el escenario y fuera de él.",
   },
   booking: {
@@ -106,7 +110,7 @@ export const es: Dictionary = {
     cta: "Escribidnos",
   },
   contact: {
-    heading: "Contacto",
+    heading: "Reservar concierto",
     lead: "Formulario de presupuesto: fecha, lugar, tipo de evento. Respondemos en 48 horas.",
     name: "Nombre",
     email: "Correo",

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Cinzel, Cormorant_Garamond } from "next/font/google";
 
@@ -14,6 +15,10 @@ const cormorant = Cormorant_Garamond({
   variable: "--font-body",
   display: "swap",
 });
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
   return (

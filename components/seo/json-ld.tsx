@@ -1,23 +1,42 @@
 import { schemaMembers } from "@/lib/members";
+import { clientOffers } from "@/lib/offers";
 import { releases } from "@/lib/releases";
-import { siteConfig } from "@/lib/seo/site";
+import { localePath, siteConfig } from "@/lib/seo/site";
 import type { Concert } from "@/lib/concerts";
 import type { Locale } from "@/lib/i18n/config";
+import type { Dictionary } from "@/lib/i18n/types";
 
 type JsonLdProps = {
   lang: Locale;
+  dictionary: Dictionary;
   concerts: Concert[];
 };
 
-export function JsonLd({ lang, concerts }: JsonLdProps) {
+export function JsonLd({ lang, dictionary, concerts }: JsonLdProps) {
+  const pageUrl = localePath(lang);
+  const offers = clientOffers[lang];
+
   const group = {
     "@context": "https://schema.org",
-    "@type": "MusicGroup",
+    "@type": ["MusicGroup", "PerformingGroup"],
     name: siteConfig.name,
-    url: siteConfig.url,
+    url: pageUrl,
     email: siteConfig.email,
+    description: dictionary.meta.description,
+    image: [`${siteConfig.url}/og-image.png`, `${siteConfig.url}/brand-logo.png`],
+    logo: `${siteConfig.url}/brand-logo.png`,
     genre: [...siteConfig.genres],
     inLanguage: lang,
+    areaServed: {
+      "@type": "Country",
+      name: "Poland",
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "booking",
+      email: siteConfig.email,
+      availableLanguage: ["pl", "en", "es", "it"],
+    },
     member: schemaMembers(lang),
     sameAs: [
       siteConfig.social.instagram,
@@ -25,24 +44,26 @@ export function JsonLd({ lang, concerts }: JsonLdProps) {
       siteConfig.social.spotify,
       siteConfig.social.youtube,
     ],
+    makesOffer: offers.items.map((item) => ({
+      "@type": "Offer",
+      name: item.title,
+      description: item.body,
+      url: `${pageUrl}#oferta`,
+      category: "LivePerformance",
+    })),
   };
 
   const albums = releases.map((release) => ({
     "@context": "https://schema.org",
     "@type": "MusicAlbum",
     name: release.title,
-    albumReleaseType: release.albumType,
+    albumReleaseType:
+      release.albumType === "EP" ? "EPRelease" : "AlbumRelease",
     datePublished: release.premiere,
     description: release.description[lang],
     byArtist: { "@type": "MusicGroup", name: siteConfig.name },
-  }));
-
-  const audio = releases.map((release) => ({
-    "@context": "https://schema.org",
-    "@type": "AudioObject",
-    name: release.title,
-    description: release.description[lang],
-    encodingFormat: "audio/mpeg",
+    url: siteConfig.social.spotify,
+    sameAs: siteConfig.social.spotify,
   }));
 
   const events = concerts.map((concert) => ({
@@ -55,10 +76,14 @@ export function JsonLd({ lang, concerts }: JsonLdProps) {
     location: {
       "@type": "Place",
       name: concert.venue ?? concert.city,
-      address: concert.city,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: concert.city,
+        addressCountry: "PL",
+      },
     },
     performer: { "@type": "MusicGroup", name: siteConfig.name },
-    url: concert.ticket_link ?? `${siteConfig.url}/${lang}`,
+    url: concert.ticket_link ?? pageUrl,
   }));
 
   const breadcrumbs = {
@@ -69,12 +94,12 @@ export function JsonLd({ lang, concerts }: JsonLdProps) {
         "@type": "ListItem",
         position: 1,
         name: siteConfig.name,
-        item: `${siteConfig.url}/${lang}`,
+        item: pageUrl,
       },
     ],
   };
 
-  const payload = [group, ...albums, ...audio, ...events, breadcrumbs];
+  const payload = [group, ...albums, ...events, breadcrumbs];
 
   return (
     <script

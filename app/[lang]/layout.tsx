@@ -7,7 +7,8 @@ import { CodexFooter } from "@/components/codex-footer";
 import { JsonLd } from "@/components/seo/json-ld";
 import { getPublishedConcerts } from "@/lib/concerts";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
-import { isLocale, locales, type Locale } from "@/lib/i18n/config";
+import { isLocale, locales } from "@/lib/i18n/config";
+import { hreflangMap, socialMetadata } from "@/lib/seo/metadata";
 import { localePath, siteConfig } from "@/lib/seo/site";
 import { desktopViewportScript } from "@/lib/desktop-viewport-script";
 
@@ -55,42 +56,29 @@ export async function generateMetadata({
   if (!isLocale(lang)) return {};
 
   const dictionary = getDictionary(lang);
-  const languages = Object.fromEntries(
-    locales.map((locale) => [locale, localePath(locale)]),
-  ) as Record<Locale, string>;
 
   return {
     metadataBase: new URL(siteConfig.url),
-    title: dictionary.meta.title,
+    title: {
+      default: dictionary.meta.title,
+      template: `%s | ${siteConfig.name}`,
+    },
     description: dictionary.meta.description,
     keywords: dictionary.meta.keywords.split(", "),
     robots: { index: true, follow: true },
+    icons: {
+      icon: [{ url: "/brand-logo.png", type: "image/png" }],
+      apple: [{ url: "/brand-logo.png", type: "image/png" }],
+    },
     alternates: {
       canonical: localePath(lang),
-      languages: { ...languages, "x-default": localePath("pl") },
+      languages: hreflangMap(),
     },
-    openGraph: {
-      type: "website",
-      locale: lang,
-      url: localePath(lang),
-      siteName: siteConfig.name,
+    ...socialMetadata({
+      lang,
       title: dictionary.meta.title,
       description: dictionary.meta.description,
-      images: [
-        {
-          url: "/og-image.png",
-          width: 1200,
-          height: 630,
-          alt: dictionary.meta.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: dictionary.meta.title,
-      description: dictionary.meta.description,
-      images: ["/og-image.png"],
-    },
+    }),
   };
 }
 
@@ -114,7 +102,7 @@ export default async function LangLayout({ children, params }: LayoutProps) {
           {dictionary.a11y.skipToContent}
         </a>
         <BookMargins />
-        <JsonLd lang={lang} concerts={concerts} />
+        <JsonLd lang={lang} dictionary={dictionary} concerts={concerts} />
         <CodexHeader lang={lang} dictionary={dictionary} />
         {children}
         <CodexFooter lang={lang} dictionary={dictionary} />
