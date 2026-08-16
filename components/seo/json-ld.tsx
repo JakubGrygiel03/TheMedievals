@@ -23,7 +23,7 @@ export function JsonLd({ lang, dictionary, concerts }: JsonLdProps) {
     url: pageUrl,
     email: siteConfig.email,
     description: dictionary.meta.description,
-    image: [`${siteConfig.url}/og-image.png`, `${siteConfig.url}/brand-logo.png`],
+    image: [`${siteConfig.url}/hero.png`, `${siteConfig.url}/brand-logo.png`],
     logo: `${siteConfig.url}/brand-logo.png`,
     genre: [...siteConfig.genres],
     inLanguage: lang,
