@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Cinzel, Cormorant_Garamond, MedievalSharp } from "next/font/google";
+import Script from "next/script";
 import { notFound } from "next/navigation";
 import { BookMargins } from "@/components/book-margins";
 import { CodexHeader } from "@/components/codex-header";
@@ -91,10 +92,10 @@ export default async function LangLayout({ children, params }: LayoutProps) {
 
   return (
     <html lang={lang} className={`${cinzel.variable} ${cormorant.variable} ${medievalSharp.variable} h-full`}>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: desktopViewportScript }} />
-      </head>
       <body className="book-folio min-h-full antialiased">
+        <Script id="desktop-viewport" strategy="beforeInteractive">
+          {desktopViewportScript}
+        </Script>
         <a
           href="#tresc"
           className="sr-only focus:not-sr-only focus:absolute focus:left-[max(1rem,calc(var(--book-margin)+1rem))] focus:top-4 focus:z-50 focus:bg-vermilion focus:px-3 focus:py-2 focus:text-white"
