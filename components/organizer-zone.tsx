@@ -21,7 +21,11 @@ export function OrganizerZone({ lang, dictionary }: OrganizerZoneProps) {
         <a href={`/${lang}/notka`} className="codex-btn codex-btn-secondary">
           {dictionary.organizers.pressNote}
         </a>
-        <a href="/hero.png" download className="codex-btn codex-btn-secondary">
+        <a
+          href="/TheMedievalsGeneralFhoto.png"
+          download="TheMedievalsGeneralFhoto.png"
+          className="codex-btn codex-btn-secondary"
+        >
           {dictionary.organizers.photos}
         </a>
         <a
