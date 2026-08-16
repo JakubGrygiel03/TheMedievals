@@ -10,10 +10,10 @@ export const aboutCopy: Record<Locale, AboutCopy> = {
   pl: {
     paragraphs: [
       "Inspiruje nas muzyka dworska i plebejska XIV i XV wieku — pieśni, tańce i utwory instrumentalne w językach oryginalnych. Gramy je na kopiach instrumentów z epoki, tak by brzmienie pasowało do zamku, obozu i biesiady.",
-      "Stroje historyczne szyjemy na podstawie ikonografii. Instrumenty to rzemieślnicze repliki: fideli, giterna, lutnia, flety, szałamaja, bębny obręczowe. Dla organizatora oznacza to spójny obraz — muzyka, strój i instrumentarium jako jedna miniatura.",
+      "Stroje historyczne szyjemy na podstawie ikonografii. Instrumenty to rzemieślnicze repliki: fidele, gitterna, lutnia, flety, szałamaja oraz bębny obręczowe. Dla organizatora oznacza to spójny obraz — muzyka, strój i instrumentarium jako jedna miniatura.",
     ],
     instruments:
-      "fideli kolanowe (vielle), gitterna, lutnia, bęben obręczowy, średniowieczne flety proste i szałamaja",
+      "fidele kolanowe (vielle), gitterna, lutnia, bęben obręczowy, średniowieczne flety proste oraz szałamaja",
   },
   en: {
     paragraphs: [
