@@ -33,7 +33,7 @@ export const it: Dictionary = {
     titleLead: "Medievals",
     titleMain: "Musica antica",
     pitch:
-      "Musica medievale dal vivo — castelli, festival e sale da camera.",
+      "Siamo sei musicisti professionisti appassionati di rievocazione medievale. Ricostruiamo il XIII e il XV secolo. Suoniamo in rievocazioni di battaglie, picnic storici ed eventi privati.",
     ctaPrimary: "Chiedi una data",
     ctaSecondary: "Vedi l’offerta",
   },

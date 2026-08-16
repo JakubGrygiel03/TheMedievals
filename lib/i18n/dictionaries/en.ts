@@ -33,7 +33,7 @@ export const en: Dictionary = {
     titleLead: "Medievals",
     titleMain: "Early music",
     pitch:
-      "Medieval music live — castles, festivals and chamber rooms.",
+      "We are six professional musicians passionate about medieval reenactment. We recreate the 13th and 15th centuries. We perform at battle reenactments, historical picnics and private events.",
     ctaPrimary: "Ask about a date",
     ctaSecondary: "See the offer",
   },

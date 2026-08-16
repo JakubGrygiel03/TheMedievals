@@ -33,7 +33,7 @@ export const es: Dictionary = {
     titleLead: "Medievals",
     titleMain: "Música antigua",
     pitch:
-      "Música medieval en vivo — castillos, festivales y salas de cámara.",
+      "Somos seis músicos profesionales apasionados por la recreación medieval. Recreamos los siglos XIII y XV. Actuamos en recreaciones de batallas, picnics históricos y eventos privados.",
     ctaPrimary: "Consultar una fecha",
     ctaSecondary: "Ver la oferta",
   },

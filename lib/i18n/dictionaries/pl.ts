@@ -33,7 +33,7 @@ export const pl: Dictionary = {
     titleLead: "Medievals",
     titleMain: "Muzyka dawna",
     pitch:
-      "Muzyka średniowieczna na żywo — zamki, festiwale i sale kameralne.",
+      "Jesteśmy sześciorgiem zawodowych muzyków, którzy pasjonują się rekonstrukcją średniowiecza. Odtwarzamy XIII-ty oraz XV-wiek. Występujemy podczas rekonstrukcji bitew, pikników historycznych oraz eventów prywatnych.",
     ctaPrimary: "Zapytaj o termin",
     ctaSecondary: "Zobacz ofertę",
   },
