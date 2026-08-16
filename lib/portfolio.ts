@@ -14,29 +14,29 @@ export const portfolioVenues: Record<Locale, string[]> = {
     "Rekonstrukcje bitew i turnieje rycerskie",
     "Zamki, dwory i przestrzenie historyczne",
     "Pikniki i jarmarki historyczne",
-    "Uroczystości prywatne, bankiety i śluby tematyczne",
     "Imprezy firmowe",
+    "Uroczystości prywatne, bankiety i śluby tematyczne",
   ],
   en: [
     "Battle reenactments and knightly tournaments",
     "Castles, manor houses and historic interiors",
     "Historical picnics and fairs",
-    "Private ceremonies, banquets and themed weddings",
     "Corporate events",
+    "Private ceremonies, banquets and themed weddings",
   ],
   es: [
     "Recreaciones de batallas y torneos de caballería",
     "Castillos, palacios y espacios históricos",
     "Merendas y ferias históricas",
-    "Ceremonias privadas, banquetes y bodas temáticas",
     "Eventos de empresa",
+    "Ceremonias privadas, banquetes y bodas temáticas",
   ],
   it: [
     "Rievocazioni di battaglie e tornei cavallereschi",
     "Castelli, dimore e spazi storici",
     "Picnic e fiere storiche",
-    "Cerimonie private, banchetti e matrimoni a tema",
     "Eventi aziendali",
+    "Cerimonie private, banchetti e matrimoni a tema",
   ],
 };
 

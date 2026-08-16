@@ -17,7 +17,7 @@ export function MemberCards({ lang, copy }: MemberCardsProps) {
       </p>
 
       <h3 className="member-group-title">{copy.coreHeading}</h3>
-      <StaggerList className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <StaggerList className="member-core-grid mt-4">
         {members.map((member) => (
           <StaggerItem key={member.id} className="folio-panel p-6">
             <h4 className="font-cinzel text-xl">{member.name}</h4>
