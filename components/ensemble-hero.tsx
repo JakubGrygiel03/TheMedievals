@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { TrustStrip } from "@/components/trust-strip";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/types";
 
@@ -10,7 +11,7 @@ type EnsembleHeroProps = {
 
 export function EnsembleHero({ lang, dictionary }: EnsembleHeroProps) {
   return (
-    <section className="pt-3 pb-2 sm:pt-4">
+    <section className="hero-block pt-3 pb-8 sm:pt-4 sm:pb-10">
       <h1 className="sr-only">The Medievals</h1>
       <div className="hero-folio">
         <Image
@@ -27,13 +28,14 @@ export function EnsembleHero({ lang, dictionary }: EnsembleHeroProps) {
         {dictionary.hero.pitch}
       </p>
       <div className="hero-actions mt-4 flex flex-wrap justify-center gap-3 px-5">
-        <Link href={`/${lang}/kontakt`} className="codex-btn codex-btn-primary">
+        <Link href={`/${lang}#kontakt`} className="codex-btn codex-btn-primary">
           {dictionary.hero.ctaPrimary}
         </Link>
-        <a href="#nagrania" className="codex-btn codex-btn-secondary">
+        <a href="#oferta" className="codex-btn codex-btn-secondary">
           {dictionary.hero.ctaSecondary}
         </a>
       </div>
+      <TrustStrip lang={lang} />
     </section>
   );
 }

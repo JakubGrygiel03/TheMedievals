@@ -16,17 +16,20 @@ export function OrganizerZone({ lang, dictionary }: OrganizerZoneProps) {
       heading={dictionary.organizers.heading}
     >
       <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[var(--ink-soft)]">
-        {offerCopy[lang]}
+        {dictionary.organizers.lead} {offerCopy[lang]}
       </p>
-      <div className="mt-8 flex flex-wrap gap-3">
+      <div className="organizer-kit">
+        <a href={`/${lang}/notka`} className="codex-btn codex-btn-secondary">
+          {dictionary.organizers.pressNote}
+        </a>
+        <a href="/hero.png" download className="codex-btn codex-btn-secondary">
+          {dictionary.organizers.photos}
+        </a>
         <a href="/documents/raider.pdf" className="codex-btn codex-btn-secondary">
           {dictionary.organizers.rider}
         </a>
         <a href="/documents/stage-plan.pdf" className="codex-btn codex-btn-secondary">
           {dictionary.organizers.stagePlan}
-        </a>
-        <a href={`/${lang}/kontakt`} className="codex-btn codex-btn-primary">
-          {dictionary.organizers.cta}
         </a>
       </div>
     </FolioSection>

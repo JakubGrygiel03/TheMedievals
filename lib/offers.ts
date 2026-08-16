@@ -3,6 +3,7 @@ import type { Locale } from "@/lib/i18n/config";
 export type OfferItem = {
   title: string;
   body: string;
+  featured?: boolean;
 };
 
 export const clientOffers: Record<
@@ -10,70 +11,106 @@ export const clientOffers: Record<
   { lead: string; items: OfferItem[] }
 > = {
   pl: {
-    lead: "Zamki, festiwale, jarmarki, śluby i sale kameralne. Przyjeżdżamy ze strojami, instrumentami i gotowym programem.",
+    lead: "Pięć formatów występu. Przyjeżdżamy ze strojami, instrumentami i gotowym programem.",
     items: [
       {
-        title: "Koncert muzyki średniowiecznej",
-        body: "Pieśni świeckie i religijne w językach oryginalnych, utwory instrumentalne i tańce. Program można opowiedzieć publiczności: skąd pochodzi pieśń i jak zbudowany jest instrument.",
+        title: "Koncert z opowieścią o instrumentach",
+        featured: true,
+        body: "Koncert muzyki średniowiecznej wraz z przedstawieniem instrumentów, ich budowy i pochodzenia oraz przybliżeniem historii i treści granego repertuaru. Dodatkowo istnieje możliwość poprowadzenia warsztatów tańca średniowiecznego podczas występu na żywo.",
       },
       {
-        title: "Oprawa wydarzenia historycznego",
-        body: "Żywa miniatura obozu: stroje z XV i XIII wieku, kopie instrumentów dawnych, brzmienie zgodne z epoką. Pasuje do zamku, skansenu, inscenizacji i festiwalu.",
+        title: "Festiwale i turnieje rycerskie",
+        body: "Energetyczna muzyka plenerowa, dynamiczne tańce i pieśni. Brzmienie, które niesie się nad obozem, areną i jarmarkiem.",
       },
       {
-        title: "Ślub i warsztat tańca",
-        body: "Kameralna oprawa ceremonii albo warsztat tańca średniowiecznego przy koncercie. Goście słuchają i — jeśli chcecie — tańczą.",
+        title: "Wydarzenia zamkowe i kameralne",
+        body: "Nastrojowy repertuar dworski w przestrzeniach historycznych: zamki, dwory, krużganki i sale kominkowe.",
+      },
+      {
+        title: "Warsztaty dawnego tańca",
+        body: "Animacja publiczności i nauka tradycyjnych kroków. Osobny warsztat albo dodatek do koncertu — goście słuchają i tańczą, jeśli chcecie.",
+      },
+      {
+        title: "Uroczystości i bankiety",
+        body: "Oprawa ślubów historycznych, biesiad i eventów tematycznych. Kameralnie albo z pełnym składem.",
       },
     ],
   },
   en: {
-    lead: "Castles, festivals, fairs, weddings and intimate halls. We arrive with costumes, instruments and a finished programme.",
+    lead: "Five performance formats. We arrive with costumes, instruments and a finished programme.",
     items: [
       {
-        title: "Medieval music concert",
-        body: "Secular and sacred songs in original languages, instrumental pieces and dances. We can introduce each piece and the instrument that carries it.",
+        title: "Concert with instrument stories",
+        featured: true,
+        body: "A medieval-music concert with a presentation of the instruments — how they are built and where they come from — and an introduction to the history and meaning of the repertoire. Medieval dance workshops can also be led during the live performance.",
       },
       {
-        title: "Historical event",
-        body: "A living camp miniature: 13th- and 15th-century dress, replica period instruments, a sound that belongs to the era. Built for castles, open-air museums and festivals.",
+        title: "Festivals and knightly tournaments",
+        body: "Energetic outdoor music, lively dances and songs that carry across a camp, arena or fair.",
       },
       {
-        title: "Wedding and dance workshop",
-        body: "A chamber performance for a ceremony, or a medieval dance workshop beside the concert. Guests listen — and dance, if you wish.",
+        title: "Castle and chamber events",
+        body: "Courtly repertoire for historic rooms: castles, manor houses, cloisters and fireside halls.",
+      },
+      {
+        title: "Early-dance workshops",
+        body: "Audience animation and traditional steps. A standalone workshop, or an addition to the concert. Guests listen — and dance, if you wish.",
+      },
+      {
+        title: "Ceremonies and banquets",
+        body: "Music for historical weddings, feasts and themed events. Intimate, or with the full ensemble.",
       },
     ],
   },
   es: {
-    lead: "Castillos, festivales, ferias, bodas y salas íntimas. Llegamos con trajes, instrumentos y un programa cerrado.",
+    lead: "Cinco formatos de actuación. Llegamos con trajes, instrumentos y un programa cerrado.",
     items: [
       {
-        title: "Concierto de música medieval",
-        body: "Canciones profanas y religiosas en lenguas originales, piezas instrumentales y danzas. Podemos presentar cada obra y el instrumento que la sostiene.",
+        title: "Concierto con relato de instrumentos",
+        featured: true,
+        body: "Un concierto de música medieval con presentación de los instrumentos — su construcción y origen — y una introducción a la historia y el sentido del repertorio. También es posible dirigir talleres de danza medieval durante la actuación en vivo.",
       },
       {
-        title: "Evento histórico",
-        body: "Una miniatura viva de campamento: indumentaria de los siglos XIII y XV, réplicas de época, un sonido de la era. Pensado para castillos, museos al aire libre y festivales.",
+        title: "Festivales y torneos de caballería",
+        body: "Música enérgica al aire libre, danzas y canciones que llenan el campamento, la arena o la feria.",
       },
       {
-        title: "Boda y taller de danza",
-        body: "Música de cámara para la ceremonia, o un taller de danza medieval junto al concierto.",
+        title: "Eventos en castillos y de cámara",
+        body: "Repertorio cortesano para espacios históricos: castillos, palacios, claustros y salas junto al fuego.",
+      },
+      {
+        title: "Talleres de danza antigua",
+        body: "Animación del público y pasos tradicionales. Un taller aparte, o un añadido al concierto. Los invitados escuchan — y bailan, si lo deseáis.",
+      },
+      {
+        title: "Ceremonias y banquetes",
+        body: "Música para bodas históricas, festines y eventos temáticos. Íntimo, o con el ensemble completo.",
       },
     ],
   },
   it: {
-    lead: "Castelli, festival, fiere, matrimoni e sale intime. Arriviamo con costumi, strumenti e un programma pronto.",
+    lead: "Cinque formati di spettacolo. Arriviamo con costumi, strumenti e un programma pronto.",
     items: [
       {
-        title: "Concerto di musica medievale",
-        body: "Canti sacri e profani nelle lingue originali, brani strumentali e danze. Possiamo presentare ogni pezzo e lo strumento che lo porta.",
+        title: "Concerto con racconto degli strumenti",
+        featured: true,
+        body: "Un concerto di musica medievale con presentazione degli strumenti — costruzione e origine — e un avvicinamento alla storia e al significato del repertorio. È inoltre possibile condurre laboratori di danza medievale durante l’esibizione dal vivo.",
       },
       {
-        title: "Evento storico",
-        body: "Una miniatura viva di accampamento: abiti del XIII e del XV secolo, repliche d’epoca, un suono dell’era. Per castelli, musei all’aperto e festival.",
+        title: "Festival e tornei cavallereschi",
+        body: "Musica energica all’aperto, danze e canti che riempiono accampamento, arena o fiera.",
       },
       {
-        title: "Matrimonio e laboratorio di danza",
-        body: "Musica da camera per la cerimonia, oppure un laboratorio di danza medievale accanto al concerto.",
+        title: "Eventi in castello e da camera",
+        body: "Repertorio di corte per spazi storici: castelli, dimore, chiostri e sale al focolare.",
+      },
+      {
+        title: "Laboratori di danza antica",
+        body: "Animazione del pubblico e passi tradizionali. Un laboratorio a sé, oppure un’aggiunta al concerto. Gli ospiti ascoltano — e ballano, se lo desiderate.",
+      },
+      {
+        title: "Cerimonie e banchetti",
+        body: "Musica per matrimoni storici, conviti ed eventi a tema. Intimo, oppure con l’ensemble al completo.",
       },
     ],
   },

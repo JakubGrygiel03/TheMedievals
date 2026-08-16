@@ -66,8 +66,8 @@ export function LanguageSwitcher({ lang, label }: LanguageSwitcherProps) {
             }}
             className={
               active
-                ? "block size-5 overflow-hidden rounded-sm border-2 border-vermilion transition duration-300 sm:size-8 lg:size-10"
-                : "block size-5 overflow-hidden rounded-sm border-2 border-[var(--rule)] transition duration-300 hover:scale-105 hover:border-ink/40 sm:size-8 lg:size-10"
+                ? "block size-5 overflow-hidden rounded-sm border-2 border-vermilion transition duration-300 sm:size-8 lg:size-7"
+                : "block size-5 overflow-hidden rounded-sm border-2 border-[var(--rule)] transition duration-300 hover:scale-105 hover:border-ink/40 sm:size-8 lg:size-7"
             }
           >
             <Image

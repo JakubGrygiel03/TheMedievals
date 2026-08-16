@@ -23,8 +23,8 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
       className={className}
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.18 }}
-      transition={{ duration: 0.75, delay, ease }}
+      viewport={{ once: true, amount: 0.08, margin: "0px 0px 28% 0px" }}
+      transition={{ duration: 0.5, delay, ease }}
     >
       {children}
     </motion.div>
@@ -34,9 +34,15 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
 export function StaggerList({
   children,
   className,
+  stagger = 0.11,
+  delayChildren = 0.06,
+  amount = 0.2,
 }: {
   children: ReactNode;
   className?: string;
+  stagger?: number;
+  delayChildren?: number;
+  amount?: number;
 }) {
   const reduce = useReducedMotion();
 
@@ -49,10 +55,12 @@ export function StaggerList({
       className={className}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount }}
       variants={{
         hidden: {},
-        show: { transition: { staggerChildren: 0.11, delayChildren: 0.06 } },
+        show: {
+          transition: { staggerChildren: stagger, delayChildren },
+        },
       }}
     >
       {children}
@@ -63,9 +71,11 @@ export function StaggerList({
 export function StaggerItem({
   children,
   className,
+  tone = "card",
 }: {
   children: ReactNode;
   className?: string;
+  tone?: "card" | "frame";
 }) {
   const reduce = useReducedMotion();
 
@@ -73,20 +83,45 @@ export function StaggerItem({
     return <li className={className}>{children}</li>;
   }
 
+  // Frame: opacity on the list item so CSS hover transform on the figure still works.
+  const variants =
+    tone === "frame"
+      ? {
+          hidden: { opacity: 0 },
+          show: {
+            opacity: 1,
+            transition: { duration: 0.55, ease },
+          },
+        }
+      : {
+          hidden: { opacity: 0, y: 14, scale: 0.97 },
+          show: {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            transition: { duration: 0.55, ease },
+          },
+        };
+
   return (
-    <motion.li
-      className={className}
-      variants={{
-        hidden: { opacity: 0, y: 14, scale: 0.97 },
-        show: {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          transition: { duration: 0.55, ease },
-        },
-      }}
-    >
-      {children}
+    <motion.li className={className} variants={variants}>
+      {tone === "frame" ? (
+        <motion.div
+          className="gallery-frame-media h-full w-full"
+          variants={{
+            hidden: { y: 22, scale: 1.04 },
+            show: {
+              y: 0,
+              scale: 1,
+              transition: { duration: 0.85, ease },
+            },
+          }}
+        >
+          {children}
+        </motion.div>
+      ) : (
+        children
+      )}
     </motion.li>
   );
 }

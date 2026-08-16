@@ -30,6 +30,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ),
       },
     },
+    {
+      url: localePath(lang, "/notka"),
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.5,
+      alternates: {
+        languages: Object.fromEntries(
+          locales.map((alternate) => [
+            alternate,
+            localePath(alternate, "/notka"),
+          ]),
+        ),
+      },
+    },
+    {
+      url: localePath(lang, "/prywatnosc"),
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.3,
+      alternates: {
+        languages: Object.fromEntries(
+          locales.map((alternate) => [
+            alternate,
+            localePath(alternate, "/prywatnosc"),
+          ]),
+        ),
+      },
+    },
   ]);
 
   entries.push({

@@ -1,4 +1,4 @@
-import { members } from "@/lib/members";
+import { schemaMembers } from "@/lib/members";
 import { releases } from "@/lib/releases";
 import { siteConfig } from "@/lib/seo/site";
 import type { Concert } from "@/lib/concerts";
@@ -18,12 +18,13 @@ export function JsonLd({ lang, concerts }: JsonLdProps) {
     email: siteConfig.email,
     genre: [...siteConfig.genres],
     inLanguage: lang,
-    member: members.map((member) => ({
-      "@type": "Person",
-      name: member.name,
-      jobTitle: member.instrument[lang],
-    })),
-    sameAs: [siteConfig.social.spotify, siteConfig.social.youtube],
+    member: schemaMembers(lang),
+    sameAs: [
+      siteConfig.social.instagram,
+      siteConfig.social.facebook,
+      siteConfig.social.spotify,
+      siteConfig.social.youtube,
+    ],
   };
 
   const albums = releases.map((release) => ({

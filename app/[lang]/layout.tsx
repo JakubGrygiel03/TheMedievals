@@ -117,7 +117,7 @@ export default async function LangLayout({ children, params }: LayoutProps) {
         <JsonLd lang={lang} concerts={concerts} />
         <CodexHeader lang={lang} dictionary={dictionary} />
         {children}
-        <CodexFooter dictionary={dictionary} />
+        <CodexFooter lang={lang} dictionary={dictionary} />
       </body>
     </html>
   );

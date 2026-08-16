@@ -7,7 +7,6 @@ export type MemberId =
   | "karina"
   | "liubou"
   | "aleksander"
-  | "tiago"
   | "jakub";
 
 export type Member = {
@@ -49,7 +48,7 @@ export const members: Member[] = [
   },
   {
     id: "aleksander",
-    name: "Aleksander",
+    name: "Aleksander Brych",
     instrument: {
       pl: "flety proste",
       en: "recorders",
@@ -58,23 +57,45 @@ export const members: Member[] = [
     },
   },
   {
-    id: "tiago",
-    name: "Tiago Ragna",
-    instrument: {
-      pl: "bęben",
-      en: "drum",
-      es: "tambor",
-      it: "tamburo",
-    },
-  },
-  {
     id: "jakub",
     name: "Jakub Grygiel",
     instrument: {
-      pl: "gitterna, śpiew",
-      en: "gittern, voice",
-      es: "gitterna, voz",
-      it: "gittern, voce",
+      pl: "gitterna, lutnia, śpiew",
+      en: "gittern, lute, voice",
+      es: "gitterna, laúd, voz",
+      it: "gittern, liuto, voce",
     },
   },
 ];
+
+export const percussionists = {
+  names: ["Paulina Andrzejak", "Cezary Łagan", "Tiago Ragna"],
+  instrument: {
+    pl: "bęben",
+    en: "drum",
+    es: "tambor",
+    it: "tamburo",
+  } satisfies Localized,
+  note: {
+    pl: "Na koncercie gra jedna z tych osób na bębnie.",
+    en: "One of these people plays the drum at each concert.",
+    es: "En cada concierto toca el tambor una de estas personas.",
+    it: "A ogni concerto suona il tamburo una di queste persone.",
+  } satisfies Localized,
+};
+
+export function schemaMembers(lang: Locale) {
+  const core = members.map((member) => ({
+    "@type": "Person" as const,
+    name: member.name,
+    jobTitle: member.instrument[lang],
+  }));
+
+  const drums = percussionists.names.map((name) => ({
+    "@type": "Person" as const,
+    name,
+    jobTitle: `${percussionists.instrument[lang]} (${percussionists.note[lang]})`,
+  }));
+
+  return [...core, ...drums];
+}

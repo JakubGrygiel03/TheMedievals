@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ContactForm } from "@/components/contact-form";
+import { DirectContact } from "@/components/direct-contact";
 import { EditorialHeading } from "@/components/ui/editorial-heading";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { isLocale, locales, type Locale } from "@/lib/i18n/config";
@@ -38,14 +39,19 @@ export default async function ContactPage({ params }: PageProps) {
   const dictionary = getDictionary(lang);
 
   return (
-    <main id="tresc" className="relative z-10 mx-auto max-w-2xl px-5 py-16">
+    <main id="tresc" className="relative z-10 mx-auto max-w-3xl px-5 py-12">
       <EditorialHeading
         as="h1"
         eyebrow={dictionary.nav.contact}
         heading={dictionary.contact.heading}
       />
-      <p className="mt-8 text-lg italic text-[var(--ink-soft)]">{dictionary.contact.lead}</p>
-      <ContactForm dictionary={dictionary} />
+      <p className="mt-5 text-lg italic text-[var(--ink-soft)]">{dictionary.contact.lead}</p>
+      <div className="mt-6 max-w-sm">
+        <DirectContact dictionary={dictionary} />
+      </div>
+      <div className="mt-6">
+        <ContactForm lang={lang} dictionary={dictionary} />
+      </div>
     </main>
   );
 }

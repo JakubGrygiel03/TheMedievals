@@ -10,24 +10,33 @@ type AboutSectionProps = {
 
 export function AboutSection({ lang, dictionary }: AboutSectionProps) {
   const copy = aboutCopy[lang];
+  const [profile, craft] = copy.paragraphs;
 
   return (
     <FolioSection
       id="o-nas"
       eyebrow={dictionary.about.eyebrow}
       heading={dictionary.about.heading}
+      tone="wash"
     >
-      <div className="mt-4 max-w-3xl space-y-4 text-lg leading-relaxed text-[var(--ink-soft)]">
-        {copy.paragraphs.map((paragraph) => (
-          <p key={paragraph.slice(0, 32)}>{paragraph}</p>
-        ))}
+      <div className="mt-5 grid gap-6 md:grid-cols-2">
+        <article className="folio-panel p-6">
+          <h3 className="font-cinzel text-lg text-vermilion">
+            {dictionary.about.profileHeading}
+          </h3>
+          <p className="mt-3 text-lg leading-relaxed text-[var(--ink-soft)]">
+            {profile}
+          </p>
+        </article>
+        <article className="folio-panel p-6">
+          <h3 className="font-cinzel text-lg text-vermilion">
+            {dictionary.about.craftHeading}
+          </h3>
+          <p className="mt-3 text-lg leading-relaxed text-[var(--ink-soft)]">
+            {craft}
+          </p>
+        </article>
       </div>
-      <p className="mt-5 max-w-3xl border-l-2 border-gold pl-5 text-lg">
-        <span className="font-cinzel text-sm tracking-wide text-vermilion">
-          {dictionary.about.instrumentsLabel}:{" "}
-        </span>
-        {copy.instruments}.
-      </p>
     </FolioSection>
   );
 }

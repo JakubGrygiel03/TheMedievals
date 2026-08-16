@@ -9,12 +9,15 @@ export const siteConfig = {
   name: "The Medievals",
   url: resolveSiteUrl(),
   email: "booking@themedievals.pl",
+  inbox: "the.medievals.org@gmail.com",
+  phone: "",
   social: {
     spotify: "https://open.spotify.com/artist/637sxsUGfwehtTHoUNnWER",
-    youtube: "https://www.youtube.com/watch?v=nIUcs-GJ-5E",
+    youtube: "https://www.youtube.com/channel/UCwnpaJ0l0MEX2jjbobER-7w",
     youtubePlaylist:
       "https://www.youtube.com/playlist?list=PLPZzRLQy8somTvumhwTZhWuual9qRbqbf",
-    instagram: "https://www.instagram.com/",
+    instagram: "https://www.instagram.com/the_medievals_official/",
+    facebook: "https://www.facebook.com/TheMedievalsofficial",
   },
   embeds: {
     spotify:

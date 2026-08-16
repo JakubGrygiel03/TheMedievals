@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { submitContact } from "@/app/actions/contact";
@@ -10,14 +10,18 @@ import {
   eventTypes,
   type ContactInput,
 } from "@/lib/contact-schema";
+import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/types";
 
 type ContactFormProps = {
   dictionary: Dictionary;
+  lang?: Locale;
 };
 
-export function ContactForm({ dictionary }: ContactFormProps) {
+export function ContactForm({ dictionary, lang = "pl" }: ContactFormProps) {
   const [resultKey, setResultKey] = useState<string | null>(null);
+  const errorsCopy = dictionary.contact.errors;
+  const today = useMemo(() => new Date().toISOString().slice(0, 10), []);
   const {
     register,
     handleSubmit,
@@ -25,11 +29,21 @@ export function ContactForm({ dictionary }: ContactFormProps) {
     formState: { errors, isSubmitting },
   } = useForm<ContactInput>({
     resolver: zodResolver(contactSchema),
-    defaultValues: { event_type: "concert" },
+    mode: "onTouched",
+    reValidateMode: "onChange",
+    defaultValues: {
+      sender_name: "",
+      email: "",
+      phone: "",
+      event_type: "concert",
+      event_date: "",
+      location: "",
+      message: "",
+    },
   });
 
   async function onSubmit(values: ContactInput) {
-    const result = await submitContact(values);
+    const result = await submitContact(values, lang);
     if (result.ok) {
       reset();
       setResultKey(result.error === "mail" ? "mail" : "success");
@@ -48,17 +62,58 @@ export function ContactForm({ dictionary }: ContactFormProps) {
           : null;
 
   return (
-    <form className="mt-10 flex flex-col gap-5" onSubmit={handleSubmit(onSubmit)}>
-      <Field label={dictionary.contact.name} error={errors.sender_name?.message}>
-        <input className="folio-input" {...register("sender_name")} />
+    <form
+      className="contact-form grid gap-x-4 gap-y-3 sm:grid-cols-2"
+      noValidate
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <Field
+        label={dictionary.contact.name}
+        required
+        error={errors.sender_name ? errorsCopy.name : undefined}
+      >
+        <input
+          className="folio-input"
+          autoComplete="name"
+          autoCapitalize="words"
+          maxLength={120}
+          aria-invalid={errors.sender_name ? true : undefined}
+          {...register("sender_name")}
+        />
       </Field>
-      <Field label={dictionary.contact.email} error={errors.email?.message}>
-        <input type="email" className="folio-input" {...register("email")} />
+      <Field
+        label={dictionary.contact.email}
+        required
+        error={errors.email ? errorsCopy.email : undefined}
+      >
+        <input
+          type="email"
+          className="folio-input"
+          autoComplete="email"
+          inputMode="email"
+          autoCapitalize="none"
+          autoCorrect="off"
+          spellCheck={false}
+          maxLength={254}
+          aria-invalid={errors.email ? true : undefined}
+          {...register("email")}
+        />
       </Field>
-      <Field label={dictionary.contact.phone}>
-        <input className="folio-input" {...register("phone")} />
+      <Field
+        label={dictionary.contact.phone}
+        error={errors.phone ? errorsCopy.phone : undefined}
+      >
+        <input
+          type="tel"
+          className="folio-input"
+          autoComplete="tel"
+          inputMode="tel"
+          maxLength={40}
+          aria-invalid={errors.phone ? true : undefined}
+          {...register("phone")}
+        />
       </Field>
-      <Field label={dictionary.contact.eventType}>
+      <Field label={dictionary.contact.eventType} required>
         <select className="folio-input" {...register("event_type")}>
           {eventTypes.map((type) => (
             <option key={type} value={type}>
@@ -68,18 +123,49 @@ export function ContactForm({ dictionary }: ContactFormProps) {
         </select>
       </Field>
       <Field label={dictionary.contact.eventDate}>
-        <input type="date" className="folio-input" {...register("event_date")} />
+        <input
+          type="date"
+          lang={lang}
+          min={today}
+          className="folio-input"
+          {...register("event_date")}
+        />
       </Field>
       <Field label={dictionary.contact.location}>
-        <input className="folio-input" {...register("location")} />
+        <input
+          className="folio-input"
+          autoComplete="street-address"
+          maxLength={160}
+          {...register("location")}
+        />
       </Field>
-      <Field label={dictionary.contact.message} error={errors.message?.message}>
-        <textarea rows={6} className="folio-input" {...register("message")} />
+      <Field
+        className="sm:col-span-2"
+        label={dictionary.contact.message}
+        required
+        error={errors.message ? errorsCopy.message : undefined}
+      >
+        <textarea
+          rows={4}
+          className="folio-input"
+          maxLength={4000}
+          aria-invalid={errors.message ? true : undefined}
+          {...register("message")}
+        />
       </Field>
-      <CodexButton type="submit" disabled={isSubmitting}>
-        {dictionary.contact.submit}
-      </CodexButton>
-      {message ? <p className="text-sm italic">{message}</p> : null}
+      <div className="sm:col-span-2">
+        <CodexButton type="submit" disabled={isSubmitting}>
+          {dictionary.contact.submit}
+        </CodexButton>
+        <p className="mt-2 text-sm leading-snug text-[var(--ink-soft)]">
+          {dictionary.contact.privacyNote}{" "}
+          <a href={`/${lang}/prywatnosc`} className="underline hover:text-vermilion">
+            {dictionary.contact.privacyLink}
+          </a>
+          .
+        </p>
+        {message ? <p className="mt-2 text-sm italic">{message}</p> : null}
+      </div>
     </form>
   );
 }
@@ -87,17 +173,28 @@ export function ContactForm({ dictionary }: ContactFormProps) {
 function Field({
   label,
   error,
+  required,
+  className = "",
   children,
 }: {
   label: string;
   error?: string;
+  required?: boolean;
+  className?: string;
   children: ReactNode;
 }) {
   return (
-    <label className="flex flex-col gap-2 font-cinzel text-sm">
-      {label}
+    <label className={`flex flex-col gap-1.5 font-cinzel text-[0.72rem] tracking-wide ${className}`}>
+      <span>
+        {label}
+        {required ? <span className="text-vermilion"> *</span> : null}
+      </span>
       {children}
-      {error ? <span className="text-vermilion">{error}</span> : null}
+      {error ? (
+        <span className="text-[0.78rem] font-bold normal-case tracking-normal text-vermilion">
+          {error}
+        </span>
+      ) : null}
     </label>
   );
 }

@@ -42,9 +42,9 @@ export function SiteNav({
 
   return (
     <>
-      <ul className="desktop-nav min-w-0 flex-1 gap-x-2 font-cinzel text-[13px] font-bold tracking-[0.06em] sm:gap-x-2.5 sm:text-[15px] xl:text-[16px]">
+      <ul className="desktop-nav min-w-0 font-cinzel font-bold">
         {links.map((link, index) => (
-          <li key={link.href} className="shrink-0">
+          <li key={link.href}>
             <Link
               href={link.href}
               className="nav-chip"
@@ -56,10 +56,10 @@ export function SiteNav({
         ))}
       </ul>
 
-      <div className="ml-auto flex min-w-0 shrink items-center gap-1.5 sm:gap-3 lg:ml-0">
+      <div className="codex-nav-tools ml-auto flex min-w-0 shrink-0 items-center gap-1.5 sm:gap-2">
         <span
           aria-hidden="true"
-          className="hidden h-8 w-px shrink-0 bg-[var(--ink)]/30 lg:block"
+          className="hidden h-6 w-px shrink-0 bg-[var(--ink)]/30 lg:block"
         />
         {languages}
         <span

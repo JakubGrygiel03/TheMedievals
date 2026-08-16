@@ -7,6 +7,8 @@ type FolioSectionProps = {
   eyebrow?: string;
   heading: string;
   goldWord?: string;
+  tone?: "plain" | "wash" | "letter";
+  reveal?: boolean;
   children: ReactNode;
 };
 
@@ -15,17 +17,21 @@ export function FolioSection({
   eyebrow,
   heading,
   goldWord,
+  tone = "plain",
+  reveal = true,
   children,
 }: FolioSectionProps) {
-  return (
-    <Reveal>
-      <section
-        id={id}
-        className="relative z-20 mx-auto max-w-6xl px-5"
-      >
+  const toneClass =
+    tone === "wash" ? " folio-band-wash" : tone === "letter" ? " folio-band-letter" : "";
+
+  const section = (
+    <section id={id} className={`folio-band${toneClass}`}>
+      <div className="folio-band-inner">
         <EditorialHeading eyebrow={eyebrow} heading={heading} goldWord={goldWord} />
         {children}
-      </section>
-    </Reveal>
+      </div>
+    </section>
   );
+
+  return reveal ? <Reveal>{section}</Reveal> : section;
 }

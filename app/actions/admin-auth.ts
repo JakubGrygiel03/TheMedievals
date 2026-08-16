@@ -1,9 +1,14 @@
 "use server";
 
+import { createHash } from "crypto";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 const COOKIE = "medievals_admin";
+
+function tokenFromPassword(password: string) {
+  return createHash("sha256").update(`medievals-admin:${password}`).digest("hex");
+}
 
 export async function loginAdmin(formData: FormData) {
   const password = String(formData.get("password") ?? "");
@@ -14,7 +19,7 @@ export async function loginAdmin(formData: FormData) {
   }
 
   const store = await cookies();
-  store.set(COOKIE, expected, {
+  store.set(COOKIE, tokenFromPassword(expected), {
     httpOnly: true,
     sameSite: "lax",
     secure: process.env.NODE_ENV === "production",
@@ -37,5 +42,5 @@ export async function isAdminAuthenticated() {
   }
 
   const store = await cookies();
-  return store.get(COOKIE)?.value === expected;
+  return store.get(COOKIE)?.value === tokenFromPassword(expected);
 }
