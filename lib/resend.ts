@@ -5,9 +5,9 @@ import { siteConfig } from "@/lib/seo/site";
 import type { ContactInput } from "@/lib/contact-schema";
 import type { Locale } from "@/lib/i18n/config";
 
-/** Oficjalny adres na stronie i jako nadawca Resend. */
+/** Oficjalny adres na stronie i jako nadawca Resend (contact@…). */
 const BOOKING_FROM = siteConfig.email;
-/** Prawdziwa skrzynka zespołu — tu ląduje klik i formularz. */
+/** Prawdziwa skrzynka zespołu — tu lądują maile z formularza. */
 const MEDIEVALS_GMAIL = siteConfig.inbox;
 /** Twój prywatny adres — tylko tropy do prowizji. */
 const COMMISSION_INBOX = "jakubgrygiel.official@gmail.com";

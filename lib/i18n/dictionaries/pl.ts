@@ -4,7 +4,7 @@ export const pl: Dictionary = {
   meta: {
     title: "The Medievals – Zespół Muzyki Dawnej",
     description:
-      "Zespół muzyki średniowiecznej The Medievals. Koncerty na zamki, festiwale, turnieje i jarmarki, oprawa ślubów oraz warsztaty tańca. Booking: booking@themedievals.pl.",
+      "Zespół muzyki średniowiecznej The Medievals. Koncerty na zamki, festiwale, turnieje i jarmarki, oprawa ślubów oraz warsztaty tańca. Kontakt: contact@themedievals.pl.",
     keywords:
       "zespół muzyki dawnej, zespół muzyki średniowiecznej, koncert muzyki średniowiecznej, oprawa muzyczna ślubu, koncert na zamek, turniej rycerski muzyka, jarmark historyczny, warsztaty tańca średniowiecznego, booking zespołu muzyki dawnej",
     contactDescription:
@@ -123,7 +123,7 @@ export const pl: Dictionary = {
     success: "Dziękujemy. Wysłaliśmy potwierdzenie na Wasz e-mail — odpowiemy w ciągu 48 godzin.",
     error: "Nie udało się wysłać wiadomości. Spróbujcie ponownie.",
     missingBackend:
-      "Formularz jest chwilowo niedostępny. Napiszcie na booking@themedievals.pl.",
+      "Formularz jest chwilowo niedostępny. Napiszcie na contact@themedievals.pl.",
     direct: "Kontakt bezpośredni",
     directPhone: "Telefon",
     revealLead: "Na telefon prosimy o krótkie potwierdzenie — numer pojawi się poniżej.",

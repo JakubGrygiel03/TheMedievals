@@ -80,7 +80,7 @@ export default async function AdminDashboardPage() {
 
       {!supabase ? (
         <p className="folio-panel mt-6 p-4 text-sm text-vermilion">
-          Żeby widzieć archiwum na tej stronie, potrzebny jest Supabase. Same zgłoszenia i pobrania numeru i tak przychodzą mailem na booking@themedievals.pl i na adres z RESEND_TO — baza nie jest do tego potrzebna.
+          Żeby widzieć archiwum na tej stronie, potrzebny jest Supabase. Same zgłoszenia i pobrania numeru i tak przychodzą mailem na contact@themedievals.pl i na adres z RESEND_TO — baza nie jest do tego potrzebna.
         </p>
       ) : messagesRes.error || phoneRes.error ? (
         <p className="folio-panel mt-6 p-4 text-sm text-vermilion">

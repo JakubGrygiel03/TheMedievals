@@ -4,7 +4,7 @@ export const es: Dictionary = {
   meta: {
     title: "The Medievals – Ensemble de música antigua",
     description:
-      "Ensemble de música medieval The Medievals. Conciertos para castillos, festivales, torneos, bodas y talleres de danza. booking@themedievals.pl.",
+      "Ensemble de música medieval The Medievals. Conciertos para castillos, festivales, torneos, bodas y talleres de danza. contact@themedievals.pl.",
     keywords:
       "ensemble de música antigua, grupo de música medieval, concierto de música medieval, música para boda histórica, concierto en castillo, torneo de caballería, feria histórica, talleres de danza medieval, booking música antigua",
     contactDescription:
@@ -123,7 +123,7 @@ export const es: Dictionary = {
     success: "Gracias. Os hemos enviado una confirmación por correo — responderemos en 48 horas.",
     error: "No se pudo enviar el mensaje. Inténtadlo de nuevo.",
     missingBackend:
-      "El formulario no está disponible ahora. Escribid a booking@themedievals.pl.",
+      "El formulario no está disponible ahora. Escribid a contact@themedievals.pl.",
     direct: "Contacto directo",
     directPhone: "Teléfono",
     revealLead: "Basta una breve confirmación: el número aparecerá debajo.",

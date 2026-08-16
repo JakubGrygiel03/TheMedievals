@@ -8,7 +8,7 @@ function resolveSiteUrl() {
 export const siteConfig = {
   name: "The Medievals",
   url: resolveSiteUrl(),
-  email: "booking@themedievals.pl",
+  email: "contact@themedievals.pl",
   inbox: "the.medievals.org@gmail.com",
   phone: "",
   social: {

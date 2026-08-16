@@ -4,7 +4,7 @@ export const en: Dictionary = {
   meta: {
     title: "The Medievals – Early Music Ensemble",
     description:
-      "The Medievals early-music ensemble. Book medieval concerts for castles, festivals, tournaments, weddings and dance workshops. booking@themedievals.pl.",
+      "The Medievals early-music ensemble. Book medieval concerts for castles, festivals, tournaments, weddings and dance workshops. contact@themedievals.pl.",
     keywords:
       "early music ensemble, medieval music band, medieval music concert, historical wedding music, castle concert, knightly tournament music, historical fair music, medieval dance workshops, early music booking",
     contactDescription:
@@ -123,7 +123,7 @@ export const en: Dictionary = {
     success: "Thank you. We have sent a confirmation to your email — we will reply within 48 hours.",
     error: "The message could not be sent. Please try again.",
     missingBackend:
-      "The form is temporarily unavailable. Write to booking@themedievals.pl.",
+      "The form is temporarily unavailable. Write to contact@themedievals.pl.",
     direct: "Direct contact",
     directPhone: "Phone",
     revealLead: "A short confirmation is enough — the number will appear below.",
