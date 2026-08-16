@@ -11,7 +11,6 @@ import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { isLocale, locales } from "@/lib/i18n/config";
 import { hreflangMap, socialMetadata } from "@/lib/seo/metadata";
 import { localePath, siteConfig } from "@/lib/seo/site";
-import { desktopViewportScript } from "@/lib/desktop-viewport-script";
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -93,9 +92,7 @@ export default async function LangLayout({ children, params }: LayoutProps) {
   return (
     <html lang={lang} className={`${cinzel.variable} ${cormorant.variable} ${medievalSharp.variable} h-full`}>
       <body className="book-folio min-h-full antialiased">
-        <Script id="desktop-viewport" strategy="beforeInteractive">
-          {desktopViewportScript}
-        </Script>
+        <Script src="/desktop-viewport.js" strategy="beforeInteractive" />
         <a
           href="#tresc"
           className="sr-only focus:not-sr-only focus:absolute focus:left-[max(1rem,calc(var(--book-margin)+1rem))] focus:top-4 focus:z-50 focus:bg-vermilion focus:px-3 focus:py-2 focus:text-white"

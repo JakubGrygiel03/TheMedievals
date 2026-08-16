@@ -100,11 +100,13 @@ export function JsonLd({ lang, dictionary, concerts }: JsonLdProps) {
   };
 
   const payload = [group, ...albums, ...events, breadcrumbs];
+  const json = JSON.stringify(payload).replace(/</g, "\\u003c");
 
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(payload) }}
+      // JSON-LD must be a script; escape < so React/Next do not treat it as markup
+      dangerouslySetInnerHTML={{ __html: json }}
     />
   );
 }
