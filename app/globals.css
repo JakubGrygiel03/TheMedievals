@@ -62,13 +62,16 @@ iframe {
 .book-margin {
   display: none;
   position: fixed;
-  top: 0;
+  /* Overshoot viewport so margin-sway never reveals a gap at the edges */
+  top: -1.25rem;
+  bottom: -1.25rem;
   z-index: 30;
   width: var(--book-margin);
-  height: 100%;
+  height: auto;
   pointer-events: none;
+  background-color: var(--parchment);
   background-repeat: no-repeat;
-  background-size: auto 100%;
+  background-size: cover;
 }
 
 .book-margin-left {
