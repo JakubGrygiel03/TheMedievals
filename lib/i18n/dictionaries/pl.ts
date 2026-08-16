@@ -67,7 +67,7 @@ export const pl: Dictionary = {
     premiere: "Premiera",
     playerHeading: "Nagrania",
     playerLead:
-      "Albumy i teledysk. Posłuchajcie przed zamówieniem występu.",
+      "Albumy i teledysk. Zapraszamy, by zapoznać się z brzmieniem zespołu.",
     youtube: "Teledysk The Medievals",
     youtubeSoon: "Teledysk pojawi się tutaj wkrótce. Tymczasem zapraszamy na Spotify.",
   },

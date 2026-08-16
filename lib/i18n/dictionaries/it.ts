@@ -67,7 +67,7 @@ export const it: Dictionary = {
     premiere: "Uscita",
     playerHeading: "Registrazioni",
     playerLead:
-      "Album e il videoclip. Ascoltate l’ensemble prima di prenotare.",
+      "Album e il videoclip. Vi invitiamo a conoscere il suono dell’ensemble.",
     youtube: "Videoclip di The Medievals",
     youtubeSoon: "Il video apparirà qui a breve. Nel frattempo ascoltate su Spotify.",
   },

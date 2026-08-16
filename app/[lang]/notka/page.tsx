@@ -56,7 +56,7 @@ export default async function PressNotePage({ params }: PageProps) {
         eyebrow={dictionary.organizers.pressNote}
         heading="The Medievals"
       />
-      <p className="mt-8 text-lg italic text-[var(--ink-soft)]">
+      <p className="mt-8 text-lg leading-relaxed">
         {dictionary.hero.pitch}
       </p>
       <div className="mt-8 space-y-4 text-lg leading-relaxed">

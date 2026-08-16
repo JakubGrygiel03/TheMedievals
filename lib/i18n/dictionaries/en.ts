@@ -67,7 +67,7 @@ export const en: Dictionary = {
     premiere: "Released",
     playerHeading: "Recordings",
     playerLead:
-      "Albums and the music video. Hear the ensemble before you book a date.",
+      "Albums and the music video. You’re welcome to get to know the ensemble’s sound.",
     youtube: "The Medievals music video",
     youtubeSoon: "The video will appear here soon. In the meantime, listen on Spotify.",
   },
