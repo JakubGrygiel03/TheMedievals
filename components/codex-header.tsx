@@ -50,7 +50,7 @@ export function CodexHeader({ lang, dictionary }: CodexHeaderProps) {
           />
         </nav>
       </div>
-      <div className="h-14 sm:h-16 lg:hidden" aria-hidden="true" />
+      <div className="h-14 sm:h-16" aria-hidden="true" />
     </header>
   );
 }

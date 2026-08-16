@@ -1098,9 +1098,9 @@ select {
 
 @media (min-width: 1024px) {
   .codex-masthead-bar {
-    position: sticky;
-    right: auto;
-    left: auto;
+    /* Keep fixed — sticky inside a short <header> scrolls away with the page. */
+    left: var(--book-margin);
+    right: var(--book-margin);
     background: var(--header-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
