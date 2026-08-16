@@ -23,7 +23,7 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
       className={className}
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.08, margin: "0px 0px 28% 0px" }}
+      viewport={{ once: true, amount: 0.01, margin: "0px 0px 40% 0px" }}
       transition={{ duration: 0.5, delay, ease }}
     >
       {children}
@@ -36,7 +36,7 @@ export function StaggerList({
   className,
   stagger = 0.11,
   delayChildren = 0.06,
-  amount = 0.2,
+  amount = 0.01,
 }: {
   children: ReactNode;
   className?: string;
@@ -55,7 +55,7 @@ export function StaggerList({
       className={className}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount }}
+      viewport={{ once: true, amount, margin: "0px 0px 35% 0px" }}
       variants={{
         hidden: {},
         show: {
@@ -83,14 +83,14 @@ export function StaggerItem({
     return <li className={className}>{children}</li>;
   }
 
-  // Frame: opacity on the list item so CSS hover transform on the figure still works.
+  // Frame: no opacity hide — tall galleries on mobile can miss whileInView
+  // and must still remain visible.
   const variants =
     tone === "frame"
       ? {
-          hidden: { opacity: 0 },
+          hidden: {},
           show: {
-            opacity: 1,
-            transition: { duration: 0.55, ease },
+            transition: { duration: 0.45, ease },
           },
         }
       : {
@@ -109,11 +109,10 @@ export function StaggerItem({
         <motion.div
           className="gallery-frame-media h-full w-full"
           variants={{
-            hidden: { y: 22, scale: 1.04 },
+            hidden: { y: 16 },
             show: {
               y: 0,
-              scale: 1,
-              transition: { duration: 0.85, ease },
+              transition: { duration: 0.7, ease },
             },
           }}
         >

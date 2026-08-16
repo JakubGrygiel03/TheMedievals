@@ -15,6 +15,7 @@ export type Dictionary = {
     contact: string;
     portfolio: string;
     gallery: string;
+    program: string;
     press: string;
   };
   hero: {
@@ -78,7 +79,6 @@ export type Dictionary = {
     heading: string;
     lead: string;
     rider: string;
-    stagePlan: string;
     pressNote: string;
     photos: string;
   };
@@ -144,7 +144,6 @@ export type Dictionary = {
     rights: string;
     tagline: string;
     privacy: string;
-    siteCredit: string;
   };
   a11y: {
     skipToContent: string;
@@ -153,5 +152,6 @@ export type Dictionary = {
     language: string;
     menu: string;
     closeMenu: string;
+    back: string;
   };
 };

@@ -8,7 +8,32 @@ type RepertoireSectionProps = {
   dictionary: Dictionary;
 };
 
+function TrackColumn({
+  tracks,
+  startIndex,
+}: {
+  tracks: readonly string[];
+  startIndex: number;
+}) {
+  return (
+    <ol className="repertoire-column" start={startIndex + 1}>
+      {tracks.map((track, index) => (
+        <li key={`${startIndex + index}-${track}`} className="repertoire-row">
+          <span className="track-index">
+            {String(startIndex + index + 1).padStart(2, "0")}
+          </span>
+          <span className="repertoire-title">{track}</span>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
 export function RepertoireSection({ lang, dictionary }: RepertoireSectionProps) {
+  const splitAt = Math.ceil(repertoireTracks.length / 2);
+  const left = repertoireTracks.slice(0, splitAt);
+  const right = repertoireTracks.slice(splitAt);
+
   return (
     <FolioSection
       id="program"
@@ -18,17 +43,11 @@ export function RepertoireSection({ lang, dictionary }: RepertoireSectionProps) 
       <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[var(--ink-soft)]">
         {repertoireCopy[lang]}
       </p>
-      <ol className="mt-5 grid grid-cols-1 gap-x-10 sm:grid-cols-2">
-        {repertoireTracks.map((track, index) => (
-          <li
-            key={track}
-            className="flex gap-3 border-b border-[var(--rule)] py-2"
-          >
-            <span className="track-index">{String(index + 1).padStart(2, "0")}</span>
-            <span>{track}</span>
-          </li>
-        ))}
-      </ol>
+      <div className="repertoire-columns mt-6">
+        <TrackColumn tracks={left} startIndex={0} />
+        <div className="repertoire-rule" aria-hidden="true" />
+        <TrackColumn tracks={right} startIndex={splitAt} />
+      </div>
     </FolioSection>
   );
 }

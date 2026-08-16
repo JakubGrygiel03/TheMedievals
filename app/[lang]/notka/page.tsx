@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { EditorialHeading } from "@/components/ui/editorial-heading";
+import { FolioBackLink } from "@/components/ui/folio-back-link";
 import { aboutCopy } from "@/lib/content";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { isLocale, locales, type Locale } from "@/lib/i18n/config";
@@ -40,6 +41,10 @@ export default async function PressNotePage({ params }: PageProps) {
 
   return (
     <main id="tresc" className="relative z-10 mx-auto max-w-2xl px-5 py-16">
+      <FolioBackLink
+        href={`/${lang}#organizator`}
+        label={dictionary.a11y.back}
+      />
       <EditorialHeading
         as="h1"
         eyebrow={dictionary.organizers.pressNote}

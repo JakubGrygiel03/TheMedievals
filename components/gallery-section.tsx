@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { StaggerItem, StaggerList } from "@/components/motion/reveal";
 import { FolioSection } from "@/components/ui/folio-section";
 import { portfolioPhotos } from "@/lib/portfolio";
 import type { Locale } from "@/lib/i18n/config";
@@ -16,18 +15,14 @@ export function GallerySection({ lang, dictionary }: GallerySectionProps) {
       id="galeria"
       eyebrow={dictionary.gallery.eyebrow}
       heading={dictionary.gallery.heading}
+      reveal={false}
     >
       <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[var(--ink-soft)]">
         {dictionary.gallery.lead}
       </p>
-      <StaggerList
-        className="mt-6 grid list-none gap-4 sm:grid-cols-2 lg:grid-cols-3"
-        stagger={0.07}
-        delayChildren={0.08}
-        amount={0.12}
-      >
+      <ul className="mt-6 grid list-none gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {portfolioPhotos.map((photo) => (
-          <StaggerItem key={photo.src} tone="frame" className="gallery-frame">
+          <li key={photo.src} className="gallery-frame">
             <figure className="gallery-shot folio-panel">
               <Image
                 src={photo.src}
@@ -39,9 +34,9 @@ export function GallerySection({ lang, dictionary }: GallerySectionProps) {
               />
               <span className="gallery-shot-veil" aria-hidden="true" />
             </figure>
-          </StaggerItem>
+          </li>
         ))}
-      </StaggerList>
+      </ul>
     </FolioSection>
   );
 }

@@ -14,8 +14,13 @@ export function CodexHeader({ lang, dictionary }: CodexHeaderProps) {
     { href: `/${lang}#o-nas`, label: dictionary.nav.about },
     { href: `/${lang}#oferta`, label: dictionary.nav.offer },
     { href: `/${lang}#muzycy`, label: dictionary.nav.members },
-    { href: `/${lang}#portfolio`, label: dictionary.nav.portfolio },
+    {
+      href: `/${lang}#portfolio`,
+      label: dictionary.nav.portfolio,
+      desktop: false,
+    },
     { href: `/${lang}#galeria`, label: dictionary.nav.gallery },
+    { href: `/${lang}#program`, label: dictionary.nav.program },
     { href: `/${lang}#organizator`, label: dictionary.nav.press },
     { href: `/${lang}#kontakt`, label: dictionary.nav.contact },
   ];

@@ -42,30 +42,36 @@ export const aboutCopy: Record<Locale, AboutCopy> = {
 };
 
 export const repertoireTracks = [
-  "Schiarazula Marazula",
-  "Douce Dame Jolie",
-  "Ai vis lo lop",
-  "Durme durme",
-  "Kalenda maya",
-  "Branle d’écosse",
-  "Herr Mannelig",
-  "Je vivroie liement",
-  "Tourdion",
-  "Pochwała Karczmy — In taberna quando sumus",
+  "Guillaume de Machaut — Douce dame Jolie",
+  "Guillaume de Machaut — Je vivroie liement",
+  "Anonim — In taberna quando sumus (Carmina Burana)",
+  "Raimbaut de Vaqueiras — Kalenda Maya",
+  "Anonim — Tourdion",
+  "Taniec węgierski",
+  "Thoinot Arbeau — Branle d’Ecosse",
+  "Giorgio Mainerio — Schiarazula Marazula",
+  "The Medievals — Przemysław I i II",
+  "Anonim — Cuncti simus concanentes: Ave Maria!",
+  "The Medievals — Henryk",
+  "Francuska pieśń ludowa — Ai vis lo lop",
+  "Taniec — Skocz kap",
+  "Taniec — Spikerina",
+  "Alfons X Kastylijski — Cantiga 166: „Como Poden Per Sas Culpas”",
+  "Anonim — Miri it is while summer ilast",
+  "Mołdawski taniec ludowy — Drumul Draculi",
+  "Thoinot Arbeau — Branle des Lavandieres (Praczki)",
+  "Anonim — Her Mannelig",
+  "Sefardyjska pieśń ludowa — Dourme dourme",
+  "Alfons X Kastylijski — Cantiga 167: „Quen quer que na Virgen fia”",
+  "Sefardyjska pieśń ludowa — Ah, el Novio no Quere Dinero",
+  "Anonim — Dou way robin",
 ] as const;
 
 export const repertoireCopy: Localized = {
-  pl: "Repertuar obejmuje kilkanaście europejskich utworów historycznych — świeckich i religijnych — śpiewanych w oryginalnych językach. Wykonujemy pieśni wokalno-instrumentalne, utwory instrumentalne oraz tańce.",
-  en: "The programme holds more than a dozen European historical pieces, secular and sacred, sung in their original languages. We perform vocal-instrumental songs, instrumental works and dances.",
-  es: "El repertorio reúne más de una docena de piezas históricas europeas, profanas y religiosas, cantadas en sus lenguas originales. Interpretamos canciones vocal-instrumentales, obras instrumentales y danzas.",
-  it: "Il repertorio comprende una dozzina di brani storici europei, sacri e profani, cantati nelle lingue originali. Eseguiamo canti vocali-strumentali, brani strumentali e danze.",
-};
-
-export const offerCopy: Localized = {
-  pl: "Do pobrania: notka prasowa, zdjęcie oficjalne, rider techniczny i akustyczny oraz plan sceny.",
-  en: "Downloads: press note, official photo, technical and acoustic rider, and stage plan.",
-  es: "Descargas: nota de prensa, foto oficial, rider técnico y acústico, y plano de escenario.",
-  it: "Download: nota stampa, foto ufficiale, rider tecnico e acustico, pianta palco.",
+  pl: "Repertuar obejmuje ponad dwadzieścia europejskich utworów historycznych — świeckich i religijnych — śpiewanych w oryginalnych językach. Wykonujemy pieśni wokalno-instrumentalne, utwory instrumentalne oraz tańce.",
+  en: "The programme holds more than twenty European historical pieces, secular and sacred, sung in their original languages. We perform vocal-instrumental songs, instrumental works and dances.",
+  es: "El repertorio reúne más de veinte piezas históricas europeas, profanas y religiosas, cantadas en sus lenguas originales. Interpretamos canciones vocal-instrumentales, obras instrumentales y danzas.",
+  it: "Il repertorio comprende oltre venti brani storici europei, sacri e profani, cantati nelle lingue originali. Eseguiamo canti vocali-strumentali, brani strumentali e danze.",
 };
 
 export const videoClipCopy = {

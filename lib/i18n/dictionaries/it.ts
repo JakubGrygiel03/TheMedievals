@@ -19,6 +19,7 @@ export const it: Dictionary = {
     contact: "Contatto",
     portfolio: "Portfolio",
     gallery: "Galleria",
+    program: "Programma",
     press: "Press kit",
   },
   hero: {
@@ -28,7 +29,7 @@ export const it: Dictionary = {
     titleLead: "Medievals",
     titleMain: "Musica antica",
     pitch:
-      "Sei musicisti professionisti. Musica medievale su repliche di strumenti del XV secolo.",
+      "Musica medievale dal vivo — castelli, festival e sale da camera.",
     ctaPrimary: "Chiedi una data",
     ctaSecondary: "Vedi l’offerta",
   },
@@ -82,9 +83,8 @@ export const it: Dictionary = {
   organizers: {
     eyebrow: "Produzione",
     heading: "Materiali per gli organizzatori",
-    lead: "Press kit: nota, foto, rider tecnico e acustico.",
-    rider: "Rider tecnico e acustico (PDF)",
-    stagePlan: "Pianta palco (PDF)",
+    lead: "File scaricabili per organizzatori e stampa.",
+    rider: "Rider e pianta palco (PDF)",
     pressNote: "Nota stampa",
     photos: "Foto ufficiale",
   },
@@ -151,7 +151,6 @@ export const it: Dictionary = {
     rights: "The Medievals",
     tagline: "Musica medievale dal vivo — concerti, eventi, laboratori.",
     privacy: "Privacy",
-    siteCredit: "Sito",
   },
   a11y: {
     skipToContent: "Vai al contenuto",
@@ -160,5 +159,6 @@ export const it: Dictionary = {
     language: "Scegli la lingua",
     menu: "Menu",
     closeMenu: "Chiudi il menu",
+    back: "Indietro",
   },
 };

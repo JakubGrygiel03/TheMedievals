@@ -19,6 +19,7 @@ export const en: Dictionary = {
     contact: "Contact",
     portfolio: "Portfolio",
     gallery: "Gallery",
+    program: "Programme",
     press: "Press kit",
   },
   hero: {
@@ -28,7 +29,7 @@ export const en: Dictionary = {
     titleLead: "Medievals",
     titleMain: "Early music",
     pitch:
-      "Six professional musicians. Medieval music on replica fifteenth-century instruments.",
+      "Medieval music live — castles, festivals and chamber rooms.",
     ctaPrimary: "Ask about a date",
     ctaSecondary: "See the offer",
   },
@@ -82,9 +83,8 @@ export const en: Dictionary = {
   organizers: {
     eyebrow: "Production",
     heading: "Materials for organizers",
-    lead: "Press kit: note, photos, technical and acoustic rider.",
-    rider: "Technical and acoustic rider (PDF)",
-    stagePlan: "Stage plan (PDF)",
+    lead: "Downloadable files for organizers and press.",
+    rider: "Rider & stage plan (PDF)",
     pressNote: "Press note",
     photos: "Official photo",
   },
@@ -151,7 +151,6 @@ export const en: Dictionary = {
     rights: "The Medievals",
     tagline: "Medieval music live — concerts, events, workshops.",
     privacy: "Privacy",
-    siteCredit: "Site",
   },
   a11y: {
     skipToContent: "Skip to content",
@@ -160,5 +159,6 @@ export const en: Dictionary = {
     language: "Choose language",
     menu: "Menu",
     closeMenu: "Close menu",
+    back: "Back",
   },
 };

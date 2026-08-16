@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { useEffect, useState, type ReactNode } from "react";
 
-type NavLink = {
+export type NavLink = {
   href: string;
   label: string;
+  /** When false, link appears only in the mobile menu. Default true. */
+  desktop?: boolean;
 };
 
 type SiteNavProps = {
@@ -22,6 +24,7 @@ export function SiteNav({
   languages,
 }: SiteNavProps) {
   const [open, setOpen] = useState(false);
+  const desktopLinks = links.filter((link) => link.desktop !== false);
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -43,7 +46,7 @@ export function SiteNav({
   return (
     <>
       <ul className="desktop-nav min-w-0 font-cinzel font-bold">
-        {links.map((link, index) => (
+        {desktopLinks.map((link, index) => (
           <li key={link.href}>
             <Link
               href={link.href}

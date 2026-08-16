@@ -1,5 +1,4 @@
 import { FolioSection } from "@/components/ui/folio-section";
-import { offerCopy } from "@/lib/content";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/types";
 
@@ -16,7 +15,7 @@ export function OrganizerZone({ lang, dictionary }: OrganizerZoneProps) {
       heading={dictionary.organizers.heading}
     >
       <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[var(--ink-soft)]">
-        {dictionary.organizers.lead} {offerCopy[lang]}
+        {dictionary.organizers.lead}
       </p>
       <div className="organizer-kit">
         <a href={`/${lang}/notka`} className="codex-btn codex-btn-secondary">
@@ -25,11 +24,12 @@ export function OrganizerZone({ lang, dictionary }: OrganizerZoneProps) {
         <a href="/hero.png" download className="codex-btn codex-btn-secondary">
           {dictionary.organizers.photos}
         </a>
-        <a href="/documents/raider.pdf" className="codex-btn codex-btn-secondary">
+        <a
+          href="/documents/raider.pdf"
+          download
+          className="codex-btn codex-btn-secondary"
+        >
           {dictionary.organizers.rider}
-        </a>
-        <a href="/documents/stage-plan.pdf" className="codex-btn codex-btn-secondary">
-          {dictionary.organizers.stagePlan}
         </a>
       </div>
     </FolioSection>

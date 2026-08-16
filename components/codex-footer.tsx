@@ -9,7 +9,7 @@ type CodexFooterProps = {
 
 export function CodexFooter({ lang, dictionary }: CodexFooterProps) {
   return (
-    <footer className="codex-footer relative z-20 overflow-hidden border-t border-[var(--rule)] px-5 pt-12 pb-0 text-center">
+    <footer className="codex-footer relative z-20 overflow-hidden border-t border-[var(--rule)] px-5 pt-12 pb-10 text-center">
       <p className="font-cinzel text-sm tracking-[0.16em] uppercase">The Medievals</p>
       <p className="mt-2 text-[var(--ink-soft)]">{dictionary.footer.tagline}</p>
       <ul className="mt-5 flex flex-wrap justify-center gap-5 font-cinzel text-sm">
@@ -34,7 +34,7 @@ export function CodexFooter({ lang, dictionary }: CodexFooterProps) {
           </a>
         </li>
         <li>
-          <a href={`mailto:${siteConfig.inbox}`} className="hover:text-vermilion">
+          <a href={`mailto:${siteConfig.email}`} className="hover:text-vermilion">
             {siteConfig.email}
           </a>
         </li>
@@ -44,16 +44,6 @@ export function CodexFooter({ lang, dictionary }: CodexFooterProps) {
           </a>
         </li>
       </ul>
-      <div className="footer-credit">
-        <span className="footer-credit-label">{dictionary.footer.siteCredit}</span>
-        <a
-          href="mailto:jakubgrygiel.official@gmail.com"
-          className="footer-credit-name"
-        >
-          Jakub Grygiel
-          <span className="footer-credit-mail">jakubgrygiel.official@gmail.com</span>
-        </a>
-      </div>
     </footer>
   );
 }
