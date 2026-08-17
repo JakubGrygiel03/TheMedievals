@@ -99,7 +99,7 @@ export const en: Dictionary = {
   },
   gallery: {
     eyebrow: "Photos",
-    heading: "Early-music ensemble gallery",
+    heading: "Ensemble gallery",
     lead: "Moments from concerts and sessions — how we look on stage and off.",
   },
   booking: {

@@ -17,7 +17,7 @@ export function MediaPlayer({ dictionary }: MediaPlayerProps) {
         {dictionary.media.playerLead}
       </p>
       <div className="mt-5 grid gap-6 lg:grid-cols-2 lg:items-stretch">
-        <div className="folio-panel h-full min-h-[32rem] overflow-hidden">
+        <div className="folio-panel media-embed-panel h-full min-h-[32rem]">
           <iframe
             src={siteConfig.embeds.spotify}
             title={dictionary.media.listen}
@@ -29,7 +29,7 @@ export function MediaPlayer({ dictionary }: MediaPlayerProps) {
         </div>
         <div className="grid gap-4">
           {siteConfig.embeds.videos.map((video) => (
-            <div key={video.id} className="folio-panel overflow-hidden">
+            <div key={video.id} className="folio-panel media-embed-panel">
               <iframe
                 src={`https://www.youtube.com/embed/${video.id}`}
                 title={video.title}

@@ -9,6 +9,10 @@ export type MemberId =
   | "aleksander"
   | "jakub";
 
+export type PercussionistId = "paulina" | "cezary" | "tiago";
+
+export type PhotoPersonId = MemberId | PercussionistId;
+
 export type Member = {
   id: MemberId;
   name: string;
@@ -67,6 +71,27 @@ export const members: Member[] = [
     },
   },
 ];
+
+export function memberName(id: MemberId): string {
+  return members.find((member) => member.id === id)?.name ?? id;
+}
+
+const percussionistNames: Record<PercussionistId, string> = {
+  paulina: "Paulina Andrzejak",
+  cezary: "Cezary Łagan",
+  tiago: "Tiago Ragna",
+};
+
+export function photoPersonName(id: PhotoPersonId): string {
+  if (id in percussionistNames) {
+    return percussionistNames[id as PercussionistId];
+  }
+  return memberName(id as MemberId);
+}
+
+export function photoPersonFirstName(id: PhotoPersonId): string {
+  return photoPersonName(id).split(" ")[0] ?? photoPersonName(id);
+}
 
 export const percussionists = {
   names: ["Cezary Łagan", "Paulina Andrzejak", "Tiago Ragna"],

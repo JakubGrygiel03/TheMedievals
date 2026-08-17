@@ -99,7 +99,7 @@ export const pl: Dictionary = {
   },
   gallery: {
     eyebrow: "Zdjęcia",
-    heading: "Galeria zespołu muzyki dawnej",
+    heading: "Galeria zespołu",
     lead: "Fragmenty występów i sesji — tak wyglądamy na scenie i przed nią.",
   },
   booking: {

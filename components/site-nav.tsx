@@ -59,7 +59,7 @@ export function SiteNav({
         ))}
       </ul>
 
-      <div className="codex-nav-tools ml-auto flex min-w-0 shrink-0 items-center gap-1.5 sm:gap-2">
+      <div className="codex-nav-tools ml-auto flex min-w-0 shrink-0 items-center gap-2">
         <span
           aria-hidden="true"
           className="hidden h-6 w-px shrink-0 bg-[var(--ink)]/30 lg:block"
@@ -67,12 +67,12 @@ export function SiteNav({
         {languages}
         <span
           aria-hidden="true"
-          className="h-8 w-px shrink-0 bg-[var(--ink)]/30 lg:hidden"
+          className="h-9 w-px shrink-0 bg-[var(--ink)]/30 lg:hidden"
         />
         <div className="relative">
           <button
             type="button"
-            className="menu-toggle font-cinzel text-[13px] tracking-[0.06em]"
+            className="menu-toggle font-cinzel"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? closeLabel : menuLabel}

@@ -17,7 +17,6 @@ export function PortfolioSection({ lang, dictionary }: PortfolioSectionProps) {
       id="portfolio"
       eyebrow={dictionary.portfolio.eyebrow}
       heading={dictionary.portfolio.heading}
-      tone="wash"
     >
       <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[var(--ink-soft)]">
         {dictionary.portfolio.lead}

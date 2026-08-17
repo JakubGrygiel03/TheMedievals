@@ -1,4 +1,5 @@
 import type { Locale } from "@/lib/i18n/config";
+import type { PhotoPersonId } from "@/lib/members";
 
 type Localized = Record<Locale, string>;
 
@@ -7,8 +8,9 @@ export type PortfolioPhoto = {
   width: number;
   height: number;
   alt: Localized;
+  /** People shown in the hover caption, left to right. */
+  people?: PhotoPersonId[];
 };
-
 export const portfolioVenues: Record<Locale, string[]> = {
   pl: [
     "Rekonstrukcje bitew i turnieje rycerskie",
@@ -42,20 +44,22 @@ export const portfolioVenues: Record<Locale, string[]> = {
 
 export const portfolioPhotos: PortfolioPhoto[] = [
   {
-    src: "/gallery/01-flety.jpg",
-    width: 1334,
-    height: 2000,
+    src: "/gallery/11-flety-zachod.jpg",
+    width: 681,
+    height: 1024,
+    people: ["liubou"],
     alt: {
-      pl: "Muzykini z fletami prostymi w stroju średniowiecznym",
-      en: "Musician with medieval recorders in period dress",
-      es: "Música con flautas dulces medievales",
-      it: "Musicista con flauti dritti medievali",
+      pl: "Muzykini z fletami o zachodzie słońca",
+      en: "Musician with recorders at sunset",
+      es: "Música con flautas al atardecer",
+      it: "Musicista con flauti al tramonto",
     },
   },
   {
     src: "/gallery/02-zielona-suknia.jpg",
     width: 1334,
     height: 2000,
+    people: ["adrianna"],
     alt: {
       pl: "Muzykini w zielonej sukni w lesie",
       en: "Musician in a green medieval dress in the forest",
@@ -67,6 +71,7 @@ export const portfolioPhotos: PortfolioPhoto[] = [
     src: "/gallery/03-gitterna.jpg",
     width: 1707,
     height: 2560,
+    people: ["jakub"],
     alt: {
       pl: "Muzyk z gitterną",
       en: "Musician with a gittern",
@@ -78,6 +83,7 @@ export const portfolioPhotos: PortfolioPhoto[] = [
     src: "/gallery/05-vielle.jpg",
     width: 1334,
     height: 2000,
+    people: ["karina"],
     alt: {
       pl: "Muzykini z vielle przy drzewie",
       en: "Musician with a vielle by a tree",
@@ -89,6 +95,7 @@ export const portfolioPhotos: PortfolioPhoto[] = [
     src: "/gallery/06-trio.jpg",
     width: 1080,
     height: 1619,
+    people: ["karina", "paulina", "liubou"],
     alt: {
       pl: "Trzy muzykini z instrumentami w lesie",
       en: "Three musicians with instruments in the forest",
@@ -100,6 +107,7 @@ export const portfolioPhotos: PortfolioPhoto[] = [
     src: "/gallery/07-beben.jpg",
     width: 1707,
     height: 1626,
+    people: ["tiago"],
     alt: {
       pl: "Perkusista z bębnem obręczowym",
       en: "Percussionist with a frame drum",
@@ -111,6 +119,7 @@ export const portfolioPhotos: PortfolioPhoto[] = [
     src: "/gallery/08-kwartet.jpg",
     width: 683,
     height: 1024,
+    people: ["liubou", "adrianna", "karina", "paulina"],
     alt: {
       pl: "Zespół The Medievals w strojach historycznych",
       en: "The Medievals ensemble in historical dress",
@@ -122,6 +131,7 @@ export const portfolioPhotos: PortfolioPhoto[] = [
     src: "/gallery/09-beben-zachod.jpg",
     width: 1363,
     height: 2048,
+    people: ["cezary"],
     alt: {
       pl: "Perkusista z bębnem o zachodzie słońca",
       en: "Percussionist with a frame drum at sunset",
@@ -133,6 +143,7 @@ export const portfolioPhotos: PortfolioPhoto[] = [
     src: "/gallery/10-dudy.jpg",
     width: 1363,
     height: 2048,
+    people: ["aleksander"],
     alt: {
       pl: "Muzyk z dudami i fletami na łące",
       en: "Musician with bagpipes and flutes in a field",
@@ -141,20 +152,22 @@ export const portfolioPhotos: PortfolioPhoto[] = [
     },
   },
   {
-    src: "/gallery/11-flety-zachod.jpg",
-    width: 681,
-    height: 1024,
+    src: "/gallery/01-flety.jpg",
+    width: 1334,
+    height: 2000,
+    people: ["liubou"],
     alt: {
-      pl: "Muzykini z fletami o zachodzie słońca",
-      en: "Musician with recorders at sunset",
-      es: "Música con flautas al atardecer",
-      it: "Musicista con flauti al tramonto",
+      pl: "Muzykini z fletami prostymi w stroju średniowiecznym",
+      en: "Musician with medieval recorders in period dress",
+      es: "Música con flautas dulces medievales",
+      it: "Musicista con flauti dritti medievali",
     },
   },
   {
     src: "/gallery/12-vielle-scena.jpg",
     width: 1179,
     height: 1578,
+    people: ["adrianna"],
     alt: {
       pl: "Muzykini grająca na vielle podczas koncertu",
       en: "Musician playing the vielle in concert",
@@ -166,6 +179,7 @@ export const portfolioPhotos: PortfolioPhoto[] = [
     src: "/gallery/04-gitterna-zaba.jpg",
     width: 1707,
     height: 1580,
+    people: ["jakub"],
     alt: {
       pl: "Muzyk z gitterną przy rzeźbie żaby",
       en: "Musician with a gittern by a frog statue",
