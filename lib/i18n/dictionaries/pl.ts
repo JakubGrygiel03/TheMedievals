@@ -4,13 +4,13 @@ export const pl: Dictionary = {
   meta: {
     title: "The Medievals – Zespół Muzyki Dawnej",
     description:
-      "Zespół muzyki średniowiecznej The Medievals. Koncerty na zamki, festiwale, turnieje i jarmarki, oprawa ślubów oraz warsztaty tańca. Kontakt: contact@themedievals.pl.",
+      "The Medievals — zespół muzyki dawnej (XIII–XV w.). Koncerty na zamki, festiwale, turnieje i jarmarki, oprawa ślubów oraz warsztaty tańca. contact@themedievals.pl.",
     keywords:
       "zespół muzyki dawnej, zespół muzyki średniowiecznej, koncert muzyki średniowiecznej, oprawa muzyczna ślubu, koncert na zamek, turniej rycerski muzyka, jarmark historyczny, warsztaty tańca średniowiecznego, booking zespołu muzyki dawnej",
     contactDescription:
-      "Zamówcie koncert muzyki średniowiecznej — The Medievals: zamki, festiwale, śluby i warsztaty tańca. Odpowiadamy w ciągu 48 godzin.",
+      "Zamówcie koncert muzyki od XIII do XV wieku — The Medievals: zamki, festiwale, śluby i warsztaty tańca. Odpowiadamy w ciągu 48 godzin.",
     pressDescription:
-      "Notka prasowa zespołu muzyki dawnej The Medievals: skład, instrumentarium i profil artystyczny dla organizatorów oraz mediów.",
+      "Notka prasowa The Medievals: muzyka i stroje od XIII do XV wieku — skład, instrumentarium i profil artystyczny dla organizatorów oraz mediów.",
   },
   nav: {
     home: "Strona główna",
@@ -33,7 +33,7 @@ export const pl: Dictionary = {
     titleLead: "Medievals",
     titleMain: "Muzyka dawna",
     pitch:
-      "Jesteśmy sześciorgiem zawodowych muzyków, którzy pasjonują się rekonstrukcją średniowiecza. Odtwarzamy XIII-ty oraz XV-wiek. Występujemy podczas rekonstrukcji bitew, pikników historycznych oraz eventów prywatnych.",
+      "Jesteśmy sześciorgiem zawodowych muzyków, którzy pasjonują się rekonstrukcją średniowiecza. Odtwarzamy muzykę oraz stroje od XIII do XV wieku. Występujemy podczas rekonstrukcji bitew, pikników historycznych oraz eventów prywatnych.",
     ctaPrimary: "Zapytaj o termin",
     ctaSecondary: "Zobacz ofertę",
   },
@@ -41,7 +41,7 @@ export const pl: Dictionary = {
     eyebrow: "O zespole",
     heading: "Zespół muzyki dawnej The Medievals",
     goldWord: "",
-    lead: "Muzyka dworska i plebejska XIV–XV wieku. Stroje z ikonografii, rzemieślnicze repliki instrumentów.",
+    lead: "Muzyka dworska i plebejska oraz stroje od XIII do XV wieku. Rzemieślnicze repliki instrumentów.",
     instrumentsLabel: "Instrumentarium",
     profileHeading: "Profil zespołu",
     craftHeading: "Autentyczność wykonawcza",
@@ -58,6 +58,8 @@ export const pl: Dictionary = {
   repertoire: {
     eyebrow: "Program",
     heading: "W programie",
+    expand: "Pokaż pełny program",
+    collapse: "Zwiń program",
   },
   media: {
     eyebrow: "Muzyka",
@@ -81,7 +83,7 @@ export const pl: Dictionary = {
   },
   offer: {
     eyebrow: "Oferta",
-    heading: "Koncerty i oprawa muzyki średniowiecznej",
+    heading: "Koncerty i oprawa muzyki od XIII do XV wieku",
     goldWord: "zagrać",
   },
   organizers: {
@@ -153,7 +155,7 @@ export const pl: Dictionary = {
   },
   footer: {
     rights: "The Medievals",
-    tagline: "Muzyka średniowieczna na żywo — koncerty, wydarzenia, warsztaty.",
+    tagline: "Muzyka od XIII do XV wieku na żywo — koncerty, wydarzenia, warsztaty.",
     privacy: "Prywatność",
   },
   a11y: {

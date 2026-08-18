@@ -11,12 +11,12 @@ export const clientOffers: Record<
   { lead: string; items: OfferItem[] }
 > = {
   pl: {
-    lead: "Pięć formatów występu. Przyjeżdżamy ze strojami, instrumentami i gotowym programem.",
+    lead: "Pięć formatów występu. Przyjeżdżamy ze strojami i instrumentami z epoki XIII–XV oraz gotowym programem.",
     items: [
       {
         title: "Koncert z opowieścią o instrumentach",
         featured: true,
-        body: "Koncert muzyki średniowiecznej wraz z przedstawieniem instrumentów, ich budowy i pochodzenia oraz przybliżeniem historii i treści granego repertuaru. Dodatkowo istnieje możliwość poprowadzenia warsztatów tańca średniowiecznego podczas występu na żywo.",
+        body: "Koncert muzyki od XIII do XV wieku wraz z przedstawieniem instrumentów, ich budowy i pochodzenia oraz przybliżeniem historii i treści granego repertuaru. Dodatkowo istnieje możliwość poprowadzenia warsztatów tańca z tego okresu podczas występu na żywo.",
       },
       {
         title: "Festiwale i turnieje rycerskie",
@@ -37,12 +37,12 @@ export const clientOffers: Record<
     ],
   },
   en: {
-    lead: "Five performance formats. We arrive with costumes, instruments and a finished programme.",
+    lead: "Five performance formats. We arrive with 13th–15th-century costumes and instruments and a finished programme.",
     items: [
       {
         title: "Concert with instrument stories",
         featured: true,
-        body: "A medieval-music concert with a presentation of the instruments — how they are built and where they come from — and an introduction to the history and meaning of the repertoire. Medieval dance workshops can also be led during the live performance.",
+        body: "A 13th–15th-century music concert with a presentation of the instruments — how they are built and where they come from — and an introduction to the history and meaning of the repertoire. Dance workshops from the same period can also be led during the live performance.",
       },
       {
         title: "Festivals and knightly tournaments",
@@ -63,12 +63,12 @@ export const clientOffers: Record<
     ],
   },
   es: {
-    lead: "Cinco formatos de actuación. Llegamos con trajes, instrumentos y un programa cerrado.",
+    lead: "Cinco formatos de actuación. Llegamos con trajes e instrumentos de los siglos XIII al XV y un programa cerrado.",
     items: [
       {
         title: "Concierto con relato de instrumentos",
         featured: true,
-        body: "Un concierto de música medieval con presentación de los instrumentos — su construcción y origen — y una introducción a la historia y el sentido del repertorio. También es posible dirigir talleres de danza medieval durante la actuación en vivo.",
+        body: "Un concierto de música de los siglos XIII al XV con presentación de los instrumentos — su construcción y origen — y una introducción a la historia y el sentido del repertorio. También es posible dirigir talleres de danza de este periodo durante la actuación en vivo.",
       },
       {
         title: "Festivales y torneos de caballería",
@@ -89,12 +89,12 @@ export const clientOffers: Record<
     ],
   },
   it: {
-    lead: "Cinque formati di spettacolo. Arriviamo con costumi, strumenti e un programma pronto.",
+    lead: "Cinque formati di spettacolo. Arriviamo con costumi e strumenti dal XIII al XV secolo e un programma pronto.",
     items: [
       {
         title: "Concerto con racconto degli strumenti",
         featured: true,
-        body: "Un concerto di musica medievale con presentazione degli strumenti — costruzione e origine — e un avvicinamento alla storia e al significato del repertorio. È inoltre possibile condurre laboratori di danza medievale durante l’esibizione dal vivo.",
+        body: "Un concerto di musica dal XIII al XV secolo con presentazione degli strumenti — costruzione e origine — e un avvicinamento alla storia e al significato del repertorio. È inoltre possibile condurre laboratori di danza dello stesso periodo durante l’esibizione dal vivo.",
       },
       {
         title: "Festival e tornei cavallereschi",
@@ -119,26 +119,26 @@ export const clientOffers: Record<
 export const trustPoints: Record<Locale, string[]> = {
   pl: [
     "6 zawodowych muzyków",
-    "Kopie instrumentów z epoki",
-    "Stroje z XV i XIII wieku",
+    "Rzemieślnicze repliki instrumentów z epoki",
+    "Wierne stroje z ikonografii, XIII–XV w.",
     "Pieśni w językach oryginalnych",
   ],
   en: [
     "6 professional musicians",
-    "Replica period instruments",
-    "13th- and 15th-century dress",
+    "Artisan replica period instruments",
+    "Faithful dress from iconography, 13th–15th c.",
     "Songs in original languages",
   ],
   es: [
     "6 músicos profesionales",
-    "Réplicas de instrumentos de época",
-    "Indumentaria de los siglos XIII y XV",
+    "Réplicas artesanales de instrumentos de época",
+    "Indumentaria fiel a la iconografía, siglos XIII–XV",
     "Canciones en lenguas originales",
   ],
   it: [
     "6 musicisti professionisti",
-    "Repliche di strumenti d’epoca",
-    "Abiti del XIII e del XV secolo",
+    "Repliche artigianali di strumenti d’epoca",
+    "Abiti fedeli all’iconografia, XIII–XV secolo",
     "Canti nelle lingue originali",
   ],
 };

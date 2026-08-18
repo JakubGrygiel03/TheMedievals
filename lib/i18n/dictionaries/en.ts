@@ -4,13 +4,13 @@ export const en: Dictionary = {
   meta: {
     title: "The Medievals – Early Music Ensemble",
     description:
-      "The Medievals early-music ensemble. Book medieval concerts for castles, festivals, tournaments, weddings and dance workshops. contact@themedievals.pl.",
+      "The Medievals early-music ensemble (13th–15th c.). Book medieval concerts for castles, festivals, tournaments, weddings and dance workshops. contact@themedievals.pl.",
     keywords:
       "early music ensemble, medieval music band, medieval music concert, historical wedding music, castle concert, knightly tournament music, historical fair music, medieval dance workshops, early music booking",
     contactDescription:
-      "Book a medieval music concert with The Medievals — castles, festivals, weddings and dance workshops. We reply within 48 hours.",
+      "Book a 13th–15th-century music concert with The Medievals — castles, festivals, weddings and dance workshops. We reply within 48 hours.",
     pressDescription:
-      "Press note for The Medievals early-music ensemble: line-up, instruments and artistic profile for organizers and media.",
+      "Press note for The Medievals: music and dress from the 13th to 15th century — line-up, instruments and artistic profile for organizers and media.",
   },
   nav: {
     home: "Home",
@@ -33,7 +33,7 @@ export const en: Dictionary = {
     titleLead: "Medievals",
     titleMain: "Early music",
     pitch:
-      "We are six professional musicians passionate about medieval reenactment. We recreate the 13th and 15th centuries. We perform at battle reenactments, historical picnics and private events.",
+      "We are six professional musicians passionate about medieval reenactment. We recreate music and costumes from the 13th to the 15th century. We perform at battle reenactments, historical picnics and private events.",
     ctaPrimary: "Ask about a date",
     ctaSecondary: "See the offer",
   },
@@ -41,7 +41,7 @@ export const en: Dictionary = {
     eyebrow: "The ensemble",
     heading: "The Medievals early music ensemble",
     goldWord: "",
-    lead: "Courtly and popular music of the 14th–15th centuries. Dress from iconography, artisan replica instruments.",
+    lead: "Courtly and popular music and dress from the 13th to 15th centuries. Artisan replica instruments.",
     instrumentsLabel: "Instruments",
     profileHeading: "The ensemble",
     craftHeading: "Performance authenticity",
@@ -58,6 +58,8 @@ export const en: Dictionary = {
   repertoire: {
     eyebrow: "Programme",
     heading: "The programme",
+    expand: "Show full programme",
+    collapse: "Hide programme",
   },
   media: {
     eyebrow: "Music",
@@ -81,7 +83,7 @@ export const en: Dictionary = {
   },
   offer: {
     eyebrow: "Offer",
-    heading: "Medieval concerts and event music",
+    heading: "13th–15th-century concerts and event music",
     goldWord: "play",
   },
   organizers: {
@@ -153,7 +155,7 @@ export const en: Dictionary = {
   },
   footer: {
     rights: "The Medievals",
-    tagline: "Medieval music live — concerts, events, workshops.",
+    tagline: "13th–15th-century music live — concerts, events, workshops.",
     privacy: "Privacy",
   },
   a11y: {

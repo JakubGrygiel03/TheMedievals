@@ -51,6 +51,8 @@ export type Dictionary = {
   repertoire: {
     eyebrow: string;
     heading: string;
+    expand: string;
+    collapse: string;
   };
   media: {
     eyebrow: string;

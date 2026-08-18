@@ -47,7 +47,7 @@ export function LanguageSwitcher({ lang, label }: LanguageSwitcherProps) {
   return (
     <nav
       aria-label={label}
-      className="flex shrink-0 items-center gap-1 sm:gap-1 lg:gap-1.5"
+      className="lang-switcher flex shrink-0 items-center gap-0.5 sm:gap-1 lg:gap-1.5"
     >
       {locales.map((locale) => {
         const active = locale === lang;
@@ -66,8 +66,8 @@ export function LanguageSwitcher({ lang, label }: LanguageSwitcherProps) {
             }}
             className={
               active
-                ? "block size-7 overflow-hidden rounded-sm border-2 border-vermilion transition duration-300 sm:size-8 lg:size-7"
-                : "block size-7 overflow-hidden rounded-sm border-2 border-[var(--rule)] transition duration-300 hover:scale-105 hover:border-ink/40 sm:size-8 lg:size-7"
+                ? "block size-6 overflow-hidden rounded-sm border border-vermilion transition duration-300 lg:size-7 lg:border-2"
+                : "block size-6 overflow-hidden rounded-sm border border-[var(--rule)] transition duration-300 hover:scale-105 hover:border-ink/40 lg:size-7 lg:border-2"
             }
           >
             <Image

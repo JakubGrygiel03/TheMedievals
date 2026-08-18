@@ -4,13 +4,13 @@ export const es: Dictionary = {
   meta: {
     title: "The Medievals – Ensemble de música antigua",
     description:
-      "Ensemble de música medieval The Medievals. Conciertos para castillos, festivales, torneos, bodas y talleres de danza. contact@themedievals.pl.",
+      "Ensemble The Medievals — música e indumentaria de los siglos XIII al XV. Conciertos para castillos, festivales, torneos, bodas y talleres de danza. contact@themedievals.pl.",
     keywords:
       "ensemble de música antigua, grupo de música medieval, concierto de música medieval, música para boda histórica, concierto en castillo, torneo de caballería, feria histórica, talleres de danza medieval, booking música antigua",
     contactDescription:
-      "Reservad un concierto de música medieval con The Medievals: castillos, festivales, bodas y talleres de danza. Respondemos en 48 horas.",
+      "Reservad un concierto de música de los siglos XIII al XV con The Medievals: castillos, festivales, bodas y talleres de danza. Respondemos en 48 horas.",
     pressDescription:
-      "Nota de prensa del ensemble The Medievals: formación, instrumentos y perfil artístico para organizadores y medios.",
+      "Nota de prensa de The Medievals: música e indumentaria de los siglos XIII al XV — formación, instrumentos y perfil artístico para organizadores y medios.",
   },
   nav: {
     home: "Inicio",
@@ -33,7 +33,7 @@ export const es: Dictionary = {
     titleLead: "Medievals",
     titleMain: "Música antigua",
     pitch:
-      "Somos seis músicos profesionales apasionados por la recreación medieval. Recreamos los siglos XIII y XV. Actuamos en recreaciones de batallas, picnics históricos y eventos privados.",
+      "Somos seis músicos profesionales apasionados por la recreación medieval. Recreamos música e indumentaria de los siglos XIII al XV. Actuamos en recreaciones de batallas, picnics históricos y eventos privados.",
     ctaPrimary: "Consultar una fecha",
     ctaSecondary: "Ver la oferta",
   },
@@ -41,7 +41,7 @@ export const es: Dictionary = {
     eyebrow: "El ensemble",
     heading: "Ensemble de música antigua The Medievals",
     goldWord: "",
-    lead: "Música cortesana y popular de los siglos XIV–XV. Indumentaria según la iconografía, réplicas artesanales.",
+    lead: "Música cortesana y popular e indumentaria de los siglos XIII al XV. Réplicas artesanales de instrumentos.",
     instrumentsLabel: "Instrumentos",
     profileHeading: "El ensemble",
     craftHeading: "Autenticidad interpretativa",
@@ -58,6 +58,8 @@ export const es: Dictionary = {
   repertoire: {
     eyebrow: "Programa",
     heading: "En el programa",
+    expand: "Ver el programa completo",
+    collapse: "Ocultar programa",
   },
   media: {
     eyebrow: "Música",
@@ -81,7 +83,7 @@ export const es: Dictionary = {
   },
   offer: {
     eyebrow: "Oferta",
-    heading: "Conciertos y música medieval para eventos",
+    heading: "Conciertos y música de los siglos XIII al XV",
     goldWord: "tocar",
   },
   organizers: {
@@ -153,7 +155,7 @@ export const es: Dictionary = {
   },
   footer: {
     rights: "The Medievals",
-    tagline: "Música medieval en vivo — conciertos, eventos, talleres.",
+    tagline: "Música de los siglos XIII al XV en vivo — conciertos, eventos, talleres.",
     privacy: "Privacidad",
   },
   a11y: {

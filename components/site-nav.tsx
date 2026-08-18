@@ -44,7 +44,7 @@ export function SiteNav({
   }, []);
 
   return (
-    <>
+    <div className="codex-nav-side">
       <ul className="desktop-nav min-w-0 font-cinzel font-bold">
         {desktopLinks.map((link, index) => (
           <li key={link.href}>
@@ -59,15 +59,15 @@ export function SiteNav({
         ))}
       </ul>
 
-      <div className="codex-nav-tools ml-auto flex min-w-0 shrink-0 items-center gap-2">
+      <div className="codex-nav-tools flex min-w-0 shrink-0 items-center gap-1 sm:gap-2">
         <span
           aria-hidden="true"
-          className="hidden h-6 w-px shrink-0 bg-[var(--ink)]/30 lg:block"
+          className="codex-nav-divider codex-nav-divider--before-langs"
         />
         {languages}
         <span
           aria-hidden="true"
-          className="h-9 w-px shrink-0 bg-[var(--ink)]/30 lg:hidden"
+          className="codex-nav-divider codex-nav-divider--before-menu"
         />
         <div className="relative">
           <button
@@ -95,6 +95,6 @@ export function SiteNav({
           ) : null}
         </div>
       </div>
-    </>
+    </div>
   );
 }

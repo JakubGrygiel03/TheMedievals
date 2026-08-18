@@ -31,6 +31,26 @@ export const members: Member[] = [
     },
   },
   {
+    id: "karina",
+    name: "Karina Raźnikiewicz-Sierka",
+    instrument: {
+      pl: "śpiew główny, vielle sopranowa",
+      en: "lead voice, soprano vielle",
+      es: "voz principal, vielle soprano",
+      it: "voce principale, vielle soprano",
+    },
+  },
+  {
+    id: "liubou",
+    name: "Liubou Tsudzila",
+    instrument: {
+      pl: "flety proste, szałamaja, śpiew",
+      en: "recorders, shawm, voice",
+      es: "flautas dulces, chirimía, voz",
+      it: "flauti dritti, cennamella, voce",
+    },
+  },
+  {
     id: "aleksander",
     name: "Aleksander Brych",
     instrument: {
@@ -48,26 +68,6 @@ export const members: Member[] = [
       en: "gittern, lute, voice",
       es: "gitterna, laúd, voz",
       it: "gittern, liuto, voce",
-    },
-  },
-  {
-    id: "karina",
-    name: "Karina Raźnikiewicz",
-    instrument: {
-      pl: "śpiew, vielle altowa",
-      en: "voice, alto vielle",
-      es: "voz, vielle alto",
-      it: "voce, vielle contralto",
-    },
-  },
-  {
-    id: "liubou",
-    name: "Liubou Tsudzila",
-    instrument: {
-      pl: "flety proste, szałamaja, śpiew",
-      en: "recorders, shawm, voice",
-      es: "flautas dulces, chirimía, voz",
-      it: "flauti dritti, cennamella, voce",
     },
   },
 ];
@@ -94,7 +94,7 @@ export function photoPersonFirstName(id: PhotoPersonId): string {
 }
 
 export const percussionists = {
-  names: ["Cezary Łagan", "Paulina Andrzejak", "Tiago Ragna"],
+  names: ["Paulina Andrzejak", "Cezary Łagan", "Tiago Ragna"],
   instrument: {
     pl: "bęben",
     en: "drum",
