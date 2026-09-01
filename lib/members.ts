@@ -79,7 +79,7 @@ export function memberName(id: MemberId): string {
 const percussionistNames: Record<PercussionistId, string> = {
   paulina: "Paulina Andrzejak",
   cezary: "Cezary Łagan",
-  tiago: "Tiago Ragna",
+  tiago: "Tiago Matos",
 };
 
 export function photoPersonName(id: PhotoPersonId): string {
@@ -94,7 +94,7 @@ export function photoPersonFirstName(id: PhotoPersonId): string {
 }
 
 export const percussionists = {
-  names: ["Paulina Andrzejak", "Cezary Łagan", "Tiago Ragna"],
+  names: ["Paulina Andrzejak", "Cezary Łagan", "Tiago Matos"],
   instrument: {
     pl: "bęben obręczowy",
     en: "frame drum",
