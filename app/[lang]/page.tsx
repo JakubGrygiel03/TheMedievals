@@ -7,7 +7,6 @@ import { MemberCards } from "@/components/member-cards";
 import { OfferSection } from "@/components/offer-section";
 import { GallerySection } from "@/components/gallery-section";
 import { OrganizerZone } from "@/components/organizer-zone";
-import { PortfolioSection } from "@/components/portfolio-section";
 import { RepertoireSection } from "@/components/repertoire-section";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { isLocale } from "@/lib/i18n/config";
@@ -57,7 +56,6 @@ export default async function HomePage({ params }: PageProps) {
       <MemberCards lang={lang} copy={dictionary.members} />
       <MediaPlayer dictionary={dictionary} />
       <RepertoireSection lang={lang} dictionary={dictionary} />
-      <PortfolioSection lang={lang} dictionary={dictionary} />
       <GallerySection lang={lang} dictionary={dictionary} />
       <OrganizerZone lang={lang} dictionary={dictionary} />
       <ContactSection lang={lang} dictionary={dictionary} />

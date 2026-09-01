@@ -8,10 +8,11 @@ export type OfferItem = {
 
 export const clientOffers: Record<
   Locale,
-  { lead: string; items: OfferItem[] }
+  { venuesNote: string; items: OfferItem[] }
 > = {
   pl: {
-    lead: "Pięć formatów występu. Przyjeżdżamy ze strojami i instrumentami z epoki XIII–XV oraz gotowym programem.",
+    venuesNote:
+      "Występujemy podczas wydarzeń historycznych: rekonstrukcji bitew, turniejów rycerskich, jarmarków, festiwali archeologicznych.",
     items: [
       {
         title: "Koncert z opowieścią o instrumentach",
@@ -19,51 +20,45 @@ export const clientOffers: Record<
         body: "Koncert muzyki od XIII do XV wieku wraz z przedstawieniem instrumentów, ich budowy i pochodzenia oraz przybliżeniem historii i treści granego repertuaru. Dodatkowo istnieje możliwość poprowadzenia warsztatów tańca z tego okresu podczas występu na żywo.",
       },
       {
-        title: "Festiwale i turnieje rycerskie",
-        body: "Energetyczna muzyka plenerowa, dynamiczne tańce i pieśni. Brzmienie, które niesie się nad obozem, areną i jarmarkiem.",
+        title: "Stanowisko muzyczne",
+        body: "Prowadzimy przedstawienie instrumentów na wyznaczonym stanowisku, opowiadamy o ich pochodzeniu, pokazujemy technikę gry oraz dajemy możliwość spróbowania swoich sił w grze na wybranym przez nas instrumencie.",
       },
       {
-        title: "Wydarzenia zamkowe i kameralne",
-        body: "Nastrojowy repertuar dworski w przestrzeniach historycznych: zamki, dwory, krużganki i sale kominkowe.",
+        title: "Warsztaty tańca dawnego",
+        body: "Animacja publiczności i nauka tradycyjnych kroków. Osobny warsztat albo dodatek do koncertu.",
       },
       {
-        title: "Warsztaty dawnego tańca",
-        body: "Animacja publiczności i nauka tradycyjnych kroków. Osobny warsztat albo dodatek do koncertu — goście słuchają i tańczą, jeśli chcecie.",
-      },
-      {
-        title: "Uroczystości i bankiety",
-        body: "Oprawa ślubów historycznych, biesiad i eventów tematycznych. Kameralnie albo z pełnym składem.",
+        title: "Oprawa uroczystości",
+        body: "Oprawa ślubów historycznych, biesiad, eventów tematycznych, bankietów oraz imprez firmowych. Kameralnie albo w pełnym składzie.",
       },
     ],
   },
   en: {
-    lead: "Five performance formats. We arrive with 13th–15th-century costumes and instruments and a finished programme.",
+    venuesNote:
+      "We perform at historical events: battle reenactments, knightly tournaments, fairs and archaeological festivals.",
     items: [
       {
         title: "Concert with instrument stories",
         featured: true,
-        body: "A 13th–15th-century music concert with a presentation of the instruments — how they are built and where they come from — and an introduction to the history and meaning of the repertoire. Dance workshops from the same period can also be led during the live performance.",
+        body: "A 13th–15th-century music concert with a presentation of the instruments — how they are built and where they come from — and an introduction to the history and meaning of the repertoire. Dance workshops from this period can also be led during the live performance.",
       },
       {
-        title: "Festivals and knightly tournaments",
-        body: "Energetic outdoor music, lively dances and songs that carry across a camp, arena or fair.",
+        title: "Music station",
+        body: "We present the instruments at a dedicated stand, talk about their origin, demonstrate playing technique and give visitors the chance to try an instrument we choose.",
       },
       {
-        title: "Castle and chamber events",
-        body: "Courtly repertoire for historic rooms: castles, manor houses, cloisters and fireside halls.",
+        title: "Early dance workshops",
+        body: "Audience animation and traditional steps. A standalone workshop, or an addition to the concert.",
       },
       {
-        title: "Early-dance workshops",
-        body: "Audience animation and traditional steps. A standalone workshop, or an addition to the concert. Guests listen — and dance, if you wish.",
-      },
-      {
-        title: "Ceremonies and banquets",
-        body: "Music for historical weddings, feasts and themed events. Intimate, or with the full ensemble.",
+        title: "Ceremonial music",
+        body: "Music for historical weddings, feasts, themed events, banquets and corporate events. Intimate, or with the full ensemble.",
       },
     ],
   },
   es: {
-    lead: "Cinco formatos de actuación. Llegamos con trajes e instrumentos de los siglos XIII al XV y un programa cerrado.",
+    venuesNote:
+      "Actuamos en eventos históricos: recreaciones de batallas, torneos de caballería, ferias y festivales arqueológicos.",
     items: [
       {
         title: "Concierto con relato de instrumentos",
@@ -71,25 +66,22 @@ export const clientOffers: Record<
         body: "Un concierto de música de los siglos XIII al XV con presentación de los instrumentos — su construcción y origen — y una introducción a la historia y el sentido del repertorio. También es posible dirigir talleres de danza de este periodo durante la actuación en vivo.",
       },
       {
-        title: "Festivales y torneos de caballería",
-        body: "Música enérgica al aire libre, danzas y canciones que llenan el campamento, la arena o la feria.",
-      },
-      {
-        title: "Eventos en castillos y de cámara",
-        body: "Repertorio cortesano para espacios históricos: castillos, palacios, claustros y salas junto al fuego.",
+        title: "Puesto musical",
+        body: "Presentamos los instrumentos en un puesto señalado, hablamos de su origen, mostramos la técnica de interpretación y damos la posibilidad de probar un instrumento elegido por nosotros.",
       },
       {
         title: "Talleres de danza antigua",
-        body: "Animación del público y pasos tradicionales. Un taller aparte, o un añadido al concierto. Los invitados escuchan — y bailan, si lo deseáis.",
+        body: "Animación del público y pasos tradicionales. Un taller aparte, o un añadido al concierto.",
       },
       {
-        title: "Ceremonias y banquetes",
-        body: "Música para bodas históricas, festines y eventos temáticos. Íntimo, o con el ensemble completo.",
+        title: "Música para ceremonias",
+        body: "Música para bodas históricas, festines, eventos temáticos, banquetes y eventos de empresa. Íntimo, o con el ensemble completo.",
       },
     ],
   },
   it: {
-    lead: "Cinque formati di spettacolo. Arriviamo con costumi e strumenti dal XIII al XV secolo e un programma pronto.",
+    venuesNote:
+      "Suoniamo in eventi storici: rievocazioni di battaglie, tornei cavallereschi, fiere e festival archeologici.",
     items: [
       {
         title: "Concerto con racconto degli strumenti",
@@ -97,20 +89,16 @@ export const clientOffers: Record<
         body: "Un concerto di musica dal XIII al XV secolo con presentazione degli strumenti — costruzione e origine — e un avvicinamento alla storia e al significato del repertorio. È inoltre possibile condurre laboratori di danza dello stesso periodo durante l’esibizione dal vivo.",
       },
       {
-        title: "Festival e tornei cavallereschi",
-        body: "Musica energica all’aperto, danze e canti che riempiono accampamento, arena o fiera.",
-      },
-      {
-        title: "Eventi in castello e da camera",
-        body: "Repertorio di corte per spazi storici: castelli, dimore, chiostri e sale al focolare.",
+        title: "Postazione musicale",
+        body: "Presentiamo gli strumenti in una postazione dedicata, raccontiamo la loro origine, mostriamo la tecnica di esecuzione e diamo la possibilità di provare uno strumento scelto da noi.",
       },
       {
         title: "Laboratori di danza antica",
-        body: "Animazione del pubblico e passi tradizionali. Un laboratorio a sé, oppure un’aggiunta al concerto. Gli ospiti ascoltano — e ballano, se lo desiderate.",
+        body: "Animazione del pubblico e passi tradizionali. Un laboratorio a sé, oppure un’aggiunta al concerto.",
       },
       {
-        title: "Cerimonie e banchetti",
-        body: "Musica per matrimoni storici, conviti ed eventi a tema. Intimo, oppure con l’ensemble al completo.",
+        title: "Musica per cerimonie",
+        body: "Musica per matrimoni storici, conviti, eventi a tema, banchetti ed eventi aziendali. Intimo, oppure con l’ensemble al completo.",
       },
     ],
   },

@@ -1,4 +1,4 @@
-import { InkRule } from "@/components/motion/reveal";
+import { IlluminatedStem } from "@/components/illuminated-stem";
 
 type EditorialHeadingProps = {
   eyebrow?: string;
@@ -19,8 +19,10 @@ export function EditorialHeading({
       {eyebrow ? (
         <p className="editorial-eyebrow">{eyebrow}</p>
       ) : null}
-      <Title className="editorial-title">{heading}</Title>
-      <InkRule />
+      <div className="editorial-title-block">
+        <Title className="editorial-title">{heading}</Title>
+        <IlluminatedStem />
+      </div>
     </header>
   );
 }

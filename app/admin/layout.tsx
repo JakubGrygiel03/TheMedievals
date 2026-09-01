@@ -24,6 +24,12 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pl" className={`${cinzel.variable} ${cormorant.variable}`}>
       <body className="min-h-full bg-[var(--parchment)] font-body text-[var(--ink)] antialiased">
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              '(function(){try{if(localStorage.getItem("medievals-theme")==="day")document.documentElement.setAttribute("data-theme","day")}catch(e){}})();',
+          }}
+        />
         {children}
       </body>
     </html>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { SiteNav } from "@/components/site-nav";
+import { ThemeToggle } from "@/components/theme-toggle";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/types";
 
@@ -14,11 +15,6 @@ export function CodexHeader({ lang, dictionary }: CodexHeaderProps) {
     { href: `/${lang}#o-nas`, label: dictionary.nav.about },
     { href: `/${lang}#oferta`, label: dictionary.nav.offer },
     { href: `/${lang}#muzycy`, label: dictionary.nav.members },
-    {
-      href: `/${lang}#portfolio`,
-      label: dictionary.nav.portfolio,
-      desktop: false,
-    },
     { href: `/${lang}#galeria`, label: dictionary.nav.gallery },
     { href: `/${lang}#program`, label: dictionary.nav.program },
     {
@@ -46,6 +42,12 @@ export function CodexHeader({ lang, dictionary }: CodexHeaderProps) {
             closeLabel={dictionary.a11y.closeMenu}
             languages={
               <LanguageSwitcher lang={lang} label={dictionary.a11y.language} />
+            }
+            themeToggle={
+              <ThemeToggle
+                nightLabel={dictionary.a11y.toggleNight}
+                dayLabel={dictionary.a11y.toggleDay}
+              />
             }
           />
         </nav>

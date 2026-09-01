@@ -129,17 +129,17 @@ export function InkRule() {
   const reduce = useReducedMotion();
 
   if (reduce) {
-    return <div className="ornament-rule" aria-hidden="true" />;
+    return <span className="ornament-rule" aria-hidden="true" />;
   }
 
   return (
-    <motion.div
+    <motion.span
       className="ornament-rule"
       aria-hidden="true"
       initial={{ scaleX: 0, opacity: 0 }}
       whileInView={{ scaleX: 1, opacity: 1 }}
-      viewport={{ once: true, amount: 0.9 }}
-      transition={{ duration: 0.7, delay: 0.12, ease }}
+      viewport={{ once: true, amount: 0.8 }}
+      transition={{ duration: 0.55, delay: 0.08, ease }}
       style={{ originX: 0 }}
     />
   );

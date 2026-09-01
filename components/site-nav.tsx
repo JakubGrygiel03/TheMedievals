@@ -15,6 +15,7 @@ type SiteNavProps = {
   menuLabel: string;
   closeLabel: string;
   languages: ReactNode;
+  themeToggle: ReactNode;
 };
 
 export function SiteNav({
@@ -22,6 +23,7 @@ export function SiteNav({
   menuLabel,
   closeLabel,
   languages,
+  themeToggle,
 }: SiteNavProps) {
   const [open, setOpen] = useState(false);
   const desktopLinks = links.filter((link) => link.desktop !== false);
@@ -65,6 +67,7 @@ export function SiteNav({
           className="codex-nav-divider codex-nav-divider--before-langs"
         />
         {languages}
+        {themeToggle}
         <span
           aria-hidden="true"
           className="codex-nav-divider codex-nav-divider--before-menu"

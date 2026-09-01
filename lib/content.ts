@@ -87,10 +87,10 @@ export function getBalancedRepertoireSplit(
 }
 
 export const repertoireCopy: Localized = {
-  pl: "Repertuar obejmuje ponad dwadzieścia europejskich utworów z XIII–XV wieku — świeckich i religijnych — śpiewanych w oryginalnych językach. Wykonujemy pieśni wokalno-instrumentalne, utwory instrumentalne oraz tańce.",
-  en: "The programme holds more than twenty European pieces from the 13th–15th centuries, secular and sacred, sung in their original languages. We perform vocal-instrumental songs, instrumental works and dances.",
-  es: "El repertorio reúne más de veinte piezas europeas de los siglos XIII al XV, profanas y religiosas, cantadas en sus lenguas originales. Interpretamos canciones vocal-instrumentales, obras instrumentales y danzas.",
-  it: "Il repertorio comprende oltre venti brani europei dal XIII al XV secolo, sacri e profani, cantati nelle lingue originali. Eseguiamo canti vocali-strumentali, brani strumentali e danze.",
+  pl: "Repertuar obejmuje ponad dwadzieścia europejskich utworów z XII–XV wieku — świeckich i religijnych — śpiewanych w oryginalnych językach. Wykonujemy pieśni wokalno-instrumentalne, utwory instrumentalne oraz tańce.",
+  en: "The programme holds more than twenty European pieces from the 12th–15th centuries, secular and sacred, sung in their original languages. We perform vocal-instrumental songs, instrumental works and dances.",
+  es: "El repertorio reúne más de veinte piezas europeas de los siglos XII al XV, profanas y religiosas, cantadas en sus lenguas originales. Interpretamos canciones vocal-instrumentales, obras instrumentales y danzas.",
+  it: "Il repertorio comprende oltre venti brani europei dal XII al XV secolo, sacri e profani, cantati nelle lingue originali. Eseguiamo canti vocali-strumentali, brani strumentali e danze.",
 };
 
 export const videoClipCopy = {

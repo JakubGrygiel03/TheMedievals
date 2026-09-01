@@ -96,16 +96,16 @@ export function photoPersonFirstName(id: PhotoPersonId): string {
 export const percussionists = {
   names: ["Paulina Andrzejak", "Cezary Łagan", "Tiago Ragna"],
   instrument: {
-    pl: "bęben",
-    en: "drum",
-    es: "tambor",
-    it: "tamburo",
+    pl: "bęben obręczowy",
+    en: "frame drum",
+    es: "tambor de marco",
+    it: "tamburo a cornice",
   } satisfies Localized,
   note: {
-    pl: "Na koncercie gra jedna z tych osób na bębnie.",
-    en: "One of these people plays the drum at each concert.",
-    es: "En cada concierto toca el tambor una de estas personas.",
-    it: "A ogni concerto suona il tamburo una di queste persone.",
+    pl: "Muzycy sesyjni:",
+    en: "Session musicians:",
+    es: "Músicos de sesión:",
+    it: "Musicisti di sessione:",
   } satisfies Localized,
 };
 
@@ -119,7 +119,7 @@ export function schemaMembers(lang: Locale) {
   const drums = percussionists.names.map((name) => ({
     "@type": "Person" as const,
     name,
-    jobTitle: `${percussionists.instrument[lang]} (${percussionists.note[lang]})`,
+    jobTitle: percussionists.instrument[lang],
   }));
 
   return [...core, ...drums];

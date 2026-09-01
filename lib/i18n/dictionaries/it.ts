@@ -21,7 +21,6 @@ export const it: Dictionary = {
     offer: "Offerta",
     book: "Prenota un concerto",
     contact: "Contatto",
-    portfolio: "Portfolio",
     gallery: "Galleria",
     program: "Programma",
     press: "Press kit",
@@ -83,7 +82,7 @@ export const it: Dictionary = {
   },
   offer: {
     eyebrow: "Offerta",
-    heading: "Concerti e musica dal XIII al XV secolo",
+    heading: "Nell’offerta:",
     goldWord: "suonare",
   },
   organizers: {
@@ -93,11 +92,6 @@ export const it: Dictionary = {
     rider: "Rider e pianta palco (PDF)",
     pressNote: "Nota stampa",
     photos: "Foto ufficiale",
-  },
-  portfolio: {
-    eyebrow: "Realizzazioni",
-    heading: "Dove suoniamo: castelli, tornei, fiere",
-    lead: "Tipi di luoghi ed eventi in cui suoniamo.",
   },
   gallery: {
     eyebrow: "Foto",
@@ -160,8 +154,8 @@ export const it: Dictionary = {
   },
   a11y: {
     skipToContent: "Vai al contenuto",
-    toggleNight: "Passa alla sera attorno al fuoco",
-    toggleDay: "Passa al codice diurno",
+    toggleNight: "Passa al tema bordeaux",
+    toggleDay: "Passa al tema chiaro",
     language: "Scegli la lingua",
     menu: "Menu",
     closeMenu: "Chiudi il menu",

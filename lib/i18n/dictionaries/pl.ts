@@ -21,7 +21,6 @@ export const pl: Dictionary = {
     offer: "Oferta",
     book: "Zamów koncert",
     contact: "Kontakt",
-    portfolio: "Portfolio",
     gallery: "Galeria",
     program: "Program",
     press: "Materiały",
@@ -83,7 +82,7 @@ export const pl: Dictionary = {
   },
   offer: {
     eyebrow: "Oferta",
-    heading: "Koncerty i oprawa muzyki od XIII do XV wieku",
+    heading: "W ofercie:",
     goldWord: "zagrać",
   },
   organizers: {
@@ -93,11 +92,6 @@ export const pl: Dictionary = {
     rider: "Rider i plan sceny (PDF)",
     pressNote: "Notka prasowa",
     photos: "Zdjęcie oficjalne",
-  },
-  portfolio: {
-    eyebrow: "Realizacje",
-    heading: "Gdzie gramy: zamki, turnieje, jarmarki",
-    lead: "Wybrane typy miejsc i wydarzeń, na których gramy.",
   },
   gallery: {
     eyebrow: "Zdjęcia",
@@ -160,8 +154,8 @@ export const pl: Dictionary = {
   },
   a11y: {
     skipToContent: "Przejdź do treści",
-    toggleNight: "Włącz wieczór przy ognisku",
-    toggleDay: "Włącz dzień kodeksu",
+    toggleNight: "Włącz motyw burgundowy",
+    toggleDay: "Włącz motyw jasny",
     language: "Wybierz język",
     menu: "Menu",
     closeMenu: "Zamknij menu",

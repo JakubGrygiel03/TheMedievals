@@ -1,5 +1,6 @@
 import { StaggerItem, StaggerList } from "@/components/motion/reveal";
 import { FolioSection } from "@/components/ui/folio-section";
+import { RuledSubhead } from "@/components/ui/ruled-subhead";
 import { members, percussionists } from "@/lib/members";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/types";
@@ -16,7 +17,7 @@ export function MemberCards({ lang, copy }: MemberCardsProps) {
         {copy.lead}
       </p>
 
-      <h3 className="member-group-title">{copy.coreHeading}</h3>
+      <RuledSubhead>{copy.coreHeading}</RuledSubhead>
       <StaggerList className="member-core-grid mt-4">
         {members.map((member) => (
           <StaggerItem key={member.id} className="folio-panel p-6">
@@ -26,7 +27,7 @@ export function MemberCards({ lang, copy }: MemberCardsProps) {
         ))}
       </StaggerList>
 
-      <h3 className="member-group-title">{copy.percussionHeading}</h3>
+      <RuledSubhead>{copy.percussionHeading}</RuledSubhead>
       <p className="member-slot-note">{percussionists.note[lang]}</p>
       <StaggerList className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {percussionists.names.map((name) => (

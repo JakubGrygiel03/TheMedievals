@@ -15,7 +15,6 @@ export type Dictionary = {
     offer: string;
     book: string;
     contact: string;
-    portfolio: string;
     gallery: string;
     program: string;
     press: string;
@@ -85,11 +84,6 @@ export type Dictionary = {
     rider: string;
     pressNote: string;
     photos: string;
-  };
-  portfolio: {
-    eyebrow: string;
-    heading: string;
-    lead: string;
   };
   gallery: {
     eyebrow: string;

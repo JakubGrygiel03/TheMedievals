@@ -21,7 +21,6 @@ export const en: Dictionary = {
     offer: "Offer",
     book: "Book a concert",
     contact: "Contact",
-    portfolio: "Portfolio",
     gallery: "Gallery",
     program: "Programme",
     press: "Press kit",
@@ -83,7 +82,7 @@ export const en: Dictionary = {
   },
   offer: {
     eyebrow: "Offer",
-    heading: "13th–15th-century concerts and event music",
+    heading: "In the offer:",
     goldWord: "play",
   },
   organizers: {
@@ -93,11 +92,6 @@ export const en: Dictionary = {
     rider: "Rider & stage plan (PDF)",
     pressNote: "Press note",
     photos: "Official photo",
-  },
-  portfolio: {
-    eyebrow: "Past work",
-    heading: "Where we play: castles, tournaments, fairs",
-    lead: "Selected kinds of venues and events we play.",
   },
   gallery: {
     eyebrow: "Photos",
@@ -160,8 +154,8 @@ export const en: Dictionary = {
   },
   a11y: {
     skipToContent: "Skip to content",
-    toggleNight: "Switch to campfire evening",
-    toggleDay: "Switch to daylight codex",
+    toggleNight: "Switch to burgundy theme",
+    toggleDay: "Switch to light parchment theme",
     language: "Choose language",
     menu: "Menu",
     closeMenu: "Close menu",

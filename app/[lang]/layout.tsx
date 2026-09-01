@@ -3,6 +3,7 @@ import { Cinzel, Cormorant_Garamond, MedievalSharp } from "next/font/google";
 import Script from "next/script";
 import { notFound } from "next/navigation";
 import { BookMargins } from "@/components/book-margins";
+import { HeraldicVeil } from "@/components/heraldic-veil";
 import { CodexHeader } from "@/components/codex-header";
 import { CodexFooter } from "@/components/codex-footer";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -92,14 +93,21 @@ export default async function LangLayout({ children, params }: LayoutProps) {
   return (
     <html lang={lang} className={`${cinzel.variable} ${cormorant.variable} ${medievalSharp.variable} h-full`}>
       <body className="book-folio min-h-full antialiased">
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              '(function(){try{if(localStorage.getItem("medievals-theme")==="day")document.documentElement.setAttribute("data-theme","day")}catch(e){}})();',
+          }}
+        />
         <Script src="/desktop-viewport.js" strategy="beforeInteractive" />
         <a
           href="#tresc"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-[max(1rem,calc(var(--book-margin)+1rem))] focus:top-4 focus:z-50 focus:bg-vermilion focus:px-3 focus:py-2 focus:text-white"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-[max(1rem,calc(var(--book-margin)+1rem))] focus:top-4 focus:z-50 focus:bg-vermilion focus:px-3 focus:py-2 focus:text-[var(--on-accent)]"
         >
           {dictionary.a11y.skipToContent}
         </a>
         <BookMargins />
+        <HeraldicVeil />
         <JsonLd lang={lang} dictionary={dictionary} concerts={concerts} />
         <CodexHeader lang={lang} dictionary={dictionary} />
         {children}
