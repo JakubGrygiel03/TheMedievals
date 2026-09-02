@@ -49,7 +49,6 @@ export function RepertoireSection({ lang, dictionary }: RepertoireSectionProps) 
       id="program"
       eyebrow={dictionary.repertoire.eyebrow}
       heading={dictionary.repertoire.heading}
-      tone="wash"
     >
       <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[var(--ink-soft)]">
         {repertoireCopy[lang]}

@@ -15,8 +15,8 @@ export function GallerySection({ lang, dictionary }: GallerySectionProps) {
       id="galeria"
       eyebrow={dictionary.gallery.eyebrow}
       heading={dictionary.gallery.heading}
-      reveal={false}
       tone="wash"
+      reveal={false}
     >
       <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[var(--ink-soft)]">
         {dictionary.gallery.lead}

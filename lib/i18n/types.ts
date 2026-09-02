@@ -11,9 +11,7 @@ export type Dictionary = {
     about: string;
     members: string;
     media: string;
-    tour: string;
     offer: string;
-    book: string;
     contact: string;
     gallery: string;
     program: string;
@@ -21,10 +19,6 @@ export type Dictionary = {
   };
   hero: {
     heading: string;
-    kicker: string;
-    lineup: string;
-    titleLead: string;
-    titleMain: string;
     pitch: string;
     ctaPrimary: string;
     ctaSecondary: string;
@@ -32,8 +26,6 @@ export type Dictionary = {
   about: {
     eyebrow: string;
     heading: string;
-    goldWord: string;
-    lead: string;
     instrumentsLabel: string;
     profileHeading: string;
     craftHeading: string;
@@ -44,8 +36,6 @@ export type Dictionary = {
     lead: string;
     coreHeading: string;
     percussionHeading: string;
-    flipHint: string;
-    instrumentsHeading: string;
   };
   repertoire: {
     eyebrow: string;
@@ -56,26 +46,14 @@ export type Dictionary = {
   media: {
     eyebrow: string;
     heading: string;
-    goldWord: string;
     listen: string;
     premiere: string;
     playerHeading: string;
     playerLead: string;
-    youtube: string;
-    youtubeSoon: string;
-  };
-  tour: {
-    eyebrow: string;
-    heading: string;
-    empty: string;
-    request: string;
-    past: string;
-    tickets: string;
   };
   offer: {
     eyebrow: string;
     heading: string;
-    goldWord: string;
   };
   organizers: {
     eyebrow: string;
@@ -89,13 +67,6 @@ export type Dictionary = {
     eyebrow: string;
     heading: string;
     lead: string;
-  };
-  booking: {
-    eyebrow: string;
-    heading: string;
-    goldWord: string;
-    lead: string;
-    cta: string;
   };
   contact: {
     heading: string;
@@ -139,7 +110,6 @@ export type Dictionary = {
     };
   };
   footer: {
-    rights: string;
     tagline: string;
     privacy: string;
   };

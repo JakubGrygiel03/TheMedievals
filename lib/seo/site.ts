@@ -10,12 +10,9 @@ export const siteConfig = {
   url: resolveSiteUrl(),
   email: "contact@themedievals.pl",
   inbox: "the.medievals.org@gmail.com",
-  phone: "",
   social: {
     spotify: "https://open.spotify.com/artist/637sxsUGfwehtTHoUNnWER",
     youtube: "https://www.youtube.com/channel/UCwnpaJ0l0MEX2jjbobER-7w",
-    youtubePlaylist:
-      "https://www.youtube.com/playlist?list=PLPZzRLQy8somTvumhwTZhWuual9qRbqbf",
     instagram: "https://www.instagram.com/the_medievals_official/",
     facebook: "https://www.facebook.com/TheMedievalsofficial",
   },
@@ -23,9 +20,6 @@ export const siteConfig = {
     spotify:
       process.env.NEXT_PUBLIC_SPOTIFY_EMBED_URL ||
       "https://open.spotify.com/embed/artist/637sxsUGfwehtTHoUNnWER?utm_source=generator",
-    youtube:
-      process.env.NEXT_PUBLIC_YOUTUBE_EMBED_URL ||
-      "https://www.youtube.com/embed/nIUcs-GJ-5E",
     videos: [
       {
         id: "nIUcs-GJ-5E",
@@ -44,6 +38,9 @@ export const siteConfig = {
     "Muzyka średniowieczna",
   ],
 } as const;
+
+/** Bump when public copy or assets change, so sitemap lastmod stays stable. */
+export const contentRevisedAt = new Date("2026-09-02T00:00:00.000Z");
 
 export function localePath(lang: string, path = "") {
   const normalized = path.startsWith("/") ? path : `/${path}`;

@@ -12,7 +12,7 @@ export const clientOffers: Record<
 > = {
   pl: {
     venuesNote:
-      "Występujemy podczas wydarzeń historycznych: rekonstrukcji bitew, turniejów rycerskich, jarmarków, festiwali archeologicznych.",
+      "Oprawa muzyczna wydarzeń historycznych: rekonstrukcje bitew, turnieje rycerskie, jarmarki, festiwale archeologiczne i koncerty na zamkach.",
     items: [
       {
         title: "Koncert z opowieścią o instrumentach",
@@ -28,7 +28,7 @@ export const clientOffers: Record<
         body: "Animacja publiczności i nauka tradycyjnych kroków. Osobny warsztat albo dodatek do koncertu.",
       },
       {
-        title: "Oprawa uroczystości",
+        title: "Oprawa muzyczna ślubów i uroczystości",
         body: "Oprawa ślubów historycznych, biesiad, eventów tematycznych, bankietów oraz imprez firmowych. Kameralnie albo w pełnym składzie.",
       },
     ],
@@ -51,7 +51,7 @@ export const clientOffers: Record<
         body: "Audience animation and traditional steps. A standalone workshop, or an addition to the concert.",
       },
       {
-        title: "Ceremonial music",
+        title: "Music for historical weddings and ceremonies",
         body: "Music for historical weddings, feasts, themed events, banquets and corporate events. Intimate, or with the full ensemble.",
       },
     ],
@@ -74,7 +74,7 @@ export const clientOffers: Record<
         body: "Animación del público y pasos tradicionales. Un taller aparte, o un añadido al concierto.",
       },
       {
-        title: "Música para ceremonias",
+        title: "Música para bodas y ceremonias históricas",
         body: "Música para bodas históricas, festines, eventos temáticos, banquetes y eventos de empresa. Íntimo, o con el ensemble completo.",
       },
     ],
@@ -97,7 +97,7 @@ export const clientOffers: Record<
         body: "Animazione del pubblico e passi tradizionali. Un laboratorio a sé, oppure un’aggiunta al concerto.",
       },
       {
-        title: "Musica per cerimonie",
+        title: "Musica per matrimoni e cerimonie storiche",
         body: "Musica per matrimoni storici, conviti, eventi a tema, banchetti ed eventi aziendali. Intimo, oppure con l’ensemble al completo.",
       },
     ],

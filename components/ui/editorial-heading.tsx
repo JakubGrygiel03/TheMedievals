@@ -3,7 +3,6 @@ import { IlluminatedStem } from "@/components/illuminated-stem";
 type EditorialHeadingProps = {
   eyebrow?: string;
   heading: string;
-  goldWord?: string;
   as?: "h1" | "h2";
 };
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-json-ld";
 import { EditorialHeading } from "@/components/ui/editorial-heading";
 import { FolioBackLink } from "@/components/ui/folio-back-link";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
@@ -49,6 +50,11 @@ export default async function PrivacyPage({ params }: PageProps) {
   return (
     <main id="tresc" className="relative z-10 mx-auto max-w-2xl px-5 py-16">
       <FolioBackLink href={`/${lang}`} label={dictionary.a11y.back} />
+      <BreadcrumbJsonLd
+        lang={lang}
+        homeLabel={dictionary.nav.home}
+        current={{ name: copy.heading, path: "/prywatnosc" }}
+      />
       <EditorialHeading
         as="h1"
         eyebrow={dictionary.footer.privacy}

@@ -44,20 +44,11 @@ export function socialMetadata({
       siteName: "The Medievals",
       title,
       description,
-      images: [
-        {
-          url: "/hero.png",
-          width: 1024,
-          height: 571,
-          alt: title,
-        },
-      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: ["/hero.png"],
     },
   };
 }

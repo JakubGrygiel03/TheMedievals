@@ -93,24 +93,3 @@ export const repertoireCopy: Localized = {
   it: "Il repertorio comprende oltre venti brani europei dal XII al XV secolo, sacri e profani, cantati nelle lingue originali. Eseguiamo canti vocali-strumentali, brani strumentali e danze.",
 };
 
-export const videoClipCopy = {
-  date: "2023-02-25",
-  title: {
-    pl: "Premierowy teledysk The Medievals",
-    en: "The Medievals premiere music video",
-    es: "Videoclip estreno de The Medievals",
-    it: "Videoclip di debutto di The Medievals",
-  } satisfies Localized,
-  credits: [
-    "Piotr Kasiłowski – arrangement",
-    "Paulina Andrzejak – frame drum",
-    "Adrianna Ciemińska – vielle",
-    "Karina Raźnikiewicz-Sierka – lead voice, soprano vielle",
-    "Liubou Tsudzila – medieval recorder",
-    "Rafał Klej – gittern",
-    "Paweł Tomaszewski – hurdy-gurdy",
-    "guest cast – Sebastian Sierka, Karol Matusiak, Kacper Karabin",
-    "produced by – CINEMAGIC",
-    "recordings, mix & mastering – Oskar Tracz",
-  ],
-};

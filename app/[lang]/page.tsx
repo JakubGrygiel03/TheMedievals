@@ -5,9 +5,12 @@ import { EnsembleHero } from "@/components/ensemble-hero";
 import { MediaPlayer } from "@/components/media-player";
 import { MemberCards } from "@/components/member-cards";
 import { OfferSection } from "@/components/offer-section";
+import { FaqSection } from "@/components/faq-section";
 import { GallerySection } from "@/components/gallery-section";
 import { OrganizerZone } from "@/components/organizer-zone";
+import { ReleasesSection } from "@/components/releases-section";
 import { RepertoireSection } from "@/components/repertoire-section";
+import { HomeJsonLd } from "@/components/seo/home-json-ld";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { isLocale } from "@/lib/i18n/config";
 import { hreflangMap, socialMetadata } from "@/lib/seo/metadata";
@@ -55,10 +58,13 @@ export default async function HomePage({ params }: PageProps) {
       <OfferSection lang={lang} dictionary={dictionary} />
       <MemberCards lang={lang} copy={dictionary.members} />
       <MediaPlayer dictionary={dictionary} />
+      <ReleasesSection lang={lang} dictionary={dictionary} />
       <RepertoireSection lang={lang} dictionary={dictionary} />
       <GallerySection lang={lang} dictionary={dictionary} />
       <OrganizerZone lang={lang} dictionary={dictionary} />
+      <FaqSection lang={lang} />
       <ContactSection lang={lang} dictionary={dictionary} />
+      <HomeJsonLd lang={lang} />
     </main>
   );
 }

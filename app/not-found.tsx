@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function NotFound() {
   return (
     <html lang="pl">
@@ -5,9 +7,9 @@ export default function NotFound() {
         <main>
           <h1 className="text-3xl">Karta nie znaleziona</h1>
           <p className="mt-3">Ten folio nie istnieje w kodeksie.</p>
-          <a className="mt-6 inline-block underline" href="/pl">
+          <Link className="mt-6 inline-block underline" href="/pl">
             Wróć do The Medievals
-          </a>
+          </Link>
         </main>
       </body>
     </html>

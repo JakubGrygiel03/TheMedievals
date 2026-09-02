@@ -18,6 +18,13 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   robots: { index: false, follow: false },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [{ url: "/apple-icon.png", type: "image/png", sizes: "180x180" }],
+  },
 };
 
 export default function AdminLayout({ children }: { children: ReactNode }) {

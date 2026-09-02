@@ -4,9 +4,9 @@ export const en: Dictionary = {
   meta: {
     title: "The Medievals – Early Music Ensemble",
     description:
-      "The Medievals early-music ensemble (13th–15th c.). Book medieval concerts for castles, festivals, tournaments, weddings and dance workshops. contact@themedievals.pl.",
+      "The Medievals — early and medieval music ensemble (13th–15th c.). Concerts for castles, festivals and tournaments, plus music for historical events and weddings. contact@themedievals.pl.",
     keywords:
-      "early music ensemble, medieval music band, medieval music concert, historical wedding music, castle concert, knightly tournament music, historical fair music, medieval dance workshops, early music booking",
+      "early music ensemble, medieval music band, medieval music concerts, historical event music, medieval wedding music, castle concert, knightly tournament music, historical fair music, medieval dance workshops, early music booking",
     contactDescription:
       "Book a 13th–15th-century music concert with The Medievals — castles, festivals, weddings and dance workshops. We reply within 48 hours.",
     pressDescription:
@@ -17,9 +17,7 @@ export const en: Dictionary = {
     about: "About",
     members: "Musicians",
     media: "Recordings",
-    tour: "Concerts",
     offer: "Offer",
-    book: "Book a concert",
     contact: "Contact",
     gallery: "Gallery",
     program: "Programme",
@@ -27,10 +25,6 @@ export const en: Dictionary = {
   },
   hero: {
     heading: "The Medievals – Early Music Ensemble",
-    kicker: "Early Music Ensemble",
-    lineup: "Vielle · Voice · Recorders · Shawm · Gittern · Drum",
-    titleLead: "Medievals",
-    titleMain: "Early music",
     pitch:
       "We are six professional musicians passionate about medieval reenactment. We recreate music and costumes from the 13th to the 15th century. We perform at battle reenactments, historical picnics and private events.",
     ctaPrimary: "Ask about a date",
@@ -39,8 +33,6 @@ export const en: Dictionary = {
   about: {
     eyebrow: "The ensemble",
     heading: "The Medievals early music ensemble",
-    goldWord: "",
-    lead: "Courtly and popular music and dress from the 13th to 15th centuries. Artisan replica instruments.",
     instrumentsLabel: "Instruments",
     profileHeading: "The ensemble",
     craftHeading: "Performance authenticity",
@@ -51,39 +43,25 @@ export const en: Dictionary = {
     lead: "Six professional players on stage: the core line-up and one drummer.",
     coreHeading: "Core line-up",
     percussionHeading: "Percussion",
-    flipHint: "Hover or tap a card — it turns to the other side.",
-    instrumentsHeading: "Instrumentarium",
   },
   repertoire: {
     eyebrow: "Programme",
-    heading: "The programme",
+    heading: "Medieval music programme",
     expand: "Show full programme",
     collapse: "Hide programme",
   },
   media: {
     eyebrow: "Music",
     heading: "Releases",
-    goldWord: "",
     listen: "Listen on Spotify",
     premiere: "Released",
     playerHeading: "Recordings",
     playerLead:
-      "Albums and the music video. You’re welcome to get to know the ensemble’s sound.",
-    youtube: "The Medievals music video",
-    youtubeSoon: "The video will appear here soon. In the meantime, listen on Spotify.",
-  },
-  tour: {
-    eyebrow: "Calendar",
-    heading: "Concerts",
-    empty: "This season’s calendar is still filling. Write to us — we travel.",
-    request: "Request a show",
-    past: "Past shows",
-    tickets: "Tickets",
+      "You’re welcome to get to know the early-music ensemble’s sound: the album The Medievals (2025), EP 1, La Serena and the music videos on Spotify and YouTube.",
   },
   offer: {
     eyebrow: "Offer",
-    heading: "In the offer:",
-    goldWord: "play",
+    heading: "Early-music concerts and historical events",
   },
   organizers: {
     eyebrow: "Production",
@@ -97,13 +75,6 @@ export const en: Dictionary = {
     eyebrow: "Photos",
     heading: "Ensemble gallery",
     lead: "Moments from concerts and sessions — how we look on stage and off.",
-  },
-  booking: {
-    eyebrow: "Booking",
-    heading: "Reserve a date",
-    goldWord: "date",
-    lead: "Tell us the date, place and type of event. We reply within 48 hours.",
-    cta: "Write to us",
   },
   contact: {
     heading: "Book a concert",
@@ -148,8 +119,7 @@ export const en: Dictionary = {
     },
   },
   footer: {
-    rights: "The Medievals",
-    tagline: "13th–15th-century music live — concerts, events, workshops.",
+    tagline: "Early music ensemble — concerts, historical events, workshops.",
     privacy: "Privacy",
   },
   a11y: {

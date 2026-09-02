@@ -7,7 +7,6 @@ import { HeraldicVeil } from "@/components/heraldic-veil";
 import { CodexHeader } from "@/components/codex-header";
 import { CodexFooter } from "@/components/codex-footer";
 import { JsonLd } from "@/components/seo/json-ld";
-import { getPublishedConcerts } from "@/lib/concerts";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { isLocale, locales } from "@/lib/i18n/config";
 import { hreflangMap, socialMetadata } from "@/lib/seo/metadata";
@@ -66,10 +65,29 @@ export async function generateMetadata({
     },
     description: dictionary.meta.description,
     keywords: dictionary.meta.keywords.split(", "),
-    robots: { index: true, follow: true },
+    authors: [{ name: siteConfig.name, url: siteConfig.url }],
+    creator: siteConfig.name,
+    category: "music",
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
+    ...(process.env.GOOGLE_SITE_VERIFICATION
+      ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
+      : {}),
     icons: {
-      icon: [{ url: "/brand-logo.png", type: "image/png" }],
-      apple: [{ url: "/brand-logo.png", type: "image/png" }],
+      icon: [
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/icon.png", type: "image/png", sizes: "512x512" },
+      ],
+      apple: [{ url: "/apple-icon.png", type: "image/png", sizes: "180x180" }],
     },
     alternates: {
       canonical: localePath(lang),
@@ -88,7 +106,6 @@ export default async function LangLayout({ children, params }: LayoutProps) {
   if (!isLocale(lang)) notFound();
 
   const dictionary = getDictionary(lang);
-  const concerts = await getPublishedConcerts();
 
   return (
     <html lang={lang} className={`${cinzel.variable} ${cormorant.variable} ${medievalSharp.variable} h-full`}>
@@ -108,7 +125,7 @@ export default async function LangLayout({ children, params }: LayoutProps) {
         </a>
         <BookMargins />
         <HeraldicVeil />
-        <JsonLd lang={lang} dictionary={dictionary} concerts={concerts} />
+        <JsonLd lang={lang} dictionary={dictionary} />
         <CodexHeader lang={lang} dictionary={dictionary} />
         {children}
         <CodexFooter lang={lang} dictionary={dictionary} />

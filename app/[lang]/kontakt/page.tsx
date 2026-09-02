@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-json-ld";
 import { ContactForm } from "@/components/contact-form";
 import { DirectContact } from "@/components/direct-contact";
 import { EditorialHeading } from "@/components/ui/editorial-heading";
@@ -46,6 +47,11 @@ export default async function ContactPage({ params }: PageProps) {
 
   return (
     <main id="tresc" className="relative z-10 mx-auto max-w-3xl px-5 py-12">
+      <BreadcrumbJsonLd
+        lang={lang}
+        homeLabel={dictionary.nav.home}
+        current={{ name: dictionary.contact.heading, path: "/kontakt" }}
+      />
       <EditorialHeading
         as="h1"
         eyebrow={dictionary.nav.contact}

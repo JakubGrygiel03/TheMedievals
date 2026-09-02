@@ -4,9 +4,9 @@ export const pl: Dictionary = {
   meta: {
     title: "The Medievals – Zespół Muzyki Dawnej",
     description:
-      "The Medievals — zespół muzyki dawnej (XIII–XV w.). Koncerty na zamki, festiwale, turnieje i jarmarki, oprawa ślubów oraz warsztaty tańca. contact@themedievals.pl.",
+      "The Medievals — zespół muzyki dawnej i średniowiecznej (XIII–XV w.). Koncerty na zamki, festiwale i turnieje, oprawa muzyczna wydarzeń historycznych i ślubów. contact@themedievals.pl.",
     keywords:
-      "zespół muzyki dawnej, zespół muzyki średniowiecznej, koncert muzyki średniowiecznej, oprawa muzyczna ślubu, koncert na zamek, turniej rycerski muzyka, jarmark historyczny, warsztaty tańca średniowiecznego, booking zespołu muzyki dawnej",
+      "zespół muzyki dawnej, muzyka średniowieczna zespół, koncerty muzyki dawnej, oprawa muzyczna wydarzeń historycznych, zespół muzyki średniowiecznej, oprawa muzyczna ślubu, koncert na zamek, turniej rycerski muzyka, jarmark historyczny, warsztaty tańca średniowiecznego, booking zespołu muzyki dawnej",
     contactDescription:
       "Zamówcie koncert muzyki od XIII do XV wieku — The Medievals: zamki, festiwale, śluby i warsztaty tańca. Odpowiadamy w ciągu 48 godzin.",
     pressDescription:
@@ -17,9 +17,7 @@ export const pl: Dictionary = {
     about: "O nas",
     members: "Muzycy",
     media: "Nagrania",
-    tour: "Koncerty",
     offer: "Oferta",
-    book: "Zamów koncert",
     contact: "Kontakt",
     gallery: "Galeria",
     program: "Program",
@@ -27,10 +25,6 @@ export const pl: Dictionary = {
   },
   hero: {
     heading: "The Medievals – Zespół Muzyki Dawnej",
-    kicker: "Zespół Muzyki Dawnej",
-    lineup: "Vielle · Głos · Flety · Szałamaja · Gittern · Bęben",
-    titleLead: "Medievals",
-    titleMain: "Muzyka dawna",
     pitch:
       "Jesteśmy sześciorgiem zawodowych muzyków, którzy pasjonują się rekonstrukcją średniowiecza. Odtwarzamy muzykę oraz stroje od XIII do XV wieku. Występujemy podczas rekonstrukcji bitew, pikników historycznych oraz eventów prywatnych.",
     ctaPrimary: "Zapytaj o termin",
@@ -39,8 +33,6 @@ export const pl: Dictionary = {
   about: {
     eyebrow: "O zespole",
     heading: "Zespół muzyki dawnej The Medievals",
-    goldWord: "",
-    lead: "Muzyka dworska i plebejska oraz stroje od XIII do XV wieku. Rzemieślnicze repliki instrumentów.",
     instrumentsLabel: "Instrumentarium",
     profileHeading: "Profil zespołu",
     craftHeading: "Autentyczność wykonawcza",
@@ -51,39 +43,25 @@ export const pl: Dictionary = {
     lead: "Sześcioro zawodowych muzyków na scenie: stały skład i jeden perkusista.",
     coreHeading: "Stały skład",
     percussionHeading: "Perkusja",
-    flipHint: "Najedź lub dotknij kartę — obraca się na drugą stronę.",
-    instrumentsHeading: "Instrumentarium",
   },
   repertoire: {
     eyebrow: "Program",
-    heading: "W programie",
+    heading: "Repertuar muzyki średniowiecznej",
     expand: "Pokaż pełny program",
     collapse: "Zwiń program",
   },
   media: {
     eyebrow: "Muzyka",
     heading: "Wydawnictwa",
-    goldWord: "",
     listen: "Posłuchaj na Spotify",
     premiere: "Premiera",
     playerHeading: "Nagrania",
     playerLead:
-      "Albumy i teledysk. Zapraszamy, by zapoznać się z brzmieniem zespołu.",
-    youtube: "Teledysk The Medievals",
-    youtubeSoon: "Teledysk pojawi się tutaj wkrótce. Tymczasem zapraszamy na Spotify.",
-  },
-  tour: {
-    eyebrow: "Kalendarz",
-    heading: "Koncerty",
-    empty: "Kalendarz na ten sezon uzupełniamy. Napiszcie — chętnie przyjedziemy.",
-    request: "Zamów występ",
-    past: "Minione występy",
-    tickets: "Bilety",
+      "Zapraszamy, by zapoznać się z brzmieniem zespołu muzyki dawnej: album The Medievals (2025), EP 1, La Serena oraz teledyski na Spotify i YouTube.",
   },
   offer: {
     eyebrow: "Oferta",
-    heading: "W ofercie:",
-    goldWord: "zagrać",
+    heading: "Koncerty muzyki dawnej i oprawa wydarzeń",
   },
   organizers: {
     eyebrow: "Produkcja",
@@ -97,13 +75,6 @@ export const pl: Dictionary = {
     eyebrow: "Zdjęcia",
     heading: "Galeria zespołu",
     lead: "Fragmenty występów i sesji — tak wyglądamy na scenie i przed nią.",
-  },
-  booking: {
-    eyebrow: "Rezerwacja",
-    heading: "Zarezerwujcie termin",
-    goldWord: "termin",
-    lead: "Podajcie datę, miejsce i rodzaj wydarzenia. Odpowiadamy w ciągu 48 godzin.",
-    cta: "Napiszcie do nas",
   },
   contact: {
     heading: "Zamów koncert",
@@ -148,8 +119,7 @@ export const pl: Dictionary = {
     },
   },
   footer: {
-    rights: "The Medievals",
-    tagline: "Muzyka od XIII do XV wieku na żywo — koncerty, wydarzenia, warsztaty.",
+    tagline: "Zespół muzyki dawnej — koncerty, oprawa wydarzeń historycznych, warsztaty.",
     privacy: "Prywatność",
   },
   a11y: {

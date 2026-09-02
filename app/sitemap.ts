@@ -1,10 +1,16 @@
 import type { MetadataRoute } from "next";
 import { locales } from "@/lib/i18n/config";
+import { portfolioPhotos } from "@/lib/portfolio";
 import { hreflangMap } from "@/lib/seo/metadata";
-import { localePath } from "@/lib/seo/site";
+import { contentRevisedAt, localePath, siteConfig } from "@/lib/seo/site";
+
+const homeImages = [
+  `${siteConfig.url}/hero.png`,
+  `${siteConfig.url}/og-image.png`,
+  ...portfolioPhotos.map((photo) => `${siteConfig.url}${photo.src}`),
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
   const paths = ["", "/kontakt", "/notka", "/prywatnosc"] as const;
   const priorities: Record<(typeof paths)[number], number> = {
     "": 1,
@@ -25,12 +31,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return locales.flatMap((lang) =>
     paths.map((path) => ({
       url: localePath(lang, path),
-      lastModified,
+      lastModified: contentRevisedAt,
       changeFrequency: frequencies[path],
       priority: priorities[path],
       alternates: {
         languages: hreflangMap(path),
       },
+      ...(path === "" ? { images: homeImages } : {}),
     })),
   );
 }

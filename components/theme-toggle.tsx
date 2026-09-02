@@ -1,12 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { THEME_STORAGE_KEY, type SiteTheme } from "@/lib/theme";
 
 type ThemeToggleProps = {
   nightLabel: string;
   dayLabel: string;
 };
+
+const listeners = new Set<() => void>();
+
+function subscribe(onChange: () => void) {
+  listeners.add(onChange);
+  return () => listeners.delete(onChange);
+}
 
 function readTheme(): SiteTheme {
   if (typeof document === "undefined") return "burgundy";
@@ -22,15 +29,11 @@ function applyTheme(theme: SiteTheme) {
     document.documentElement.removeAttribute("data-theme");
   }
   localStorage.setItem(THEME_STORAGE_KEY, theme);
+  listeners.forEach((onChange) => onChange());
 }
 
 export function ThemeToggle({ nightLabel, dayLabel }: ThemeToggleProps) {
-  const [theme, setTheme] = useState<SiteTheme>("burgundy");
-
-  useEffect(() => {
-    setTheme(readTheme());
-  }, []);
-
+  const theme = useSyncExternalStore(subscribe, readTheme, () => "burgundy");
   const isDay = theme === "day";
   const label = isDay ? nightLabel : dayLabel;
 
@@ -40,11 +43,7 @@ export function ThemeToggle({ nightLabel, dayLabel }: ThemeToggleProps) {
       className="theme-toggle"
       aria-label={label}
       title={label}
-      onClick={() => {
-        const next: SiteTheme = isDay ? "burgundy" : "day";
-        applyTheme(next);
-        setTheme(next);
-      }}
+      onClick={() => applyTheme(isDay ? "burgundy" : "day")}
     >
       {isDay ? <MoonMark /> : <SunMark />}
     </button>

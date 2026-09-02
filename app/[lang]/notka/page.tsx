@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-json-ld";
 import { EditorialHeading } from "@/components/ui/editorial-heading";
 import { FolioBackLink } from "@/components/ui/folio-back-link";
 import { aboutCopy } from "@/lib/content";
+import { members, percussionists } from "@/lib/members";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { isLocale } from "@/lib/i18n/config";
 import { hreflangMap, socialMetadata } from "@/lib/seo/metadata";
@@ -51,10 +53,15 @@ export default async function PressNotePage({ params }: PageProps) {
         href={`/${lang}#organizator`}
         label={dictionary.a11y.back}
       />
+      <BreadcrumbJsonLd
+        lang={lang}
+        homeLabel={dictionary.nav.home}
+        current={{ name: dictionary.organizers.pressNote, path: "/notka" }}
+      />
       <EditorialHeading
         as="h1"
         eyebrow={dictionary.organizers.pressNote}
-        heading="The Medievals"
+        heading={dictionary.hero.heading}
       />
       <p className="mt-8 text-lg leading-relaxed">
         {dictionary.hero.pitch}
@@ -66,6 +73,18 @@ export default async function PressNotePage({ params }: PageProps) {
       </div>
       <p className="mt-8 text-[var(--ink-soft)]">
         {dictionary.about.instrumentsLabel}: {copy.instruments}.
+      </p>
+      <h2 className="mt-10 font-cinzel text-xl">{dictionary.members.heading}</h2>
+      <ul className="mt-4 space-y-2 text-lg leading-relaxed">
+        {members.map((member) => (
+          <li key={member.id}>
+            {member.name} — {member.instrument[lang]}
+          </li>
+        ))}
+      </ul>
+      <p className="mt-4 text-lg leading-relaxed text-[var(--ink-soft)]">
+        {percussionists.note[lang]} {percussionists.names.join(", ")} —{" "}
+        {percussionists.instrument[lang]}.
       </p>
     </main>
   );

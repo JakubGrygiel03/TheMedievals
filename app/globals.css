@@ -22,7 +22,6 @@
   --shadow: rgb(0 0 0 / 0.42);
   --nav-border: rgb(166 132 61 / 0.42);
   --divider: rgb(166 132 61 / 0.4);
-  --footer-credit-bg: #1a090d;
   --input-bg: #321218;
   --book-margin: 0px;
   --veil-field: #a6843d;
@@ -56,7 +55,6 @@ html[data-theme="day"] {
   --shadow: rgb(28 25 23 / 0.1);
   --nav-border: rgb(28 25 23 / 0.2);
   --divider: rgb(28 25 23 / 0.3);
-  --footer-credit-bg: #ffffff;
   --input-bg: #fff;
   --veil-field: #7a5340;
   --veil-orbit: #8b1e1e;
@@ -444,11 +442,6 @@ select {
     inset 0 -1px 0 var(--line);
 }
 
-.folio-band-wash + .folio-band-wash {
-  box-shadow: inset 0 -1px 0 var(--line);
-  padding-top: clamp(1.35rem, 3vw, 2.25rem);
-}
-
 .folio-band-letter {
   background: var(--panel);
   box-shadow:
@@ -464,61 +457,6 @@ select {
   .folio-band:not(.folio-band-wash):not(.folio-band-letter) {
     box-shadow: inset 0 1px 0 var(--line);
   }
-}
-
-.footer-credit {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0.35rem 0.55rem;
-  margin-top: 1.75rem;
-  margin-inline: -1.25rem;
-  padding: 0.85rem 1.25rem 1.15rem;
-  border-top: 1px solid var(--rule);
-  background: var(--footer-credit-bg);
-}
-
-.footer-credit-label {
-  font-family: var(--font-body), Georgia, serif;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: none;
-  color: var(--ink-soft);
-}
-
-.footer-credit-label::after {
-  content: "·";
-  margin-left: 0.55rem;
-  color: var(--rule);
-}
-
-.footer-credit-name {
-  display: inline-flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: center;
-  gap: 0.2rem 0.55rem;
-  font-family: var(--font-body), Georgia, serif;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--ink-soft);
-  text-decoration: none;
-}
-
-.footer-credit-mail {
-  font-weight: 500;
-  color: var(--ink-soft);
-  text-decoration: underline;
-  text-underline-offset: 0.18em;
-  text-decoration-color: var(--rule);
-}
-
-.footer-credit-name:hover,
-.footer-credit-name:hover .footer-credit-mail {
-  color: var(--vermilion);
 }
 
 .track-index {

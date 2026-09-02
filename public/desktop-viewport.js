@@ -14,5 +14,7 @@
       document.head.appendChild(m);
     }
     m.setAttribute("content", "width=1280");
-  } catch (e) {}
+  } catch {
+    /* ignore */
+  }
 })();

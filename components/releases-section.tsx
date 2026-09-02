@@ -16,6 +16,7 @@ export function ReleasesSection({ lang, dictionary }: ReleasesSectionProps) {
       id="wydawnictwa"
       eyebrow={dictionary.media.eyebrow}
       heading={dictionary.media.heading}
+      tone="wash"
     >
       <StaggerList className="mt-5 grid gap-6 lg:grid-cols-3">
         {releases.map((release) => (
