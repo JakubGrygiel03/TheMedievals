@@ -84,10 +84,12 @@ export async function generateMetadata({
       : {}),
     icons: {
       icon: [
-        { url: "/favicon.ico", sizes: "any" },
+        { url: "/favicon.ico", sizes: "48x48" },
+        { url: "/icon-48.png", type: "image/png", sizes: "48x48" },
         { url: "/icon.png", type: "image/png", sizes: "512x512" },
       ],
       apple: [{ url: "/apple-icon.png", type: "image/png", sizes: "180x180" }],
+      shortcut: [{ url: "/favicon.ico" }],
     },
     alternates: {
       canonical: localePath(lang),

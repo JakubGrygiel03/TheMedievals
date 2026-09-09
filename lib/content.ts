@@ -9,23 +9,23 @@ type AboutCopy = {
 export const aboutCopy: Record<Locale, AboutCopy> = {
   pl: {
     paragraphs: [
-      "Inspiruje nas muzyka dworska i plebejska od XIII do XV wieku — pieśni, tańce i utwory instrumentalne w językach oryginalnych. Gramy je na kopiach instrumentów z epoki XIII–XV, tak by brzmienie pasowało do zamku, obozu i biesiady.",
-      "Stroje historyczne od XIII do XV wieku szyjemy na podstawie ikonografii. Instrumenty to rzemieślnicze repliki: fidele, gitterna, lutnia, flety, szałamaja oraz bębny obręczowe. Dla organizatora oznacza to spójny obraz — muzyka, strój i instrumentarium jako jedna miniatura.",
+      "The Medievals wykonuje muzykę średniowieczną, wiernie odtwarzając jej brzmienie. Pieśni, tańce i utwory instrumentalne w językach oryginalnych gramy na kopiach instrumentów z epoki XIII–XV wieku — na zamku, w obozie i przy biesiadzie.",
+      "Stroje historyczne od XIII do XV wieku szyjemy na podstawie ikonografii. Instrumenty to rzemieślnicze repliki: fidele, gitterna, lutnia, flety, szałamaja oraz bębny obręczowe. Dla organizatora oznacza to spójny obraz — muzyka, strój i instrumentarium jako jedna całość.",
     ],
     instruments:
       "fidele kolanowe (vielle), gitterna, lutnia, bęben obręczowy, średniowieczne flety proste oraz szałamaja",
   },
   en: {
     paragraphs: [
-      "We draw on courtly and popular music from the 13th to 15th centuries — songs, dances and instrumental pieces in their original languages, played on replica instruments from the 13th–15th centuries so the sound belongs in a castle, a camp or a feast.",
-      "Historical dress from the 13th to 15th centuries is sewn from iconography. The instruments are artisan replicas: vielles, gittern, lute, recorders, shawm, frame drums. For an organizer that means one picture: music, costume and instruments as a single miniature.",
+      "The Medievals performs medieval music, faithfully recreating its sound. Songs, dances and instrumental pieces in their original languages are played on replica instruments from the 13th–15th centuries — for a castle, a camp or a feast.",
+      "Historical dress from the 13th to 15th centuries is sewn from iconography. The instruments are artisan replicas: vielles, gittern, lute, recorders, shawm, frame drums. For an organizer that means one picture: music, costume and instruments as a single whole.",
     ],
     instruments:
       "knee fiddles (vielle), gittern, lute, frame drum, medieval recorders and shawm",
   },
   es: {
     paragraphs: [
-      "Nos inspira la música cortesana y popular de los siglos XIII al XV: canciones, danzas y piezas instrumentales en lenguas originales, con réplicas de instrumentos de los siglos XIII al XV para un sonido de castillo, campamento o festín.",
+      "The Medievals interpreta música medieval, recreando fielmente su sonido. Canciones, danzas y piezas instrumentales en lenguas originales suenan con réplicas de instrumentos de los siglos XIII–XV: castillo, campamento o festín.",
       "Los trajes históricos de los siglos XIII al XV se cosen a partir de la iconografía. Los instrumentos son réplicas artesanales: vielles, gitterna, laúd, flautas, chirimía, tambores de marco. Para el organizador es una sola imagen: música, indumentaria e instrumentos.",
     ],
     instruments:
@@ -33,7 +33,7 @@ export const aboutCopy: Record<Locale, AboutCopy> = {
   },
   it: {
     paragraphs: [
-      "Ci ispira la musica di corte e popolare dal XIII al XV secolo: canti, danze e brani strumentali nelle lingue originali, su repliche di strumenti dal XIII al XV secolo perché il suono stia in un castello, in un accampamento o a un convito.",
+      "The Medievals esegue musica medievale, ricreandone fedelmente il suono. Canti, danze e brani strumentali nelle lingue originali suonano su repliche di strumenti dal XIII al XV secolo: castello, accampamento o convito.",
       "Gli abiti storici dal XIII al XV secolo sono cuciti sull’iconografia. Gli strumenti sono repliche artigianali: vielle, gittern, liuto, flauti, cennamella, tamburi a cornice. Per l’organizzatore è un’unica immagine: musica, costume e strumenti.",
     ],
     instruments:

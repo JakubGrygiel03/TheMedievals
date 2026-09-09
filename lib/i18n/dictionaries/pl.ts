@@ -4,7 +4,7 @@ export const pl: Dictionary = {
   meta: {
     title: "The Medievals – Zespół Muzyki Dawnej",
     description:
-      "The Medievals — zespół muzyki dawnej i średniowiecznej (XIII–XV w.). Koncerty na zamki, festiwale i turnieje, oprawa muzyczna wydarzeń historycznych i ślubów. contact@themedievals.pl.",
+      "The Medievals – zespół wykonuje muzykę średniowieczną, wiernie odtwarzając jej brzmienie. W swoich występach korzysta z kopii dawnych instrumentów.",
     keywords:
       "zespół muzyki dawnej, muzyka średniowieczna zespół, koncerty muzyki dawnej, oprawa muzyczna wydarzeń historycznych, zespół muzyki średniowiecznej, oprawa muzyczna ślubu, koncert na zamek, turniej rycerski muzyka, jarmark historyczny, warsztaty tańca średniowiecznego, booking zespołu muzyki dawnej",
     contactDescription:
@@ -34,8 +34,8 @@ export const pl: Dictionary = {
     eyebrow: "O zespole",
     heading: "Zespół muzyki dawnej The Medievals",
     instrumentsLabel: "Instrumentarium",
-    profileHeading: "Profil zespołu",
-    craftHeading: "Autentyczność wykonawcza",
+    profileHeading: "Muzyka i brzmienie",
+    craftHeading: "Instrumenty i stroje",
   },
   members: {
     eyebrow: "Skład",

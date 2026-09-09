@@ -4,7 +4,7 @@ export const es: Dictionary = {
   meta: {
     title: "The Medievals – Ensemble de música antigua",
     description:
-      "The Medievals — ensemble de música antigua y medieval (ss. XIII–XV). Conciertos en castillos, festivales y torneos, y música para eventos históricos y bodas. contact@themedievals.pl.",
+      "The Medievals interpreta música medieval, recreando fielmente su sonido. En sus actuaciones utiliza copias de instrumentos antiguos.",
     keywords:
       "ensemble de música antigua, grupo de música medieval, conciertos de música medieval, música para eventos históricos, música para boda histórica, concierto en castillo, torneo de caballería, feria histórica, talleres de danza medieval, booking música antigua",
     contactDescription:
@@ -34,8 +34,8 @@ export const es: Dictionary = {
     eyebrow: "El ensemble",
     heading: "Ensemble de música antigua The Medievals",
     instrumentsLabel: "Instrumentos",
-    profileHeading: "El ensemble",
-    craftHeading: "Autenticidad interpretativa",
+    profileHeading: "Música y sonido",
+    craftHeading: "Instrumentos e indumentaria",
   },
   members: {
     eyebrow: "Formación",
