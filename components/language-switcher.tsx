@@ -5,18 +5,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { localeLabels, locales, type Locale } from "@/lib/i18n/config";
+import { media } from "@/lib/media";
 
 type LanguageSwitcherProps = {
   lang: Locale;
   label: string;
 };
 
-const shields: Record<Locale, string> = {
-  pl: "/lang/pl-sm.jpg",
-  en: "/lang/en-sm.jpg",
-  es: "/lang/es-3-sm.jpg",
-  it: "/lang/it-sm.jpg",
-};
+const shields = media.flags;
 
 const SCROLL_KEY = "medievals-lang-scroll";
 

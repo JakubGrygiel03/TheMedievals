@@ -1,6 +1,7 @@
 import { FolioSection } from "@/components/ui/folio-section";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/types";
+import { media, pressPhotoDownloadName } from "@/lib/media";
 
 type OrganizerZoneProps = {
   lang: Locale;
@@ -22,8 +23,8 @@ export function OrganizerZone({ lang, dictionary }: OrganizerZoneProps) {
           {dictionary.organizers.pressNote}
         </a>
         <a
-          href="/TheMedievalsGeneralFhoto.png"
-          download="TheMedievalsGeneralFhoto.png"
+          href={media.pressPhoto}
+          download={pressPhotoDownloadName}
           className="codex-btn codex-btn-secondary"
         >
           {dictionary.organizers.photos}

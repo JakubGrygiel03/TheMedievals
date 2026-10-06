@@ -26,6 +26,8 @@ export default async function AdminLoginPage({ searchParams }: LoginPageProps) {
             type="password"
             name="password"
             required
+            maxLength={200}
+            autoComplete="current-password"
             className="folio-input"
           />
         </label>

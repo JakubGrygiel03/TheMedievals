@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { TrustStrip } from "@/components/trust-strip";
+import { media } from "@/lib/media";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/types";
 
@@ -15,11 +16,12 @@ export function EnsembleHero({ lang, dictionary }: EnsembleHeroProps) {
       <h1 className="sr-only">{dictionary.hero.heading}</h1>
       <div className="hero-folio">
         <Image
-          src="/hero.png"
+          src={media.hero}
           alt={dictionary.hero.heading}
           width={1024}
           height={571}
           priority
+          quality={75}
           className="h-auto w-full"
           sizes="(min-width: 1024px) calc(100vw - min(17rem, 19vw)), 100vw"
         />

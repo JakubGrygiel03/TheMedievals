@@ -25,19 +25,21 @@ export function MediaPlayer({ dictionary }: MediaPlayerProps) {
             style={{ border: 0, height: "100%" }}
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
           />
         </div>
         <div className="grid gap-4">
           {siteConfig.embeds.videos.map((video) => (
             <div key={video.id} className="folio-panel media-embed-panel">
               <iframe
-                src={`https://www.youtube.com/embed/${video.id}`}
+                src={`https://www.youtube-nocookie.com/embed/${video.id}`}
                 title={video.title}
                 className="block w-full"
                 style={{ aspectRatio: "16 / 9", border: 0 }}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
                 loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
               />
             </div>
           ))}

@@ -1,4 +1,4 @@
--- Safe to run on an existing project (SQL Editor in Supabase).
+-- Run in Supabase SQL editor on an existing project.
 
 alter table contact_messages add column if not exists notes text;
 
@@ -12,6 +12,12 @@ create table if not exists phone_requests (
 );
 
 alter table phone_requests enable row level security;
+alter table contact_messages enable row level security;
+alter table system_pings enable row level security;
+alter table concerts enable row level security;
 
+drop policy if exists "Allow public to insert contact messages" on contact_messages;
+drop policy if exists "Allow public to insert pings" on system_pings;
 drop policy if exists "Allow public to insert phone requests" on phone_requests;
-create policy "Allow public to insert phone requests" on phone_requests for insert with check (true);
+
+delete from system_pings;

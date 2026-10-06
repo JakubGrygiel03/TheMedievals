@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Cinzel, Cormorant_Garamond } from "next/font/google";
+import { media } from "@/lib/media";
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -20,11 +21,11 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "48x48" },
-      { url: "/icon-48.png", type: "image/png", sizes: "48x48" },
-      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+      { url: media.favicon, sizes: "48x48" },
+      { url: media.icon48, type: "image/png", sizes: "48x48" },
+      { url: media.icon, type: "image/png", sizes: "512x512" },
     ],
-    apple: [{ url: "/apple-icon.png", type: "image/png", sizes: "180x180" }],
+    apple: [{ url: media.appleIcon, type: "image/png", sizes: "180x180" }],
   },
 };
 

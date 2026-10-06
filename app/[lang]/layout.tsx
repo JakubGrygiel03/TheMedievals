@@ -10,6 +10,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { isLocale, locales } from "@/lib/i18n/config";
 import { hreflangMap, socialMetadata } from "@/lib/seo/metadata";
+import { media } from "@/lib/media";
 import { localePath, siteConfig } from "@/lib/seo/site";
 
 const cinzel = Cinzel({
@@ -84,12 +85,12 @@ export async function generateMetadata({
       : {}),
     icons: {
       icon: [
-        { url: "/favicon.ico", sizes: "48x48" },
-        { url: "/icon-48.png", type: "image/png", sizes: "48x48" },
-        { url: "/icon.png", type: "image/png", sizes: "512x512" },
+        { url: media.favicon, sizes: "48x48" },
+        { url: media.icon48, type: "image/png", sizes: "48x48" },
+        { url: media.icon, type: "image/png", sizes: "512x512" },
       ],
-      apple: [{ url: "/apple-icon.png", type: "image/png", sizes: "180x180" }],
-      shortcut: [{ url: "/favicon.ico" }],
+      apple: [{ url: media.appleIcon, type: "image/png", sizes: "180x180" }],
+      shortcut: [{ url: media.favicon }],
     },
     alternates: {
       canonical: localePath(lang),

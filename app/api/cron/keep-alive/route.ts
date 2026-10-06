@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "Supabase is not configured" }, { status: 503 });
   }
 
-  const { error } = await supabase.from("system_pings").insert({});
+  const { error } = await supabase.from("contact_messages").select("id").limit(1);
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }

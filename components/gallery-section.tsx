@@ -36,8 +36,7 @@ export function GallerySection({ lang, dictionary }: GallerySectionProps) {
                   alt={photo.alt[lang]}
                   width={photo.width}
                   height={photo.height}
-                  quality={photo.width >= 1100 ? 85 : undefined}
-                  unoptimized={photo.width < 1100}
+                  quality={75}
                   className="gallery-shot-img aspect-[3/4] h-auto w-full object-cover"
                   sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
                 />

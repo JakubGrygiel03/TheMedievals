@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import type { Locale } from "@/lib/i18n/config";
 import { locales } from "@/lib/i18n/config";
-import { localePath } from "@/lib/seo/site";
+import { media } from "@/lib/media";
+import { localePath, siteConfig } from "@/lib/seo/site";
 
 export const openGraphLocales: Record<Locale, string> = {
   pl: "pl_PL",
@@ -31,6 +32,12 @@ export function socialMetadata({
   path?: string;
 }): Pick<Metadata, "openGraph" | "twitter"> {
   const url = localePath(lang, path);
+  const image = {
+    url: `${siteConfig.url}${media.ogImage}`,
+    width: 1024,
+    height: 571,
+    alt: "The Medievals",
+  };
   const alternateLocale = locales
     .filter((locale) => locale !== lang)
     .map((locale) => openGraphLocales[locale]);
@@ -44,11 +51,13 @@ export function socialMetadata({
       siteName: "The Medievals",
       title,
       description,
+      images: [image],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [image.url],
     },
   };
 }

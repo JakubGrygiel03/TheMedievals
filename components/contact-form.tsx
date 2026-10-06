@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, type ReactNode } from "react";
+import { useMemo, useRef, useState, type ReactNode } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { submitContact } from "@/app/actions/contact";
@@ -20,6 +20,7 @@ type ContactFormProps = {
 
 export function ContactForm({ dictionary, lang = "pl" }: ContactFormProps) {
   const [resultKey, setResultKey] = useState<string | null>(null);
+  const trapRef = useRef<HTMLInputElement>(null);
   const errorsCopy = dictionary.contact.errors;
   const today = useMemo(() => new Date().toISOString().slice(0, 10), []);
   const {
@@ -43,7 +44,10 @@ export function ContactForm({ dictionary, lang = "pl" }: ContactFormProps) {
   });
 
   async function onSubmit(values: ContactInput) {
-    const result = await submitContact(values, lang);
+    const result = await submitContact(
+      { ...values, website: trapRef.current?.value ?? "" },
+      lang,
+    );
     if (result.ok) {
       reset();
       setResultKey(result.error === "mail" ? "mail" : "success");
@@ -62,11 +66,22 @@ export function ContactForm({ dictionary, lang = "pl" }: ContactFormProps) {
           : null;
 
   return (
-    <form
+      <form
       className="contact-form grid gap-x-4 gap-y-3 sm:grid-cols-2"
       noValidate
       onSubmit={handleSubmit(onSubmit)}
     >
+      <div className="hidden" aria-hidden="true">
+        <label>
+          Website
+          <input
+            ref={trapRef}
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </label>
+      </div>
       <Field
         label={dictionary.contact.name}
         required

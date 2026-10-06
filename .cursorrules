@@ -15,7 +15,7 @@
 1. **Metadata & Open Graph Engine (`app/[lang]/layout.tsx` & `page.tsx`):**
    - Implement Next.js `generateMetadata` dynamically for every language route (PL, EN, ES, IT).
    - Provide optimized `title`, `description`, `canonical` URLs, `keywords`, and `robots` directives.
-   - Include complete **Open Graph (OG)** and **Twitter Card** metadata with high-res social preview images (`public/og-image.png`).
+   - Include complete **Open Graph (OG)** and **Twitter Card** metadata with a single social preview (`public/hero.png`, aliased as OG).
 
 2. **Structured Data (Schema.org / JSON-LD):**
    - Inject rich JSON-LD snippets on pages:
@@ -162,7 +162,7 @@ create policy "Allow public to insert pings" on system_pings for insert with che
 │   │   └── server.ts                  # Server-side Supabase client
 │   └── resend.ts                      # Email dispatch helper
 ├── public/
-│   ├── og-image.png                   # OpenGraph social preview card
+│   ├── hero.png                       # Hero, Open Graph, and press photo (one file)
 │   ├── documents/                     # Technical Raider & Stage Plan PDFs
 │   └── illustrations/                 # Vector SVG layers for band & camp
 └── middleware.ts                      # Route guards & i18n hreflang headers

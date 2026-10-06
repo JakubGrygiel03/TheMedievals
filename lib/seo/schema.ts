@@ -1,4 +1,5 @@
 import { faqCopy } from "@/lib/seo/faq";
+import { media } from "@/lib/media";
 import { schemaMembers } from "@/lib/members";
 import { clientOffers } from "@/lib/offers";
 import { releases } from "@/lib/releases";
@@ -32,12 +33,8 @@ export function identityGraph(lang: Locale, dictionary: Dictionary): JsonLdNode[
     url: pageUrl,
     email: siteConfig.email,
     description: dictionary.meta.description,
-    image: [
-      `${siteConfig.url}/icon.png`,
-      `${siteConfig.url}/hero.png`,
-      `${siteConfig.url}/brand-logo.png`,
-    ],
-    logo: `${siteConfig.url}/icon.png`,
+    image: [`${siteConfig.url}${media.icon}`, `${siteConfig.url}${media.hero}`],
+    logo: `${siteConfig.url}${media.icon}`,
     genre: [...siteConfig.genres],
     inLanguage: lang,
     knowsAbout: [...siteConfig.genres],
@@ -91,7 +88,7 @@ export function videoNodes(): JsonLdNode[] {
     "@type": "VideoObject",
     name: video.title,
     description: video.title,
-    embedUrl: `https://www.youtube.com/embed/${video.id}`,
+    embedUrl: `https://www.youtube-nocookie.com/embed/${video.id}`,
     thumbnailUrl: `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`,
     publisher: { "@id": ensembleId() },
   }));

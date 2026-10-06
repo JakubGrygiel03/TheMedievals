@@ -1,9 +1,10 @@
 "use server";
 
-import { contactSchema, type ContactInput } from "@/lib/contact-schema";
+import { contactSchema } from "@/lib/contact-schema";
 import { isLocale, type Locale } from "@/lib/i18n/config";
 import { sendBookingEmail } from "@/lib/resend";
-import { createClient, createServiceClient } from "@/lib/supabase/server";
+import { clientKey, rateLimit } from "@/lib/security/rate-limit";
+import { createServiceClient } from "@/lib/supabase/server";
 
 export type ContactActionResult = {
   ok: boolean;
@@ -11,10 +12,22 @@ export type ContactActionResult = {
 };
 
 export async function submitContact(
-  input: ContactInput,
+  input: unknown,
   lang: Locale = "pl",
 ): Promise<ContactActionResult> {
-  const parsed = contactSchema.safeParse(input);
+  const payload =
+    input && typeof input === "object" ? (input as Record<string, unknown>) : {};
+
+  if (typeof payload.website === "string" && payload.website.trim()) {
+    return { ok: true };
+  }
+
+  const gate = rateLimit(await clientKey("contact"), 5, 60 * 60 * 1000);
+  if (!gate.ok) {
+    return { ok: false, error: "error" };
+  }
+
+  const parsed = contactSchema.safeParse(payload);
   if (!parsed.success) {
     return { ok: false, error: "invalid" };
   }
@@ -30,7 +43,7 @@ export async function submitContact(
     return { ok: false, error: "error" };
   }
 
-  const supabase = createServiceClient() ?? (await createClient());
+  const supabase = createServiceClient();
   if (supabase) {
     const { error } = await supabase.from("contact_messages").insert({
       sender_name: parsed.data.sender_name,

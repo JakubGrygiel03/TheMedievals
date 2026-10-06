@@ -1,12 +1,12 @@
 import type { MetadataRoute } from "next";
 import { locales } from "@/lib/i18n/config";
+import { media } from "@/lib/media";
 import { portfolioPhotos } from "@/lib/portfolio";
 import { hreflangMap } from "@/lib/seo/metadata";
 import { contentRevisedAt, localePath, siteConfig } from "@/lib/seo/site";
 
 const homeImages = [
-  `${siteConfig.url}/hero.png`,
-  `${siteConfig.url}/og-image.png`,
+  `${siteConfig.url}${media.hero}`,
   ...portfolioPhotos.map((photo) => `${siteConfig.url}${photo.src}`),
 ];
 

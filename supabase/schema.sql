@@ -45,7 +45,5 @@ alter table concerts enable row level security;
 alter table system_pings enable row level security;
 alter table phone_requests enable row level security;
 
-create policy "Allow public to insert contact messages" on contact_messages for insert with check (true);
+-- Writes go through the Next.js service role. Anonymous clients cannot insert spam rows.
 create policy "Allow public read published concerts" on concerts for select using (is_published = true);
-create policy "Allow public to insert pings" on system_pings for insert with check (true);
-create policy "Allow public to insert phone requests" on phone_requests for insert with check (true);
