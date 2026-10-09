@@ -6,11 +6,15 @@ import { hreflangMap } from "@/lib/seo/metadata";
 import { featuredRecordings, recordingImageUrl } from "@/lib/seo/recordings";
 import { contentRevisedAt, localePath, siteConfig } from "@/lib/seo/site";
 
-const homeImages = [
+function uniqueImages(urls: string[]) {
+  return [...new Set(urls)].filter((url) => url.startsWith(siteConfig.url));
+}
+
+const homeImages = uniqueImages([
   `${siteConfig.url}${media.hero}`,
   ...featuredRecordings.map((track) => recordingImageUrl(track.image)),
   ...portfolioPhotos.map((photo) => `${siteConfig.url}${photo.src}`),
-];
+]);
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = ["", "/kontakt", "/notka", "/prywatnosc"] as const;

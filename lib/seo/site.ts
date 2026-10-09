@@ -1,8 +1,24 @@
+/** Production lives on www (Vercel redirects apex → www). Keep one host everywhere. */
+export const CANONICAL_HOST = "www.themedievals.pl";
+
 function resolveSiteUrl() {
   const explicit = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-  if (explicit) return explicit.replace(/\/$/, "");
+  if (explicit) {
+    try {
+      const url = new URL(explicit);
+      if (
+        url.hostname === "themedievals.pl" ||
+        url.hostname === "www.themedievals.pl"
+      ) {
+        return `https://${CANONICAL_HOST}`;
+      }
+      return explicit.replace(/\/$/, "");
+    } catch {
+      return explicit.replace(/\/$/, "");
+    }
+  }
   if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
-  return "https://themedievals.pl";
+  return `https://${CANONICAL_HOST}`;
 }
 
 export const siteConfig = {
@@ -40,7 +56,7 @@ export const siteConfig = {
 } as const;
 
 /** Bump when public copy or assets change, so sitemap lastmod stays stable. */
-export const contentRevisedAt = new Date("2026-10-09T00:00:00.000Z");
+export const contentRevisedAt = new Date("2026-10-09T12:00:00.000Z");
 
 export function localePath(lang: string, path = "") {
   const normalized = path.startsWith("/") ? path : `/${path}`;
