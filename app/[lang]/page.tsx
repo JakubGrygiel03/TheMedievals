@@ -57,7 +57,7 @@ export default async function HomePage({ params }: PageProps) {
       <AboutSection lang={lang} dictionary={dictionary} />
       <OfferSection lang={lang} dictionary={dictionary} />
       <MemberCards lang={lang} copy={dictionary.members} />
-      <MediaPlayer dictionary={dictionary} />
+      <MediaPlayer lang={lang} dictionary={dictionary} />
       <ReleasesSection lang={lang} dictionary={dictionary} />
       <RepertoireSection lang={lang} dictionary={dictionary} />
       <GallerySection lang={lang} dictionary={dictionary} />

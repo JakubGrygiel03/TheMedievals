@@ -2,11 +2,11 @@ import type { Dictionary } from "../types";
 
 export const pl: Dictionary = {
   meta: {
-    title: "The Medievals – Zespół Muzyki Dawnej",
+    title: "The Medievals | Zespół muzyki średniowiecznej – koncerty i booking",
     description:
-      "The Medievals – zespół wykonuje muzykę średniowieczną, wiernie odtwarzając jej brzmienie. W swoich występach korzysta z kopii dawnych instrumentów.",
+      "Oficjalna strona The Medievals: 6 zawodowych muzyków, muzyka i stroje XIII–XV w., rzemieślnicze repliki instrumentów. Posłuchaj Douce Dame Jolie, Herr Mannelig i Tourdion — zamów koncert na zamek, festiwal lub ślub.",
     keywords:
-      "zespół muzyki dawnej, muzyka średniowieczna zespół, koncerty muzyki dawnej, oprawa muzyczna wydarzeń historycznych, zespół muzyki średniowiecznej, oprawa muzyczna ślubu, koncert na zamek, turniej rycerski muzyka, jarmark historyczny, warsztaty tańca średniowiecznego, booking zespołu muzyki dawnej",
+      "The Medievals, zespół muzyki dawnej, muzyka średniowieczna, zespół muzyki średniowiecznej, koncerty muzyki dawnej, Douce Dame Jolie, Herr Mannelig, Schiarazula Marazula, Tourdion, oprawa muzyczna wydarzeń historycznych, oprawa muzyczna ślubu, koncert na zamek, turniej rycerski muzyka, jarmark historyczny, warsztaty tańca średniowiecznego, booking zespołu muzyki dawnej",
     contactDescription:
       "Zamówcie koncert muzyki od XIII do XV wieku — The Medievals: zamki, festiwale, śluby i warsztaty tańca. Odpowiadamy w ciągu 48 godzin.",
     pressDescription:
@@ -57,7 +57,7 @@ export const pl: Dictionary = {
     premiere: "Premiera",
     playerHeading: "Nagrania",
     playerLead:
-      "Zapraszamy, by zapoznać się z brzmieniem zespołu muzyki dawnej: album The Medievals (2025), EP 1, La Serena oraz teledyski na Spotify i YouTube.",
+      "Posłuchajcie muzyki średniowiecznej The Medievals: Douce Dame Jolie, Schiarazula Marazula, Herr Mannelig, Tourdion, album 2025, EP 1 i La Serena — Spotify oraz YouTube.",
   },
   offer: {
     eyebrow: "Oferta",

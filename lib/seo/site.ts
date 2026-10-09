@@ -40,7 +40,7 @@ export const siteConfig = {
 } as const;
 
 /** Bump when public copy or assets change, so sitemap lastmod stays stable. */
-export const contentRevisedAt = new Date("2026-09-09T00:00:00.000Z");
+export const contentRevisedAt = new Date("2026-10-09T00:00:00.000Z");
 
 export function localePath(lang: string, path = "") {
   const normalized = path.startsWith("/") ? path : `/${path}`;

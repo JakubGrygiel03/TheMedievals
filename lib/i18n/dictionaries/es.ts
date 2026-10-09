@@ -2,11 +2,11 @@ import type { Dictionary } from "../types";
 
 export const es: Dictionary = {
   meta: {
-    title: "The Medievals – Ensemble de música antigua",
+    title: "The Medievals | Ensemble de música medieval – conciertos y booking",
     description:
-      "The Medievals interpreta música medieval, recreando fielmente su sonido. En sus actuaciones utiliza copias de instrumentos antiguos.",
+      "Web oficial de The Medievals: 6 músicos profesionales, música e indumentaria de los siglos XIII–XV, réplicas artesanales. Escucha Douce Dame Jolie, Herr Mannelig y Tourdion — reserva concierto en castillo, festival o boda.",
     keywords:
-      "ensemble de música antigua, grupo de música medieval, conciertos de música medieval, música para eventos históricos, música para boda histórica, concierto en castillo, torneo de caballería, feria histórica, talleres de danza medieval, booking música antigua",
+      "The Medievals, ensemble de música antigua, grupo de música medieval, Douce Dame Jolie, Herr Mannelig, Schiarazula Marazula, Tourdion, conciertos de música medieval, música para eventos históricos, música para boda histórica, concierto en castillo, torneo de caballería, feria histórica, talleres de danza medieval, booking música antigua",
     contactDescription:
       "Reservad un concierto de música de los siglos XIII al XV con The Medievals: castillos, festivales, bodas y talleres de danza. Respondemos en 48 horas.",
     pressDescription:
@@ -57,7 +57,7 @@ export const es: Dictionary = {
     premiere: "Estreno",
     playerHeading: "Grabaciones",
     playerLead:
-      "Os invitamos a conocer el sonido del ensemble de música antigua: el álbum The Medievals (2025), EP 1, La Serena y los videoclips en Spotify y YouTube.",
+      "Escuchad la música medieval de The Medievals: Douce Dame Jolie, Schiarazula Marazula, Herr Mannelig, Tourdion, el álbum 2025, EP 1 y La Serena — en Spotify y YouTube.",
   },
   offer: {
     eyebrow: "Oferta",

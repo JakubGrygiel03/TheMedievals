@@ -3,10 +3,12 @@ import { locales } from "@/lib/i18n/config";
 import { media } from "@/lib/media";
 import { portfolioPhotos } from "@/lib/portfolio";
 import { hreflangMap } from "@/lib/seo/metadata";
+import { featuredRecordings, recordingImageUrl } from "@/lib/seo/recordings";
 import { contentRevisedAt, localePath, siteConfig } from "@/lib/seo/site";
 
 const homeImages = [
   `${siteConfig.url}${media.hero}`,
+  ...featuredRecordings.map((track) => recordingImageUrl(track.image)),
   ...portfolioPhotos.map((photo) => `${siteConfig.url}${photo.src}`),
 ];
 

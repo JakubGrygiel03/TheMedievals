@@ -36,6 +36,11 @@ export const faqCopy: Record<Locale, FaqCopy> = {
         answer:
           "Program koncertu muzyki średniowiecznej obejmuje pieśni i tańce dworskie oraz plebejskie w językach oryginalnych — m.in. Machaut, Carmina Burana, Cantigas de Santa Maria i pieśni sefardyjskie. Nagrania są na Spotify i YouTube.",
       },
+      {
+        question: "Jakie utwory The Medievals ma na Spotify i YouTube?",
+        answer:
+          "Na Spotify i YouTube są m.in. Douce Dame Jolie, Schiarazula Marazula, Ai vis lo lop, Tourdion, Herr Mannelig, Je vivroie liement oraz Pochwała karczmy (In taberna quando sumus) z albumu 2025 i wcześniejszych EP.",
+      },
     ],
   },
   en: {
@@ -61,6 +66,11 @@ export const faqCopy: Record<Locale, FaqCopy> = {
         question: "What repertoire will the audience hear?",
         answer:
           "The programme covers courtly and popular songs and dances in original languages — including Machaut, Carmina Burana, Cantigas de Santa Maria and Sephardic songs. Recordings are on Spotify and YouTube.",
+      },
+      {
+        question: "Which The Medievals songs are on Spotify and YouTube?",
+        answer:
+          "On Spotify and YouTube you can hear Douce Dame Jolie, Schiarazula Marazula, Ai vis lo lop, Tourdion, Herr Mannelig, Je vivroie liement and In taberna quando sumus from the 2025 album and earlier EPs.",
       },
     ],
   },
@@ -88,6 +98,11 @@ export const faqCopy: Record<Locale, FaqCopy> = {
         answer:
           "El programa incluye canciones y danzas cortesanas y populares en lenguas originales: Machaut, Carmina Burana, Cantigas de Santa Maria y cantos sefardíes. Las grabaciones están en Spotify y YouTube.",
       },
+      {
+        question: "¿Qué canciones de The Medievals hay en Spotify y YouTube?",
+        answer:
+          "En Spotify y YouTube suenan Douce Dame Jolie, Schiarazula Marazula, Ai vis lo lop, Tourdion, Herr Mannelig, Je vivroie liement e In taberna quando sumus del álbum 2025 y EP anteriores.",
+      },
     ],
   },
   it: {
@@ -113,6 +128,11 @@ export const faqCopy: Record<Locale, FaqCopy> = {
         question: "Quale repertorio ascolterà il pubblico?",
         answer:
           "Il programma comprende canti e danze di corte e popolari nelle lingue originali: Machaut, Carmina Burana, Cantigas de Santa Maria e canti sefarditi. Le registrazioni sono su Spotify e YouTube.",
+      },
+      {
+        question: "Quali brani di The Medievals ci sono su Spotify e YouTube?",
+        answer:
+          "Su Spotify e YouTube trovate Douce Dame Jolie, Schiarazula Marazula, Ai vis lo lop, Tourdion, Herr Mannelig, Je vivroie liement e In taberna quando sumus dall’album 2025 e dai precedenti EP.",
       },
     ],
   },
