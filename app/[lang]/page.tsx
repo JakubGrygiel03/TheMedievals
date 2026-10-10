@@ -10,6 +10,7 @@ import { GallerySection } from "@/components/gallery-section";
 import { OrganizerZone } from "@/components/organizer-zone";
 import { ReleasesSection } from "@/components/releases-section";
 import { RepertoireSection } from "@/components/repertoire-section";
+import { ReviewsSection } from "@/components/reviews-section";
 import { HomeJsonLd } from "@/components/seo/home-json-ld";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { isLocale } from "@/lib/i18n/config";
@@ -57,10 +58,11 @@ export default async function HomePage({ params }: PageProps) {
       <AboutSection lang={lang} dictionary={dictionary} />
       <OfferSection lang={lang} dictionary={dictionary} />
       <MemberCards lang={lang} copy={dictionary.members} />
-      <MediaPlayer lang={lang} dictionary={dictionary} />
+      <MediaPlayer dictionary={dictionary} />
       <ReleasesSection lang={lang} dictionary={dictionary} />
       <RepertoireSection lang={lang} dictionary={dictionary} />
       <GallerySection lang={lang} dictionary={dictionary} />
+      <ReviewsSection lang={lang} />
       <OrganizerZone lang={lang} dictionary={dictionary} />
       <FaqSection lang={lang} />
       <ContactSection lang={lang} dictionary={dictionary} />

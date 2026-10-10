@@ -40,7 +40,7 @@ export const it: Dictionary = {
   members: {
     eyebrow: "Formazione",
     heading: "Musicisti e strumenti",
-    lead: "Sei musicisti professionisti sul palco: la formazione fissa e un percussionista.",
+    lead: "",
     coreHeading: "Formazione fissa",
     percussionHeading: "Percussione",
   },
@@ -57,7 +57,7 @@ export const it: Dictionary = {
     premiere: "Uscita",
     playerHeading: "Registrazioni",
     playerLead:
-      "Ascoltate la musica medievale di The Medievals: Douce Dame Jolie, Schiarazula Marazula, Herr Mannelig, Tourdion, album 2025, EP 1 e La Serena — su Spotify e YouTube.",
+      "Ascoltate la musica medievale di The Medievals: Douce Dame Jolie, Schiarazula Marazula, Herr Mannelig, Tourdion, album 2025 e EP 1 — su Spotify e YouTube.",
   },
   offer: {
     eyebrow: "Offerta",
@@ -74,7 +74,7 @@ export const it: Dictionary = {
   gallery: {
     eyebrow: "Foto",
     heading: "Galleria dell'ensemble",
-    lead: "Momenti da concerti e sessioni — così siamo sul palco e fuori.",
+    lead: "Così siamo sul palco e fuori.",
   },
   contact: {
     heading: "Prenota un concerto",

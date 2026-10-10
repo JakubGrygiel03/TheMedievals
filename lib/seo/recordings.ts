@@ -3,7 +3,8 @@ import { siteConfig } from "@/lib/seo/site";
 
 /**
  * Featured recordings for MusicRecording JSON-LD (Google “Songs” / Utwory carousel).
- * Names and years match the official releases; images reuse existing public assets.
+ * UI lists titles only — gallery photos are not used as track artwork.
+ * Schema images: YouTube thumbs when a video exists, otherwise the shared press photo.
  */
 export type FeaturedRecording = {
   id: string;
@@ -12,12 +13,14 @@ export type FeaturedRecording = {
   namePl?: string;
   year: number;
   datePublished: string;
-  albumId: "album-2025" | "ep-1" | "la-serena";
-  /** Public path under site root, or absolute URL (YouTube thumb). */
+  albumId: "album-2025" | "ep-1";
+  /** Schema image only: YouTube thumb or shared press photo — never gallery shots. */
   image: string;
   /** Optional listen / watch URL. */
   url?: string;
 };
+
+const pressImage = media.pressPhoto;
 
 export const featuredRecordings: FeaturedRecording[] = [
   {
@@ -26,7 +29,7 @@ export const featuredRecordings: FeaturedRecording[] = [
     year: 2022,
     datePublished: "2022-05-01",
     albumId: "ep-1",
-    image: "/gallery/03-gitterna.jpg",
+    image: pressImage,
     url: siteConfig.social.spotify,
   },
   {
@@ -35,7 +38,7 @@ export const featuredRecordings: FeaturedRecording[] = [
     year: 2022,
     datePublished: "2022-05-01",
     albumId: "ep-1",
-    image: "/gallery/05-vielle.jpg",
+    image: "https://i.ytimg.com/vi/gK0RymZkpSw/hqdefault.jpg",
     url: "https://www.youtube.com/watch?v=gK0RymZkpSw",
   },
   {
@@ -45,7 +48,7 @@ export const featuredRecordings: FeaturedRecording[] = [
     year: 2025,
     datePublished: "2025-06-06",
     albumId: "album-2025",
-    image: media.hero,
+    image: pressImage,
     url: siteConfig.social.spotify,
   },
   {
@@ -54,7 +57,7 @@ export const featuredRecordings: FeaturedRecording[] = [
     year: 2025,
     datePublished: "2025-06-06",
     albumId: "album-2025",
-    image: "/gallery/08-kwartet.jpg",
+    image: pressImage,
     url: siteConfig.social.spotify,
   },
   {
@@ -63,7 +66,7 @@ export const featuredRecordings: FeaturedRecording[] = [
     year: 2025,
     datePublished: "2025-06-06",
     albumId: "album-2025",
-    image: "/gallery/01-flety.jpg",
+    image: pressImage,
     url: siteConfig.social.spotify,
   },
   {
@@ -72,7 +75,7 @@ export const featuredRecordings: FeaturedRecording[] = [
     year: 2025,
     datePublished: "2025-06-06",
     albumId: "album-2025",
-    image: "/gallery/07-beben.jpg",
+    image: pressImage,
     url: siteConfig.social.spotify,
   },
   {
@@ -83,15 +86,6 @@ export const featuredRecordings: FeaturedRecording[] = [
     albumId: "ep-1",
     image: "https://i.ytimg.com/vi/nIUcs-GJ-5E/hqdefault.jpg",
     url: "https://www.youtube.com/watch?v=nIUcs-GJ-5E",
-  },
-  {
-    id: "la-serena",
-    name: "La Serena",
-    year: 2022,
-    datePublished: "2022-09-18",
-    albumId: "la-serena",
-    image: "/gallery/06-trio.jpg",
-    url: siteConfig.social.spotify,
   },
 ];
 

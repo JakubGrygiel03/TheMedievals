@@ -17,7 +17,7 @@ export const clientOffers: Record<
       {
         title: "Koncert z opowieścią o instrumentach",
         featured: true,
-        body: "Koncert muzyki od XIII do XV wieku wraz z przedstawieniem instrumentów, ich budowy i pochodzenia oraz przybliżeniem historii i treści granego repertuaru. Dodatkowo istnieje możliwość poprowadzenia warsztatów tańca z tego okresu podczas występu na żywo.",
+        body: "Koncert muzyki od XII do XVI wieku wraz z przedstawieniem instrumentów, ich budowy i pochodzenia oraz przybliżeniem historii i treści granego repertuaru. Dodatkowo istnieje możliwość poprowadzenia warsztatów tańca z tego okresu podczas występu na żywo.",
       },
       {
         title: "Stanowisko muzyczne",
@@ -40,7 +40,7 @@ export const clientOffers: Record<
       {
         title: "Concert with instrument stories",
         featured: true,
-        body: "A 13th–15th-century music concert with a presentation of the instruments — how they are built and where they come from — and an introduction to the history and meaning of the repertoire. Dance workshops from this period can also be led during the live performance.",
+        body: "A 12th–16th-century music concert with a presentation of the instruments — how they are built and where they come from — and an introduction to the history and meaning of the repertoire. Dance workshops from this period can also be led during the live performance.",
       },
       {
         title: "Music station",
@@ -63,7 +63,7 @@ export const clientOffers: Record<
       {
         title: "Concierto con relato de instrumentos",
         featured: true,
-        body: "Un concierto de música de los siglos XIII al XV con presentación de los instrumentos — su construcción y origen — y una introducción a la historia y el sentido del repertorio. También es posible dirigir talleres de danza de este periodo durante la actuación en vivo.",
+        body: "Un concierto de música de los siglos XII al XVI con presentación de los instrumentos — su construcción y origen — y una introducción a la historia y el sentido del repertorio. También es posible dirigir talleres de danza de este periodo durante la actuación en vivo.",
       },
       {
         title: "Puesto musical",
@@ -86,7 +86,7 @@ export const clientOffers: Record<
       {
         title: "Concerto con racconto degli strumenti",
         featured: true,
-        body: "Un concerto di musica dal XIII al XV secolo con presentazione degli strumenti — costruzione e origine — e un avvicinamento alla storia e al significato del repertorio. È inoltre possibile condurre laboratori di danza dello stesso periodo durante l’esibizione dal vivo.",
+        body: "Un concerto di musica dal XII al XVI secolo con presentazione degli strumenti — costruzione e origine — e un avvicinamento alla storia e al significato del repertorio. È inoltre possibile condurre laboratori di danza dello stesso periodo durante l’esibizione dal vivo.",
       },
       {
         title: "Postazione musicale",
@@ -108,25 +108,25 @@ export const trustPoints: Record<Locale, string[]> = {
   pl: [
     "6 zawodowych muzyków",
     "Rzemieślnicze repliki instrumentów z epoki",
-    "Wierne stroje z ikonografii, XIII–XV w.",
+    "Stroje odtworzone ze średniowiecznej ikonografii (XIII i XV wiek)",
     "Pieśni w językach oryginalnych",
   ],
   en: [
     "6 professional musicians",
     "Artisan replica period instruments",
-    "Faithful dress from iconography, 13th–15th c.",
+    "Costumes from medieval iconography (13th & 15th c.)",
     "Songs in original languages",
   ],
   es: [
     "6 músicos profesionales",
     "Réplicas artesanales de instrumentos de época",
-    "Indumentaria fiel a la iconografía, siglos XIII–XV",
+    "Trajes de iconografía medieval (siglos XIII y XV)",
     "Canciones en lenguas originales",
   ],
   it: [
     "6 musicisti professionisti",
     "Repliche artigianali di strumenti d’epoca",
-    "Abiti fedeli all’iconografia, XIII–XV secolo",
+    "Abiti dall’iconografia medievale (XIII e XV secolo)",
     "Canti nelle lingue originali",
   ],
 };

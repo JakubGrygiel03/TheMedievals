@@ -18,7 +18,7 @@ export function ReleasesSection({ lang, dictionary }: ReleasesSectionProps) {
       heading={dictionary.media.heading}
       tone="wash"
     >
-      <StaggerList className="mt-5 grid gap-6 lg:grid-cols-3">
+      <StaggerList className="mt-5 grid gap-6 lg:grid-cols-2">
         {releases.map((release) => (
           <StaggerItem key={release.id} className="folio-panel flex flex-col p-6">
             <p className="font-cinzel text-[11px] tracking-[0.18em] text-gold uppercase">

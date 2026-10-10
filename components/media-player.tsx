@@ -1,15 +1,12 @@
-import { FeaturedSongs } from "@/components/featured-songs";
 import { FolioSection } from "@/components/ui/folio-section";
-import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/types";
 import { siteConfig } from "@/lib/seo/site";
 
 type MediaPlayerProps = {
-  lang: Locale;
   dictionary: Dictionary;
 };
 
-export function MediaPlayer({ lang, dictionary }: MediaPlayerProps) {
+export function MediaPlayer({ dictionary }: MediaPlayerProps) {
   return (
     <FolioSection
       id="nagrania"
@@ -19,7 +16,6 @@ export function MediaPlayer({ lang, dictionary }: MediaPlayerProps) {
       <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[var(--ink-soft)]">
         {dictionary.media.playerLead}
       </p>
-      <FeaturedSongs lang={lang} />
       <div className="mt-5 grid gap-6 lg:grid-cols-2 lg:items-stretch">
         <div className="folio-panel media-embed-panel h-full min-h-[32rem]">
           <iframe

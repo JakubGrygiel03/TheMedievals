@@ -9,32 +9,32 @@ type AboutCopy = {
 export const aboutCopy: Record<Locale, AboutCopy> = {
   pl: {
     paragraphs: [
-      "The Medievals wykonuje muzykę średniowieczną, wiernie odtwarzając jej brzmienie. Pieśni, tańce i utwory instrumentalne w językach oryginalnych gramy na kopiach instrumentów z epoki XIII–XV wieku — na zamku, w obozie i przy biesiadzie.",
-      "Stroje historyczne od XIII do XV wieku szyjemy na podstawie ikonografii. Instrumenty to rzemieślnicze repliki: fidele, gitterna, lutnia, flety, szałamaja oraz bębny obręczowe. Dla organizatora oznacza to spójny obraz — muzyka, strój i instrumentarium jako jedna całość.",
+      "The Medievals wykonuje muzykę średniowieczną, wiernie odtwarzając jej brzmienie. Pieśni, tańce i utwory instrumentalne w językach oryginalnych gramy na kopiach instrumentów z epoki średniowiecza — na zamku, w obozie i przy biesiadzie.",
+      "Nasze stroje historyczne szyjemy na podstawie ikonografii z XIII i XV wieku. Instrumenty to rzemieślnicze repliki: fidele, gitterna, lutnia, flety, szałamaja oraz bębny obręczowe. Dla organizatora oznacza to spójny obraz — muzyka, strój i instrumentarium jako jedna całość.",
     ],
     instruments:
       "fidele kolanowe (vielle), gitterna, lutnia, bęben obręczowy, średniowieczne flety proste oraz szałamaja",
   },
   en: {
     paragraphs: [
-      "The Medievals performs medieval music, faithfully recreating its sound. Songs, dances and instrumental pieces in their original languages are played on replica instruments from the 13th–15th centuries — for a castle, a camp or a feast.",
-      "Historical dress from the 13th to 15th centuries is sewn from iconography. The instruments are artisan replicas: vielles, gittern, lute, recorders, shawm, frame drums. For an organizer that means one picture: music, costume and instruments as a single whole.",
+      "The Medievals performs medieval music, faithfully recreating its sound. Songs, dances and instrumental pieces in their original languages are played on replica instruments from the medieval era — for a castle, a camp or a feast.",
+      "We sew our historical costumes from 13th- and 15th-century iconography. The instruments are artisan replicas: vielles, gittern, lute, recorders, shawm, frame drums. For an organizer that means one picture: music, costume and instruments as a single whole.",
     ],
     instruments:
       "knee fiddles (vielle), gittern, lute, frame drum, medieval recorders and shawm",
   },
   es: {
     paragraphs: [
-      "The Medievals interpreta música medieval, recreando fielmente su sonido. Canciones, danzas y piezas instrumentales en lenguas originales suenan con réplicas de instrumentos de los siglos XIII–XV: castillo, campamento o festín.",
-      "Los trajes históricos de los siglos XIII al XV se cosen a partir de la iconografía. Los instrumentos son réplicas artesanales: vielles, gitterna, laúd, flautas, chirimía, tambores de marco. Para el organizador es una sola imagen: música, indumentaria e instrumentos.",
+      "The Medievals interpreta música medieval, recreando fielmente su sonido. Canciones, danzas y piezas instrumentales en lenguas originales suenan con réplicas de instrumentos de la Edad Media: castillo, campamento o festín.",
+      "Cosemos nuestros trajes históricos a partir de la iconografía de los siglos XIII y XV. Los instrumentos son réplicas artesanales: vielles, gitterna, laúd, flautas, chirimía, tambores de marco. Para el organizador es una sola imagen: música, indumentaria e instrumentos.",
     ],
     instruments:
       "vielles de regazo, gitterna, laúd, tambor de marco, flautas dulces medievales y chirimía",
   },
   it: {
     paragraphs: [
-      "The Medievals esegue musica medievale, ricreandone fedelmente il suono. Canti, danze e brani strumentali nelle lingue originali suonano su repliche di strumenti dal XIII al XV secolo: castello, accampamento o convito.",
-      "Gli abiti storici dal XIII al XV secolo sono cuciti sull’iconografia. Gli strumenti sono repliche artigianali: vielle, gittern, liuto, flauti, cennamella, tamburi a cornice. Per l’organizzatore è un’unica immagine: musica, costume e strumenti.",
+      "The Medievals esegue musica medievale, ricreandone fedelmente il suono. Canti, danze e brani strumentali nelle lingue originali suonano su repliche di strumenti dell’epoca medievale: castello, accampamento o convito.",
+      "Cuciamo i nostri abiti storici sull’iconografia dei secoli XIII e XV. Gli strumenti sono repliche artigianali: vielle, gittern, liuto, flauti, cennamella, tamburi a cornice. Per l’organizzatore è un’unica immagine: musica, costume e strumenti.",
     ],
     instruments:
       "vielle da ginocchio, gittern, liuto, tamburo a cornice, flauti dritti medievali e cennamella",

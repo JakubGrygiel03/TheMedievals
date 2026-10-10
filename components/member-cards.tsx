@@ -13,9 +13,11 @@ type MemberCardsProps = {
 export function MemberCards({ lang, copy }: MemberCardsProps) {
   return (
     <FolioSection id="muzycy" eyebrow={copy.eyebrow} heading={copy.heading} tone="wash">
-      <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[var(--ink-soft)]">
-        {copy.lead}
-      </p>
+      {copy.lead ? (
+        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[var(--ink-soft)]">
+          {copy.lead}
+        </p>
+      ) : null}
 
       <RuledSubhead>{copy.coreHeading}</RuledSubhead>
       <StaggerList className="member-core-grid mt-4">

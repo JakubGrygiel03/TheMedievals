@@ -17,11 +17,6 @@ export const faqCopy: Record<Locale, FaqCopy> = {
     heading: "Zespół muzyki dawnej — pytania organizatorów",
     items: [
       {
-        question: "Czym jest zespół muzyki dawnej The Medievals?",
-        answer:
-          "The Medievals to zespół muzyki dawnej i średniowiecznej: sześcioro zawodowych muzyków odtwarza muzykę oraz stroje od XIII do XV wieku. Gramy na rzemieślniczych replikach instrumentów — m.in. vielle, gitternie, flety, szałamaja i bęben obręczowy.",
-      },
-      {
         question: "Na jakich wydarzeniach gra The Medievals?",
         answer:
           "Koncerty muzyki dawnej na zamkach, festiwalach, turniejach rycerskich, jarmarkach i rekonstrukcjach historycznych. Robimy też oprawę muzyczną ślubów, biesiad, eventów tematycznych oraz warsztaty tańca dawnego.",
@@ -47,11 +42,6 @@ export const faqCopy: Record<Locale, FaqCopy> = {
     eyebrow: "Questions",
     heading: "Early music ensemble — organizer questions",
     items: [
-      {
-        question: "What is The Medievals early music ensemble?",
-        answer:
-          "The Medievals is an early and medieval music ensemble: six professional musicians recreating music and dress from the 13th to the 15th century, on artisan replica instruments such as vielle, gittern, recorders, shawm and frame drum.",
-      },
       {
         question: "Which events do The Medievals perform at?",
         answer:
@@ -79,11 +69,6 @@ export const faqCopy: Record<Locale, FaqCopy> = {
     heading: "Ensemble de música antigua — preguntas de organizadores",
     items: [
       {
-        question: "¿Qué es el ensemble de música antigua The Medievals?",
-        answer:
-          "The Medievals es un ensemble de música antigua y medieval: seis músicos profesionales recrean música e indumentaria de los siglos XIII al XV, con réplicas artesanales (vielle, gitterna, flautas, chirimía y tambor de marco).",
-      },
-      {
         question: "¿En qué eventos actúa The Medievals?",
         answer:
           "Conciertos de música medieval en castillos, festivales, torneos, ferias y recreaciones históricas. También música para bodas, festines, eventos temáticos y talleres de danza antigua.",
@@ -109,11 +94,6 @@ export const faqCopy: Record<Locale, FaqCopy> = {
     eyebrow: "Domande",
     heading: "Ensemble di musica antica — domande degli organizzatori",
     items: [
-      {
-        question: "Che cos’è l’ensemble di musica antica The Medievals?",
-        answer:
-          "The Medievals è un ensemble di musica antica e medievale: sei musicisti professionisti ricostruiscono musica e abiti dal XIII al XV secolo, su repliche artigianali (vielle, gittern, flauti, cennamella e tamburo a cornice).",
-      },
       {
         question: "In quali eventi suona The Medievals?",
         answer:

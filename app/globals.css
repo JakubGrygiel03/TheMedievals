@@ -449,6 +449,11 @@ select {
     inset 0 -1px 0 var(--line);
 }
 
+.review-quote {
+  font-style: italic;
+  font-synthesis: style;
+}
+
 @media (max-width: 1023px) {
   .folio-band-wash {
     background: var(--parchment-deep);
@@ -573,11 +578,11 @@ select {
 }
 
 .trust-copy {
-  max-width: 14rem;
-  font-size: 0.74rem;
+  max-width: 16.5rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  line-height: 1.4;
-  letter-spacing: 0.08em;
+  line-height: 1.35;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   text-wrap: balance;
 }
