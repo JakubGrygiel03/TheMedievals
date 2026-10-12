@@ -3,6 +3,7 @@ import { securityHeaders } from "./lib/security/headers";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  trailingSlash: false,
   images: {
     qualities: [60, 75, 85],
     formats: ["image/avif", "image/webp"],

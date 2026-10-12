@@ -9,9 +9,8 @@ import { CodexFooter } from "@/components/codex-footer";
 import { JsonLd } from "@/components/seo/json-ld";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { isLocale, locales } from "@/lib/i18n/config";
-import { hreflangMap, socialMetadata } from "@/lib/seo/metadata";
 import { media } from "@/lib/media";
-import { localePath, siteConfig } from "@/lib/seo/site";
+import { siteConfig } from "@/lib/seo/site";
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -92,15 +91,7 @@ export async function generateMetadata({
       apple: [{ url: media.appleIcon, type: "image/png", sizes: "180x180" }],
       shortcut: [{ url: media.favicon }],
     },
-    alternates: {
-      canonical: localePath(lang),
-      languages: hreflangMap(),
-    },
-    ...socialMetadata({
-      lang,
-      title: dictionary.meta.title,
-      description: dictionary.meta.description,
-    }),
+    // Canonical + hreflang are set per page — layout must not force the home URL.
   };
 }
 
