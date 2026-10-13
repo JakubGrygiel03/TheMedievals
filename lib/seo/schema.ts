@@ -197,7 +197,7 @@ export function videoNodes(): JsonLdNode[] {
     embedUrl: `https://www.youtube-nocookie.com/embed/${video.id}`,
     thumbnailUrl: `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`,
     contentUrl: `https://www.youtube.com/watch?v=${video.id}`,
-    uploadDate: video.id === "nIUcs-GJ-5E" ? "2022-05-01" : "2022-05-01",
+    uploadDate: video.uploadDate,
     publisher: { "@id": ensembleId() },
   }));
 }
