@@ -44,10 +44,19 @@ export function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // / → /pl (permanent). Absolute Location shortens the chain Google must follow.
-  const localized =
-    pathname === "/" ? `/${defaultLocale}` : `/${defaultLocale}${pathname}`;
-  return NextResponse.redirect(canonicalUrl(localized, search), 308);
+  // Serve Polish home at "/" (rewrite, not redirect).
+  // GSC validates VideoObject against https://www.themedievals.pl/ — a 308
+  // there has no HTML, so uploadDate looked "missing". Canonical stays /pl.
+  if (pathname === "/") {
+    const url = request.nextUrl.clone();
+    url.pathname = `/${defaultLocale}`;
+    return NextResponse.rewrite(url);
+  }
+
+  return NextResponse.redirect(
+    canonicalUrl(`/${defaultLocale}${pathname}`, search),
+    308,
+  );
 }
 
 export const config = {

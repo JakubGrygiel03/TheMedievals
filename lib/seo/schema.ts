@@ -192,13 +192,26 @@ export function songsItemList(lang: Locale): JsonLdNode {
 export function videoNodes(): JsonLdNode[] {
   return siteConfig.embeds.videos.map((video) => ({
     "@type": "VideoObject",
+    "@id": `${siteConfig.url}/#video-${video.id}`,
     name: video.title,
     description: video.title,
     embedUrl: `https://www.youtube-nocookie.com/embed/${video.id}`,
-    thumbnailUrl: `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`,
+    thumbnailUrl: [
+      `https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg`,
+      `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`,
+    ],
     contentUrl: `https://www.youtube.com/watch?v=${video.id}`,
+    // Full ISO-8601 with timezone (Google rejects date-only uploadDate).
     uploadDate: video.uploadDate,
-    publisher: { "@id": ensembleId() },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteConfig.url}${media.icon}`,
+      },
+    },
   }));
 }
 

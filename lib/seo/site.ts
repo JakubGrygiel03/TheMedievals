@@ -41,12 +41,12 @@ export const siteConfig = {
         id: "nIUcs-GJ-5E",
         title: "The Medievals – Ai vis lo lop",
         /** ISO 8601 — required by Google VideoObject rich results. */
-        uploadDate: "2022-05-01T12:00:00+02:00",
+        uploadDate: "2022-05-01T10:00:00.000Z",
       },
       {
         id: "gK0RymZkpSw",
         title: "The Medievals – Douce Dame Jolie",
-        uploadDate: "2022-05-01T12:00:00+02:00",
+        uploadDate: "2022-05-01T10:00:00.000Z",
       },
     ],
   },
