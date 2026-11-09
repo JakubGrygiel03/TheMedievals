@@ -11,7 +11,7 @@ export const eventLabels = {
 export const statusLabels = {
   new: "Nowe",
   contacted: "W kontakcie",
-  confirmed: "Potwierdzone — prowizja",
+  confirmed: "Potwierdzone",
   archived: "Archiwum",
 } as const;
 

@@ -14,7 +14,7 @@ export default async function AdminLoginPage({ searchParams }: LoginPageProps) {
       </p>
       <h1 className="mt-2 font-cinzel text-3xl">Scriptorium</h1>
       <p className="mt-3 text-[var(--ink-soft)]">
-        Wejście do księgi zapytań, telefonów i prowizji.
+        Wspólna księga zapytań i telefonów zespołu.
       </p>
       {error ? (
         <p className="mt-4 text-sm text-vermilion">Hasło nie pasuje.</p>

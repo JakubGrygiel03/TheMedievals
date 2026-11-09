@@ -81,13 +81,12 @@ export default async function AdminDashboardPage() {
       </div>
 
       {!supabase ? (
-        <p className="folio-panel mt-6 p-4 text-sm text-vermilion">
-          Żeby widzieć archiwum na tej stronie, potrzebny jest Supabase. Same zgłoszenia i pobrania numeru i tak przychodzą mailem na contact@themedievals.pl i na adres z RESEND_TO — baza nie jest do tego potrzebna.
+        <p className="folio-panel mt-6 p-4 text-sm text-[var(--ink-soft)]">
+          Archiwum zgłoszeń w panelu jest wyłączone (brak Supabase w env). Maile z formularza i tak dochodzą.
         </p>
       ) : messagesRes.error || phoneRes.error ? (
         <p className="folio-panel mt-6 p-4 text-sm text-vermilion">
-          Baza jest podpięta, ale brakuje tabel. Wklej w Supabase SQL Editor plik{" "}
-          <code>supabase/tracking.sql</code>.
+          Baza podpięta, ale brakuje tabel — uruchom <code>supabase/bootstrap.sql</code>.
         </p>
       ) : null}
 
@@ -95,7 +94,7 @@ export default async function AdminDashboardPage() {
         <Stat label="Formularze" value={leads.length} />
         <Stat label="Z numerem telefonu" value={withPhone} />
         <Stat label="Pobrania numeru" value={reveals.length} />
-        <Stat label="Potwierdzone (prowizja)" value={confirmed} />
+        <Stat label="Potwierdzone" value={confirmed} />
       </section>
 
       <OfferMailTiles defaultTo={getOfferSampleInbox()} />
@@ -103,8 +102,8 @@ export default async function AdminDashboardPage() {
       <section className="mt-12">
         <h2 className="font-cinzel text-2xl">Treści formularzy</h2>
         <p className="mt-2 max-w-2xl text-sm text-[var(--ink-soft)]">
-          Tu widać kto napisał, jaki zostawił telefon i całą treść zapytania.
-          Status „Potwierdzone — prowizja” zostaw przy zleceniach do rozliczenia.
+          Wspólne archiwum dla zespołu: kto napisał, jaki zostawił telefon i treść
+          zapytania. Numery możecie od razu wykorzystać do kontaktu.
         </p>
         {leads.length === 0 ? (
           <p className="mt-4 text-sm italic">Na razie brak zgłoszeń.</p>
@@ -169,7 +168,7 @@ export default async function AdminDashboardPage() {
                 <form action={updateLead} className="mt-4 grid gap-3 sm:grid-cols-[12rem_minmax(0,1fr)_auto]">
                   <input type="hidden" name="id" value={item.id} />
                   <label className="flex flex-col gap-1 font-cinzel text-[0.68rem] tracking-wide uppercase">
-                    Status / prowizja
+                    Status
                     <select
                       name="status"
                       defaultValue={item.status ?? "new"}
@@ -183,11 +182,11 @@ export default async function AdminDashboardPage() {
                     </select>
                   </label>
                   <label className="flex flex-col gap-1 font-cinzel text-[0.68rem] tracking-wide uppercase">
-                    Notatka do rozliczenia
+                    Notatka zespołu
                     <input
                       name="notes"
                       defaultValue={item.notes ?? ""}
-                      placeholder="np. agent, % prowizji, data wpłaty"
+                      placeholder="np. kto dzwonił, ustalony termin"
                       className="folio-input font-body text-sm"
                     />
                   </label>
@@ -204,8 +203,8 @@ export default async function AdminDashboardPage() {
       <section className="mt-14">
         <h2 className="font-cinzel text-2xl">Kto pobrał numer telefonu</h2>
         <p className="mt-2 max-w-2xl text-sm text-[var(--ink-soft)]">
-          Osoby, które na stronie kliknęły „Pokaż numer telefonu” i zostawiły
-          dane. To osobny trop do prowizji, poza formularzem.
+          Osoby, które na stronie poprosiły o pokazanie numeru zespołu i
+          zostawiły swoje dane — też możecie do nich wrócić.
         </p>
         {reveals.length === 0 ? (
           <p className="mt-4 text-sm italic">Nikt jeszcze nie prosił o numer.</p>
