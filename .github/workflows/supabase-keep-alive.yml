@@ -1,0 +1,30 @@
+# Backup ping — wakes free-tier Supabase even if Vercel Cron misses a day.
+name: Supabase keep-alive
+
+on:
+  schedule:
+    # Twice daily (UTC). Hobby Vercel only allows 1 cron/day; this covers gaps.
+    - cron: "0 5 * * *"
+    - cron: "0 17 * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Ping production keep-alive
+        env:
+          SITE_URL: ${{ vars.SITE_URL || 'https://www.themedievals.pl' }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          if [ -z "$CRON_SECRET" ]; then
+            echo "Missing GitHub secret CRON_SECRET"
+            exit 1
+          fi
+          code=$(curl -sS -o /tmp/keepalive.json -w "%{http_code}" \
+            -H "Authorization: Bearer ${CRON_SECRET}" \
+            "${SITE_URL%/}/api/cron/keep-alive")
+          echo "HTTP $code"
+          cat /tmp/keepalive.json || true
+          test "$code" = "200"

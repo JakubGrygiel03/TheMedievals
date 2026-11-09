@@ -43,3 +43,6 @@ next-env.d.ts
 
 # local sitemap dumps
 sitemap-*.xml
+
+# supabase CLI local temp
+supabase/.temp/

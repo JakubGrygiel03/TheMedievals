@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
-import { securityHeaders } from "./lib/security/headers";
+import {
+  adminSecurityHeaders,
+  securityHeaders,
+} from "./lib/security/headers";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
@@ -27,6 +30,10 @@ const nextConfig: NextConfig = {
       {
         source: "/:path*",
         headers: securityHeaders,
+      },
+      {
+        source: "/admin/:path*",
+        headers: adminSecurityHeaders,
       },
       {
         source: "/gallery/:path*",

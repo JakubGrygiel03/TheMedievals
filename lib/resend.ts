@@ -28,6 +28,7 @@ function extraRecipients() {
 async function sendNotice(options: {
   subject: string;
   text: string;
+  html?: string;
   replyTo?: string;
   to: string[];
 }) {
@@ -47,6 +48,7 @@ async function sendNotice(options: {
     replyTo: options.replyTo,
     subject: options.subject,
     text: options.text,
+    ...(options.html ? { html: options.html } : {}),
   });
 
   if (error) {
@@ -129,4 +131,43 @@ export async function sendPhoneClickEmail(input: {
   });
 
   return booking;
+}
+
+export type OfferMailResult =
+  | { ok: true; sent: true; to: string }
+  | { ok: true; sent: false; reason: "missing_resend" }
+  | { ok: false; error: string };
+
+/** Sends an HTML offer “business card” email (sample layouts for organizers). */
+export async function sendOfferCardEmail(input: {
+  subject: string;
+  html: string;
+  text: string;
+  to?: string;
+}): Promise<OfferMailResult> {
+  const to = (input.to?.trim() || COMMISSION_INBOX).toLowerCase();
+
+  try {
+    const result = await sendNotice({
+      to: [to],
+      subject: input.subject,
+      text: input.text,
+      html: input.html,
+    });
+
+    if (!result.sent) {
+      return { ok: true, sent: false, reason: "missing_resend" };
+    }
+
+    return { ok: true, sent: true, to };
+  } catch (error) {
+    return {
+      ok: false,
+      error: error instanceof Error ? error.message : "Send failed",
+    };
+  }
+}
+
+export function getOfferSampleInbox() {
+  return COMMISSION_INBOX;
 }

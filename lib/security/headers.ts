@@ -42,6 +42,28 @@ export const contentSecurityPolicy = [
   "upgrade-insecure-requests",
 ].join("; ");
 
+/**
+ * Admin CSP — same script allowances as the site in development
+ * (React/Next need unsafe-eval for the overlay). Production drops eval.
+ */
+const adminScriptSrc =
+  process.env.NODE_ENV === "production"
+    ? "'self' 'unsafe-inline'"
+    : "'self' 'unsafe-inline' 'unsafe-eval'";
+
+export const adminContentSecurityPolicy = [
+  "default-src 'self'",
+  `script-src ${adminScriptSrc}`,
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data:",
+  "font-src 'self'",
+  "connect-src 'self'",
+  "frame-ancestors 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "object-src 'none'",
+].join("; ");
+
 export const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "X-Frame-Options", value: "DENY" },
@@ -58,4 +80,10 @@ export const securityHeaders = [
   { key: "Content-Security-Policy", value: contentSecurityPolicy },
   { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
   { key: "X-Permitted-Cross-Domain-Policies", value: "none" },
+];
+
+export const adminSecurityHeaders = [
+  { key: "Cache-Control", value: "no-store, max-age=0" },
+  { key: "X-Robots-Tag", value: "noindex, nofollow" },
+  { key: "Content-Security-Policy", value: adminContentSecurityPolicy },
 ];

@@ -1,6 +1,8 @@
 import { updateLead } from "@/app/actions/admin-leads";
 import { isAdminAuthenticated, logoutAdmin } from "@/app/actions/admin-auth";
+import { OfferMailTiles } from "@/components/admin/offer-mail-tiles";
 import { eventLabels, statusOptions } from "@/lib/admin-labels";
+import { getOfferSampleInbox } from "@/lib/resend";
 import { createServiceClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 
@@ -95,6 +97,8 @@ export default async function AdminDashboardPage() {
         <Stat label="Pobrania numeru" value={reveals.length} />
         <Stat label="Potwierdzone (prowizja)" value={confirmed} />
       </section>
+
+      <OfferMailTiles defaultTo={getOfferSampleInbox()} />
 
       <section className="mt-12">
         <h2 className="font-cinzel text-2xl">Treści formularzy</h2>
