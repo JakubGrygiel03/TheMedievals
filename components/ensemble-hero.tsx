@@ -18,8 +18,8 @@ export function EnsembleHero({ lang, dictionary }: EnsembleHeroProps) {
         <Image
           src={media.hero}
           alt={dictionary.hero.heading}
-          width={1024}
-          height={681}
+          width={2048}
+          height={1363}
           priority
           unoptimized
           className="h-auto w-full"
