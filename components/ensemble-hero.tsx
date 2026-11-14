@@ -21,7 +21,7 @@ export function EnsembleHero({ lang, dictionary }: EnsembleHeroProps) {
           width={1024}
           height={681}
           priority
-          quality={75}
+          unoptimized
           className="h-auto w-full"
           sizes="(min-width: 1024px) calc(100vw - min(17rem, 19vw)), 100vw"
         />
