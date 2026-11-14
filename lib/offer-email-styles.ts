@@ -13,8 +13,8 @@ export function offerEmailHeadStyles() {
   img { border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
   a { text-decoration: none; }
   .folio-outer { width: 100% !important; }
-  .folio-shell { width: 100% !important; max-width: 640px !important; }
-  .folio-band { width: 100% !important; max-width: 640px !important; height: auto !important; }
+  .folio-shell { width: 100% !important; max-width: 960px !important; }
+  .folio-band { display: block !important; width: 645px !important; max-width: 100% !important; height: auto !important; margin: 0 auto !important; }
   .folio-pad { padding-left: 28px !important; padding-right: 28px !important; }
   .folio-title { font-size: 26px !important; line-height: 1.28 !important; }
   .folio-body { font-size: 16px !important; line-height: 1.7 !important; }
@@ -54,20 +54,23 @@ export function offerEmailHeadStyles() {
     .folio-title { font-size: 22px !important; line-height: 1.3 !important; }
     .folio-body { font-size: 15px !important; }
     .folio-shell { width: 100% !important; }
-    .folio-photo { width: 100% !important; max-width: 100% !important; height: auto !important; }
     .folio-social { display: block !important; width: 100% !important; }
     .folio-col {
       display: block !important;
       width: 100% !important;
       max-width: 100% !important;
     }
+    .folio-photo-col,
+    .folio-photo,
     .folio-side {
       display: none !important;
       width: 0 !important;
       max-width: 0 !important;
+      max-height: 0 !important;
       overflow: hidden !important;
       font-size: 0 !important;
       line-height: 0 !important;
+      padding: 0 !important;
     }
     .folio-cta {
       display: block !important;
