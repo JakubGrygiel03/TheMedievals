@@ -5,7 +5,15 @@ import {
   sendOfferCardSample,
   type SendOfferCardState,
 } from "@/app/actions/admin-offer-mail";
-import { offerCards, type OfferCard } from "@/lib/offer-cards";
+import { offerCards, type OfferCard, type OfferCardId } from "@/lib/offer-cards";
+
+const tileBorder: Record<OfferCardId, string> = {
+  "folio-full": "/email/border-top.png",
+  "concert-story": "/email/border-top.png",
+  "wedding-feast": "/email/border-floating.png",
+  "station-workshop": "/email/border-top.png",
+  "quick-booking": "/email/border-bottom.png",
+};
 
 type Props = {
   defaultTo: string;
@@ -93,10 +101,10 @@ function OfferTile({
 
   return (
     <article className="folio-panel flex h-full flex-col overflow-hidden">
-      <div
-        className="h-1.5 w-full"
-        style={{ background: card.accent }}
-        aria-hidden
+      <img
+        src={tileBorder[card.id]}
+        alt=""
+        className="h-8 w-full object-cover object-center"
       />
       <div className="flex flex-1 flex-col p-4 sm:p-5">
         <p

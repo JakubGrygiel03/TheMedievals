@@ -14,13 +14,58 @@ const contact = siteConfig.email;
 const offers = clientOffers.pl;
 const host = CANONICAL_HOST;
 
+export type FolioFrame = "full" | "bands" | "header" | "sides";
+
+function borderImg(file: string, width: number) {
+  return `<img src="${site}/email/${file}" width="${width}" alt="" style="display:block;width:100%;max-width:${width}px;height:auto;border:0;outline:none;text-decoration:none;margin:0 auto;" />`;
+}
+
+function sideImg(file: string) {
+  return `<img src="${site}/email/${file}" width="40" alt="" style="display:block;width:40px;height:auto;border:0;outline:none;text-decoration:none;" />`;
+}
+
+function floralChrome(frame: FolioFrame, inner: string) {
+  const top =
+    frame === "header"
+      ? `<tr><td colspan="3" align="center" style="padding:4px 18px 0;font-size:0;line-height:0;">${borderImg("border-floating.png", 480)}</td></tr>`
+      : frame === "sides"
+        ? ""
+        : `<tr><td colspan="3" style="padding:0;font-size:0;line-height:0;">${borderImg("border-top.png", 560)}</td></tr>`;
+
+  const bottom =
+    frame === "full" || frame === "bands"
+      ? `<tr><td colspan="3" style="padding:0;font-size:0;line-height:0;">${borderImg("border-bottom.png", 560)}</td></tr>`
+      : "";
+
+  const left =
+    frame === "full" || frame === "sides"
+      ? `<td class="folio-side" width="44" valign="top" style="width:44px;padding:12px 0 8px 6px;font-size:0;line-height:0;">${sideImg("border-left.png")}</td>`
+      : `<td width="8" style="width:8px;font-size:0;line-height:0;">&nbsp;</td>`;
+
+  const right =
+    frame === "full" || frame === "sides"
+      ? `<td class="folio-side" width="44" valign="top" style="width:44px;padding:12px 6px 8px 0;font-size:0;line-height:0;">${sideImg("border-right.png")}</td>`
+      : `<td width="8" style="width:8px;font-size:0;line-height:0;">&nbsp;</td>`;
+
+  return `${top}
+    <tr>
+      ${left}
+      <td valign="top">${inner}</td>
+      ${right}
+    </tr>
+    ${bottom}`;
+}
+
 function shell(options: {
   title: string;
   eyebrow: string;
   bodyHtml: string;
   sample?: boolean;
   goldAccent?: boolean;
+  frame?: FolioFrame;
+  ctaLabel?: string;
 }) {
+  const frame = options.frame ?? "bands";
   const topBar = options.goldAccent
     ? `<tr>
         <td class="folio-bar-shimmer" style="height:4px;background:${c.gold};font-size:0;line-height:0;">&nbsp;</td>
@@ -40,6 +85,52 @@ function shell(options: {
         Próbny układ wizytówki
       </p>`
     : "";
+
+  const inner = `
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;">
+      <tr>
+        <td class="folio-pad" style="padding:18px 16px 4px;text-align:center;">
+          ${badge}
+          <p class="folio-brand" style="margin:0;font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:${c.vermilion};font-weight:700;">
+            The Medievals
+          </p>
+          <div style="margin:12px 0 2px;">${goldStemRow("short")}</div>
+          <p class="folio-ink-soft" style="margin:12px 0 0;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:${c.inkSoft};">
+            ${escapeHtml(options.eyebrow)}
+          </p>
+          <h1 class="folio-title folio-ink" style="margin:14px 0 0;font-size:26px;line-height:1.28;color:${c.ink};font-weight:700;">
+            ${escapeHtml(options.title)}
+          </h1>
+        </td>
+      </tr>
+      <tr>
+        <td class="folio-pad" style="padding:14px 16px 8px;">
+          ${options.bodyHtml}
+        </td>
+      </tr>
+      <tr>
+        <td class="folio-pad" style="padding:8px 16px 22px;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;">
+            <tr>
+              <td align="center" style="padding:6px 0 4px;">
+                <a class="folio-cta" href="${site}/pl#kontakt" style="display:inline-block;padding:14px 28px;background:${c.vermilion};color:${c.parchment};text-decoration:none;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;border:1px solid ${c.vermilionDeep};">
+                  ${escapeHtml(options.ctaLabel ?? "Zapytaj o termin")}
+                </a>
+              </td>
+            </tr>
+          </table>
+          <div style="margin-top:22px;">${goldStemRow("short")}</div>
+          <p class="folio-ink-soft" style="margin:16px 0 0;font-size:12px;line-height:1.6;color:${c.inkSoft};text-align:center;">
+            <a class="folio-link" href="mailto:${escapeHtml(contact)}" style="color:${c.vermilion};text-decoration:none;">${escapeHtml(contact)}</a>
+            <span style="color:${c.gold};"> · </span>
+            <a class="folio-link" href="${site}/pl" style="color:${c.vermilion};text-decoration:none;">${escapeHtml(host)}</a>
+          </p>
+          <p class="folio-ink-soft" style="margin:8px 0 0;font-size:11px;line-height:1.5;color:${c.inkSoft};text-align:center;font-style:italic;">
+            zespół muzyki dawnej · 6 muzyków · instrumenty z epoki
+          </p>
+        </td>
+      </tr>
+    </table>`;
 
   return `<!DOCTYPE html>
 <html lang="pl" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -78,49 +169,7 @@ function shell(options: {
             <td class="folio-mat" style="padding:10px;background:${c.parchment};">
               <table role="presentation" class="folio-card" width="100%" cellpadding="0" cellspacing="0" style="width:100%;background:${c.panel};border:1px solid ${c.rule};">
                 ${topBar}
-                <tr>
-                  <td class="folio-pad" style="padding:22px 28px 4px;text-align:center;">
-                    ${badge}
-                    <p class="folio-brand" style="margin:0;font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:${c.vermilion};font-weight:700;">
-                      The Medievals
-                    </p>
-                    <div style="margin:12px 0 2px;">${goldStemRow("full")}</div>
-                    <p class="folio-ink-soft" style="margin:12px 0 0;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:${c.inkSoft};">
-                      ${escapeHtml(options.eyebrow)}
-                    </p>
-                    <h1 class="folio-title folio-ink" style="margin:14px 0 0;font-size:26px;line-height:1.28;color:${c.ink};font-weight:700;">
-                      ${escapeHtml(options.title)}
-                    </h1>
-                    <div style="margin-top:16px;">${goldStemRow("full")}</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="folio-pad" style="padding:14px 28px 8px;">
-                    ${options.bodyHtml}
-                  </td>
-                </tr>
-                <tr>
-                  <td class="folio-pad" style="padding:8px 28px 26px;">
-                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;">
-                      <tr>
-                        <td align="center" style="padding:6px 0 4px;">
-                          <a class="folio-cta" href="${site}/pl#kontakt" style="display:inline-block;padding:14px 28px;background:${c.vermilion};color:${c.parchment};text-decoration:none;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;border:1px solid ${c.vermilionDeep};">
-                            Zapytaj o termin
-                          </a>
-                        </td>
-                      </tr>
-                    </table>
-                    <div style="margin-top:22px;">${goldStemRow("full")}</div>
-                    <p class="folio-ink-soft" style="margin:16px 0 0;font-size:12px;line-height:1.6;color:${c.inkSoft};text-align:center;">
-                      <a class="folio-link" href="mailto:${escapeHtml(contact)}" style="color:${c.vermilion};text-decoration:none;">${escapeHtml(contact)}</a>
-                      <span style="color:${c.gold};"> · </span>
-                      <a class="folio-link" href="${site}/pl" style="color:${c.vermilion};text-decoration:none;">${escapeHtml(host)}</a>
-                    </p>
-                    <p class="folio-ink-soft" style="margin:8px 0 0;font-size:11px;line-height:1.5;color:${c.inkSoft};text-align:center;font-style:italic;">
-                      zespół muzyki dawnej · 6 muzyków · instrumenty z epoki
-                    </p>
-                  </td>
-                </tr>
+                ${floralChrome(frame, inner)}
               </table>
             </td>
           </tr>
@@ -185,6 +234,23 @@ function plainFromHtml(html: string) {
     .trim();
 }
 
+export function renderFolioLetter(options: {
+  title: string;
+  eyebrow: string;
+  bodyHtml: string;
+  frame?: FolioFrame;
+  ctaLabel?: string;
+}) {
+  return shell({
+    title: options.title,
+    eyebrow: options.eyebrow,
+    bodyHtml: options.bodyHtml,
+    frame: options.frame ?? "bands",
+    ctaLabel: options.ctaLabel,
+    sample: false,
+  });
+}
+
 export function buildOfferEmail(
   card: OfferCard,
   options: { sample?: boolean } = {},
@@ -198,6 +264,7 @@ export function buildOfferEmail(
         title: card.title,
         eyebrow: card.eyebrow,
         sample,
+        frame: "full",
         bodyHtml: `
           <p class="folio-body folio-ink" style="margin:0;font-size:16px;line-height:1.65;color:${c.ink};text-align:center;">
             Dzień dobry — poniżej skrócona oferta The Medievals, którą możemy dopasować do Waszego wydarzenia.
@@ -221,6 +288,7 @@ export function buildOfferEmail(
         title: item.title,
         eyebrow: card.eyebrow,
         sample,
+        frame: "bands",
         bodyHtml: `
           <p class="folio-body folio-ink" style="margin:0;font-size:16px;line-height:1.7;color:${c.ink};text-align:center;">
             ${escapeHtml(item.body)}
@@ -236,6 +304,7 @@ export function buildOfferEmail(
         eyebrow: card.eyebrow,
         sample,
         goldAccent: true,
+        frame: "header",
         bodyHtml: `
           <p class="folio-body folio-ink" style="margin:0;font-size:16px;line-height:1.7;color:${c.ink};text-align:center;">
             ${escapeHtml(item.body)}
@@ -253,6 +322,7 @@ export function buildOfferEmail(
         title: card.title,
         eyebrow: card.eyebrow,
         sample,
+        frame: "sides",
         bodyHtml: `
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;">
             ${offerRow(station.title, station.body)}
@@ -273,6 +343,7 @@ export function buildOfferEmail(
         eyebrow: card.eyebrow,
         sample,
         goldAccent: true,
+        frame: "bands",
         bodyHtml: `
           <p class="folio-body folio-ink" style="margin:0;font-size:16px;line-height:1.7;color:${c.ink};text-align:center;">
             Jeśli macie już datę i miejsce — odezwijcie się jednym mailem. Odpowiadamy w ciągu 48 godzin.

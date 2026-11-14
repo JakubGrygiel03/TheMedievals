@@ -86,7 +86,10 @@ export default async function AdminDashboardPage() {
         </p>
       ) : messagesRes.error || phoneRes.error ? (
         <p className="folio-panel mt-6 p-4 text-sm text-vermilion">
-          Baza podpięta, ale brakuje tabel — uruchom <code>supabase/bootstrap.sql</code>.
+          Baza podpięta, ale odczyt się nie udał
+          {messagesRes.error ? `: ${messagesRes.error.message}` : ""}
+          {phoneRes.error ? ` · ${phoneRes.error.message}` : ""}. Jeśli to nowy
+          projekt, uruchom <code>supabase/bootstrap.sql</code>.
         </p>
       ) : null}
 

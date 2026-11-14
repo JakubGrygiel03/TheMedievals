@@ -98,6 +98,7 @@ export async function sendBookingEmail(input: ContactInput, lang: Locale = "pl")
         subject: confirmation.subject,
         replyTo: MEDIEVALS_GMAIL,
         text: confirmation.text,
+        html: confirmation.html,
       });
     } catch (error) {
       console.error("booking confirmation email", error);

@@ -1,11 +1,37 @@
 import type { Locale } from "@/lib/i18n/config";
 import type { ContactInput } from "@/lib/contact-schema";
+import { renderFolioLetter } from "@/lib/offer-email-templates";
 import { siteConfig } from "@/lib/seo/site";
 
 type ConfirmationMail = {
   subject: string;
   text: string;
+  html: string;
 };
+
+function letterHtml(
+  paragraphs: string[],
+  copy: { title: string; eyebrow: string; cta: string },
+) {
+  const body = paragraphs
+    .map(
+      (paragraph) =>
+        `<p style="margin:0 0 12px;font-size:16px;line-height:1.65;color:#1c1917;">${paragraph
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/\n/g, "<br/>")}</p>`,
+    )
+    .join("");
+
+  return renderFolioLetter({
+    title: copy.title,
+    eyebrow: copy.eyebrow,
+    frame: "bands",
+    ctaLabel: copy.cta,
+    bodyHtml: body,
+  });
+}
 
 const kindLabels: Record<Locale, Record<ContactInput["event_type"], string>> = {
   pl: {
@@ -53,9 +79,7 @@ export function bookingConfirmationMail(
   const kind = kindLabels[lang][input.event_type];
 
   if (lang === "en") {
-    return {
-      subject: "We received your enquiry — The Medievals",
-      text: [
+    const text = [
         `Dear ${input.sender_name},`,
         "",
         "Thank you for writing to The Medievals. Your enquiry has arrived safely.",
@@ -76,14 +100,24 @@ export function bookingConfirmationMail(
         "The Medievals",
         siteConfig.email,
         siteConfig.url,
-      ].join("\n"),
+      ].join("\n");
+    return {
+      subject: "We received your enquiry — The Medievals",
+      text,
+      html: letterHtml(
+        [
+          `Dear ${input.sender_name},`,
+          "Thank you for writing to The Medievals. Your enquiry has arrived safely.",
+          "What happens next:\n• we read your message and check the date,\n• within 48 hours we reply with availability,\n• if the date works, we agree the programme and the fee.",
+          `Your enquiry: ${kind}${input.event_date ? `, ${input.event_date}` : ""}${input.location ? `, ${input.location}` : ""}.`,
+        ],
+        { title: "Your enquiry arrived", eyebrow: "Confirmation", cta: "Ensemble site" },
+      ),
     };
   }
 
   if (lang === "es") {
-    return {
-      subject: "Hemos recibido vuestra consulta — The Medievals",
-      text: [
+    const text = [
         `Hola ${input.sender_name},`,
         "",
         "Gracias por escribir a The Medievals. Vuestra consulta ha llegado correctamente.",
@@ -104,14 +138,24 @@ export function bookingConfirmationMail(
         "The Medievals",
         siteConfig.email,
         siteConfig.url,
-      ].join("\n"),
+      ].join("\n");
+    return {
+      subject: "Hemos recibido vuestra consulta — The Medievals",
+      text,
+      html: letterHtml(
+        [
+          `Hola ${input.sender_name},`,
+          "Gracias por escribir a The Medievals. Vuestra consulta ha llegado correctamente.",
+          "En un plazo de 48 horas respondemos a este correo con disponibilidad y los siguientes pasos.",
+          `Consulta: ${kind}${input.event_date ? `, ${input.event_date}` : ""}${input.location ? `, ${input.location}` : ""}.`,
+        ],
+        { title: "Consulta recibida", eyebrow: "Confirmación", cta: "Sitio del ensemble" },
+      ),
     };
   }
 
   if (lang === "it") {
-    return {
-      subject: "Abbiamo ricevuto la vostra richiesta — The Medievals",
-      text: [
+    const text = [
         `Gentile ${input.sender_name},`,
         "",
         "Grazie per aver scritto a The Medievals. La vostra richiesta è arrivata correttamente.",
@@ -132,13 +176,23 @@ export function bookingConfirmationMail(
         "The Medievals",
         siteConfig.email,
         siteConfig.url,
-      ].join("\n"),
+      ].join("\n");
+    return {
+      subject: "Abbiamo ricevuto la vostra richiesta — The Medievals",
+      text,
+      html: letterHtml(
+        [
+          `Gentile ${input.sender_name},`,
+          "Grazie per aver scritto a The Medievals. La vostra richiesta è arrivata correttamente.",
+          "Entro 48 ore rispondiamo a questa email con disponibilità e i passi successivi.",
+          `Richiesta: ${kind}${input.event_date ? `, ${input.event_date}` : ""}${input.location ? `, ${input.location}` : ""}.`,
+        ],
+        { title: "Richiesta ricevuta", eyebrow: "Conferma", cta: "Sito dell’ensemble" },
+      ),
     };
   }
 
-  return {
-    subject: "Otrzymaliśmy Wasze zapytanie — The Medievals",
-    text: [
+  const text = [
       `Dzień dobry ${input.sender_name},`,
       "",
       "Dziękujemy za wiadomość do The Medievals. Zapytanie dotarło do nas poprawnie.",
@@ -159,6 +213,19 @@ export function bookingConfirmationMail(
       "The Medievals",
       siteConfig.email,
       siteConfig.url,
-    ].join("\n"),
+    ].join("\n");
+
+  return {
+    subject: "Otrzymaliśmy Wasze zapytanie — The Medievals",
+    text,
+    html: letterHtml(
+      [
+        `Dzień dobry ${input.sender_name},`,
+        "Dziękujemy za wiadomość do The Medievals. Zapytanie dotarło do nas poprawnie.",
+        "W ciągu 48 godzin odpowiemy na ten e-mail z informacją o dostępności i kolejnych krokach.",
+        `Wasze zapytanie: ${kind}${input.event_date ? `, ${input.event_date}` : ""}${input.location ? `, ${input.location}` : ""}.`,
+      ],
+      { title: "Zapytanie dotarło", eyebrow: "Potwierdzenie", cta: "Strona zespołu" },
+    ),
   };
 }

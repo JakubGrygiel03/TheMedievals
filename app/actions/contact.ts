@@ -34,15 +34,6 @@ export async function submitContact(
 
   const locale = isLocale(lang) ? lang : "pl";
 
-  try {
-    const mail = await sendBookingEmail(parsed.data, locale);
-    if (!mail.sent) {
-      return { ok: false, error: "backend" };
-    }
-  } catch {
-    return { ok: false, error: "error" };
-  }
-
   const supabase = createServiceClient();
   if (supabase) {
     const { error } = await supabase.from("contact_messages").insert({
@@ -55,8 +46,21 @@ export async function submitContact(
       message: parsed.data.message,
     });
     if (error) {
-      console.error("contact_messages insert", error.message);
+      console.error("contact_messages insert", error.code, error.message);
     }
+  }
+
+  try {
+    const mail = await sendBookingEmail(parsed.data, locale);
+    if (!mail.sent) {
+      return { ok: false, error: "backend" };
+    }
+  } catch (error) {
+    console.error(
+      "booking email",
+      error instanceof Error ? error.message : error,
+    );
+    return { ok: false, error: "error" };
   }
 
   return { ok: true };
