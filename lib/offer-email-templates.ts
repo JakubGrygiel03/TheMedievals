@@ -47,7 +47,7 @@ function floralChrome(inner: string, dark = false) {
     : `<td align="center" style="padding:0;font-size:0;line-height:0;background:${background};">${bandImg(`border-top${suffix}`)}</td>`;
   const bottom = dark
     ? tiledBand(`border-bottom${suffix}`, background)
-    : `<td align="center" style="padding:0;font-size:0;line-height:0;background:${background};">${bandImg(`border-bottom${suffix}`)}</td>`;
+    : `<td align="center" style="padding:18px 0 0;font-size:0;line-height:0;background:${background};">${bandImg(`border-bottom${suffix}`)}</td>`;
   return `<tr>
       ${sideCell(`border-left${suffix}`, background)}
       ${top}
@@ -160,7 +160,7 @@ function shell(options: {
     </table>`;
 
   const reading = standardInner;
-  const laptopInner = options.dark ? widePortraitCard() : withEnsemble(standardInner);
+  const laptopInner = options.wide ? widePortraitCard() : withEnsemble(standardInner);
   const cardBg = options.dark ? "#100e0c" : c.parchment;
 
   return `<!DOCTYPE html>
@@ -311,36 +311,43 @@ function widePortraitCard() {
   const copy = paragraphs
     .map(
       (paragraph) =>
-        `<p class="folio-on-dark" style="margin:0 0 14px;font-size:16px;line-height:1.45;color:#f4efe6;text-align:center;">${escapeHtml(paragraph)}</p>`,
+        `<p class="folio-ink" style="margin:0 0 14px;font-size:16px;line-height:1.5;color:${c.ink};text-align:center;">${escapeHtml(paragraph)}</p>`,
     )
     .join("");
 
   const link = (href: string, label: string) =>
-    `<a class="folio-on-dark" href="${href}" style="color:#f4efe6;text-decoration:none;font-size:13px;line-height:1.4;">${escapeHtml(label)}</a>`;
+    `<a class="folio-link" href="${href}" style="color:${c.vermilion};text-decoration:none;font-size:13px;line-height:1.4;">${escapeHtml(label)}</a>`;
 
   return `
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;">
       <tr>
-        <td class="folio-photo-col" width="42%" valign="top" style="width:42%;padding:16px 8px 12px 14px;">
-          <img class="folio-photo" src="${site}/email/ensemble.jpg" width="320" alt="The Medievals" style="display:block;width:100%;max-width:340px;height:auto;border:0;margin:0 auto;" />
+        <td class="folio-photo-col" width="42%" valign="top" style="width:42%;padding:18px 12px 20px 16px;">
+          <img class="folio-photo" src="${site}/email/ensemble.jpg" width="360" alt="The Medievals" style="display:block;width:100%;max-width:360px;height:auto;border:0;margin:0 auto;" />
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;margin-top:18px;">
+            <tr>
+              <td align="center" style="width:50%;padding:8px 6px 10px;">
+                ${link(siteConfig.social.instagram, "@the_medievals_official")}
+              </td>
+              <td align="center" style="width:50%;padding:8px 6px 10px;">
+                ${link(siteConfig.social.facebook, "@TheMedievalsofficial")}
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding:10px 6px 4px;">
+                ${link(telHref(), phoneLabel)}
+              </td>
+              <td align="center" style="padding:10px 6px 4px;">
+                ${link(siteConfig.social.youtube, "@themedievals")}
+              </td>
+            </tr>
+          </table>
         </td>
-        <td class="folio-col" width="58%" valign="middle" style="width:58%;padding:18px 22px 12px 12px;background:#100e0c;">
-          <h1 class="folio-on-dark" style="margin:0 0 16px;font-family:Georgia,'Times New Roman',serif;font-size:40px;line-height:1.05;font-weight:700;text-align:center;color:#fff8ee;">
+        <td class="folio-col" width="58%" valign="middle" style="width:58%;padding:22px 28px 28px 16px;">
+          <h1 class="folio-ink" style="margin:0 0 18px;font-family:Georgia,'Times New Roman',serif;font-size:40px;line-height:1.05;font-weight:700;text-align:center;color:${c.ink};">
             The Medievals
           </h1>
           ${copy}
         </td>
-      </tr>
-      <tr>
-        <td class="folio-photo-col" align="center" style="padding:8px 8px 12px;background:#100e0c;">
-          <p class="folio-on-dark" style="margin:0;text-align:center;font-size:13px;line-height:1.7;color:#f4efe6;">
-            ${link(siteConfig.social.instagram, "@the_medievals_official")}<br />
-            ${link(siteConfig.social.facebook, "@TheMedievalsofficial")}<br />
-            ${link(telHref(), phoneLabel)}<br />
-            ${link(siteConfig.social.youtube, "@themedievals")}
-          </p>
-        </td>
-        <td style="background:#100e0c;">&nbsp;</td>
       </tr>
     </table>`;
 }
@@ -360,7 +367,6 @@ export function buildOfferEmail(
         sample,
         frame: "bands",
         wide: true,
-        dark: true,
         ctaLabel: "Zapytaj o termin",
         bodyHtml: `
           <p class="folio-body folio-ink" style="margin:0 0 14px;font-size:16px;line-height:1.55;color:${c.ink};text-align:center;">
