@@ -19,7 +19,7 @@ export function EnsembleHero({ lang, dictionary }: EnsembleHeroProps) {
           src={media.hero}
           alt={dictionary.hero.heading}
           width={1024}
-          height={571}
+          height={681}
           priority
           quality={75}
           className="h-auto w-full"

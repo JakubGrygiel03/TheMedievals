@@ -5,7 +5,7 @@ import type { Locale } from "@/lib/i18n/config";
  * Hero, OG and the press photo are the same PNG.
  */
 export const media = {
-  hero: "/hero.png",
+  hero: "/hero-home.jpg",
   ogImage: "/hero.png",
   pressPhoto: "/hero.png",
   icon: "/icon.png",
