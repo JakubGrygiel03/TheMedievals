@@ -13,7 +13,8 @@ export function offerEmailHeadStyles() {
   img { border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
   a { text-decoration: none; }
   .folio-outer { width: 100% !important; }
-  .folio-shell { width: 640px !important; max-width: 100% !important; }
+  .folio-shell { width: 100% !important; max-width: 640px !important; }
+  .folio-band { width: 100% !important; max-width: 640px !important; height: auto !important; }
   .folio-pad { padding-left: 28px !important; padding-right: 28px !important; }
   .folio-title { font-size: 26px !important; line-height: 1.28 !important; }
   .folio-body { font-size: 16px !important; line-height: 1.7 !important; }

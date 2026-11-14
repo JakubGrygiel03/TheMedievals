@@ -13,32 +13,25 @@ const host = CANONICAL_HOST;
 
 export type FolioFrame = "full" | "bands" | "header" | "sides";
 
-function cornerImg(file: string) {
-  return `<img src="${site}/email/${file}" width="48" alt="" style="display:block;width:48px;height:auto;border:0;outline:none;text-decoration:none;" />`;
+function bandImg(file: string) {
+  return `<img class="folio-band" src="${site}/email/${file}" width="640" alt="" style="display:block;width:100%;max-width:640px;height:auto;border:0;outline:none;text-decoration:none;" />`;
 }
 
 function sideImg(file: string) {
-  return `<img src="${site}/email/${file}" width="48" alt="" style="display:block;width:48px;height:auto;border:0;outline:none;text-decoration:none;" />`;
+  return `<img src="${site}/email/${file}" width="36" alt="" style="display:block;width:36px;height:auto;border:0;outline:none;text-decoration:none;" />`;
 }
 
 function floralChrome(inner: string) {
-  const band = (file: string) =>
-    `<img src="${site}/email/${file}" width="544" alt="" style="display:block;width:544px;max-width:100%;height:auto;border:0;outline:none;text-decoration:none;" />`;
-
   return `<tr>
-      <td width="48" valign="top" style="width:48px;padding:0;font-size:0;line-height:0;">${cornerImg("corner-tl.png")}</td>
-      <td width="544" valign="top" style="width:544px;padding:0;font-size:0;line-height:0;">${band("border-top-mid.png")}</td>
-      <td width="48" valign="top" style="width:48px;padding:0;font-size:0;line-height:0;">${cornerImg("corner-tr.png")}</td>
+      <td colspan="3" style="padding:0;font-size:0;line-height:0;">${bandImg("border-top.png")}</td>
     </tr>
     <tr>
-      <td class="folio-side" width="48" valign="top" style="width:48px;padding:0;font-size:0;line-height:0;">${sideImg("border-left.png")}</td>
-      <td width="544" valign="top" style="width:544px;">${inner}</td>
-      <td class="folio-side" width="48" valign="top" style="width:48px;padding:0;font-size:0;line-height:0;">${sideImg("border-right.png")}</td>
+      <td class="folio-side" width="36" valign="top" style="width:36px;padding:8px 0 0 0;font-size:0;line-height:0;">${sideImg("border-left.png")}</td>
+      <td valign="top">${inner}</td>
+      <td class="folio-side" width="36" valign="top" style="width:36px;padding:8px 0 0 0;font-size:0;line-height:0;">${sideImg("border-right.png")}</td>
     </tr>
     <tr>
-      <td width="48" valign="bottom" style="width:48px;padding:0;font-size:0;line-height:0;">${cornerImg("corner-bl.png")}</td>
-      <td width="544" valign="bottom" style="width:544px;padding:0;font-size:0;line-height:0;">${band("border-bottom-mid.png")}</td>
-      <td width="48" valign="bottom" style="width:48px;padding:0;font-size:0;line-height:0;">${cornerImg("corner-br.png")}</td>
+      <td colspan="3" style="padding:0;font-size:0;line-height:0;">${bandImg("border-bottom.png")}</td>
     </tr>`;
 }
 
@@ -161,10 +154,10 @@ function shell(options: {
         <!--[if mso]>
         <table role="presentation" width="${shellWidth}" cellpadding="0" cellspacing="0"><tr><td>
         <![endif]-->
-        <table role="presentation" class="folio-shell" width="640" cellpadding="0" cellspacing="0" style="width:640px;max-width:100%;border:1px solid ${c.ruleStrong};">
+        <table role="presentation" class="folio-shell" width="100%" cellpadding="0" cellspacing="0" style="width:100%;max-width:${shellWidth}px;border:1px solid ${c.ruleStrong};">
           <tr>
             <td class="folio-mat" style="padding:0;background:${c.parchment};">
-              <table role="presentation" class="folio-card" width="640" cellpadding="0" cellspacing="0" style="width:640px;max-width:100%;background:${cardBg};border:0;">
+              <table role="presentation" class="folio-card" width="100%" cellpadding="0" cellspacing="0" style="width:100%;max-width:${shellWidth}px;background:${cardBg};border:0;">
                 ${floralChrome(inner)}
               </table>
             </td>
