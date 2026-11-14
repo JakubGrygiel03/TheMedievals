@@ -1,3 +1,4 @@
+import { randomUUID } from "crypto";
 import { Resend } from "resend";
 import { eventLabels } from "@/lib/admin-labels";
 import { bookingConfirmationMail } from "@/lib/booking-confirmation";
@@ -31,6 +32,8 @@ async function sendNotice(options: {
   html?: string;
   replyTo?: string;
   to: string[];
+  /** Stops Gmail from folding the card into the previous mail as quoted text. */
+  standalone?: boolean;
 }) {
   const apiKey = process.env.RESEND_API_KEY?.trim();
   const from =
@@ -49,6 +52,9 @@ async function sendNotice(options: {
     subject: options.subject,
     text: options.text,
     ...(options.html ? { html: options.html } : {}),
+    ...(options.standalone
+      ? { headers: { "X-Entity-Ref-ID": randomUUID() } }
+      : {}),
   });
 
   if (error) {
@@ -154,6 +160,7 @@ export async function sendOfferCardEmail(input: {
       subject: input.subject,
       text: input.text,
       html: input.html,
+      standalone: true,
     });
 
     if (!result.sent) {

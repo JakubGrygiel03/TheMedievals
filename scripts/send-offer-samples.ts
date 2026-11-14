@@ -2,6 +2,7 @@
  * Send all sample offer-card emails via Resend.
  * Usage: npx tsx --env-file=.env.local scripts/send-offer-samples.ts
  */
+import { randomUUID } from "node:crypto";
 import { Resend } from "resend";
 import { offerCards } from "../lib/offer-cards";
 import { buildOfferEmail } from "../lib/offer-email-templates";
@@ -29,6 +30,7 @@ async function main() {
       subject: mail.subject,
       html: mail.html,
       text: mail.text,
+      headers: { "X-Entity-Ref-ID": randomUUID() },
     });
 
     if (error) {
