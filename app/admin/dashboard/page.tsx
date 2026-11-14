@@ -100,6 +100,11 @@ export default async function AdminDashboardPage() {
         <Stat label="Potwierdzone" value={confirmed} />
       </section>
 
+      <p className="mt-8 text-sm">
+        <a href="/admin/podglad-maili" className="font-cinzel text-xs tracking-wide uppercase underline">
+          Podgląd maili: telefon, tablet, laptop
+        </a>
+      </p>
       <OfferMailTiles defaultTo={getOfferSampleInbox()} />
 
       <section className="mt-12">

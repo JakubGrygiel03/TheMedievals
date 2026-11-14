@@ -22,19 +22,42 @@ function sideCell(file: string, background: string) {
   return `<td class="folio-side" rowspan="3" width="40" valign="top" background="${url}" style="width:40px;padding:0;background-color:${background};background-image:url('${url}');background-repeat:repeat-y;background-position:center top;">&nbsp;</td>`;
 }
 
+function phoneChrome(inner: string) {
+  return `<tr>
+      <td style="padding:0;font-size:0;line-height:0;background:${c.parchment};">${bandImg("border-top.png")}</td>
+    </tr>
+    <tr>
+      <td valign="top" style="background:${c.parchment};">${inner}</td>
+    </tr>
+    <tr>
+      <td style="padding:0;font-size:0;line-height:0;background:${c.parchment};">${bandImg("border-bottom.png")}</td>
+    </tr>`;
+}
+
+function tiledBand(file: string, background: string) {
+  const url = `${site}/email/${file}`;
+  return `<td style="padding:0;height:35px;font-size:0;line-height:35px;background-color:${background};background-image:url('${url}');background-repeat:repeat-x;background-size:auto 35px;background-position:left center;">&nbsp;</td>`;
+}
+
 function floralChrome(inner: string, dark = false) {
   const suffix = dark ? "-dark.png" : ".png";
   const background = dark ? "#100e0c" : c.parchment;
+  const top = dark
+    ? tiledBand(`border-top${suffix}`, background)
+    : `<td align="center" style="padding:0;font-size:0;line-height:0;background:${background};">${bandImg(`border-top${suffix}`)}</td>`;
+  const bottom = dark
+    ? tiledBand(`border-bottom${suffix}`, background)
+    : `<td align="center" style="padding:0;font-size:0;line-height:0;background:${background};">${bandImg(`border-bottom${suffix}`)}</td>`;
   return `<tr>
       ${sideCell(`border-left${suffix}`, background)}
-      <td align="center" style="padding:0;font-size:0;line-height:0;background:${background};">${bandImg(`border-top${suffix}`)}</td>
+      ${top}
       ${sideCell(`border-right${suffix}`, background)}
     </tr>
     <tr>
       <td valign="top" style="background:${background};">${inner}</td>
     </tr>
     <tr>
-      <td align="center" style="padding:0;font-size:0;line-height:0;background:${background};">${bandImg(`border-bottom${suffix}`)}</td>
+      ${bottom}
     </tr>`;
 }
 
@@ -136,7 +159,8 @@ function shell(options: {
       </tr>
     </table>`;
 
-  const inner = options.bare ? bareInner : withEnsemble(standardInner);
+  const reading = standardInner;
+  const laptopInner = options.dark ? widePortraitCard() : withEnsemble(standardInner);
   const cardBg = options.dark ? "#100e0c" : c.parchment;
 
   return `<!DOCTYPE html>
@@ -171,15 +195,28 @@ function shell(options: {
         <!--[if mso]>
         <table role="presentation" width="${shellWidth}" cellpadding="0" cellspacing="0"><tr><td>
         <![endif]-->
-        <table role="presentation" class="folio-shell" width="100%" cellpadding="0" cellspacing="0" style="width:100%;max-width:${shellWidth}px;border:1px solid ${c.ruleStrong};">
+        <div class="layout-phone">
+        <table role="presentation" class="folio-shell folio-shell-phone" width="100%" cellpadding="0" cellspacing="0" style="width:100%;max-width:100%;border:1px solid ${c.ruleStrong};">
           <tr>
-            <td class="folio-mat${options.dark ? " folio-mat-dark" : ""}" style="padding:0;background:${cardBg};">
-              <table role="presentation" class="folio-card${options.dark ? " folio-card-dark" : ""}" width="100%" cellpadding="0" cellspacing="0" style="width:100%;max-width:${shellWidth}px;background:${cardBg};border:0;">
-                ${floralChrome(inner, options.dark)}
+            <td class="folio-mat" style="padding:0;background:${c.parchment};">
+              <table role="presentation" class="folio-card" width="100%" cellpadding="0" cellspacing="0" style="width:100%;background:${c.parchment};border:0;">
+                ${phoneChrome(reading)}
               </table>
             </td>
           </tr>
         </table>
+        </div>
+        <div class="layout-laptop" style="display:none;max-height:0;overflow:hidden;">
+        <table role="presentation" class="folio-shell folio-shell-laptop" width="100%" cellpadding="0" cellspacing="0" style="width:100%;max-width:${shellWidth}px;border:1px solid ${options.dark ? "#3a2418" : c.ruleStrong};">
+          <tr>
+            <td class="folio-mat${options.dark ? " folio-mat-dark" : ""}" style="padding:0;background:${cardBg};">
+              <table role="presentation" class="folio-card${options.dark ? " folio-card-dark" : ""}" width="100%" cellpadding="0" cellspacing="0" style="width:100%;max-width:${shellWidth}px;background:${cardBg};border:0;">
+                ${floralChrome(laptopInner, options.dark)}
+              </table>
+            </td>
+          </tr>
+        </table>
+        </div>
         <!--[if mso]></td></tr></table><![endif]-->
       </td>
     </tr>
@@ -323,10 +360,15 @@ export function buildOfferEmail(
         sample,
         frame: "bands",
         wide: true,
-        bare: true,
         dark: true,
         ctaLabel: "Zapytaj o termin",
-        bodyHtml: widePortraitCard(),
+        bodyHtml: `
+          <p class="folio-body folio-ink" style="margin:0 0 14px;font-size:16px;line-height:1.55;color:${c.ink};text-align:center;">
+            Jesteśmy sześciorgiem zawodowych muzyków, którzy pasjonują się rekonstrukcją średniowiecza. Odtwarzamy muzykę oraz stroje od XII do XV wieku.
+          </p>
+          <p class="folio-body folio-ink" style="margin:0;font-size:16px;line-height:1.55;color:${c.ink};text-align:center;">
+            Występujemy podczas rekonstrukcji bitew, pikników historycznych oraz eventów prywatnych. Podczas koncertu przybliżamy repertuar, stroje i instrumenty. Dodatkowo prowadzimy warsztaty tańca dawnego.
+          </p>`,
       }),
     "concert-story": () => {
       const item = offers.items[0];

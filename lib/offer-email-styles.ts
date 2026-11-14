@@ -13,7 +13,10 @@ export function offerEmailHeadStyles() {
   img { border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
   a { text-decoration: none; }
   .folio-outer { width: 100% !important; }
-  .folio-shell { width: 100% !important; max-width: 960px !important; }
+  .layout-phone { display: block !important; }
+  .layout-laptop { display: none !important; max-height: 0 !important; overflow: hidden !important; mso-hide: all; }
+  .folio-shell-phone { width: 100% !important; max-width: 100% !important; }
+  .folio-shell-laptop { width: 100% !important; max-width: 960px !important; }
   .folio-band { display: block !important; width: 645px !important; max-width: 100% !important; height: auto !important; margin: 0 auto !important; }
   .folio-pad { padding-left: 28px !important; padding-right: 28px !important; }
   .folio-title { font-size: 26px !important; line-height: 1.28 !important; }
@@ -47,31 +50,20 @@ export function offerEmailHeadStyles() {
   .folio-card-dark { background-color: #140e0c !important; color: #f4efe6 !important; }
   .folio-on-dark { color: #f4efe6 !important; }
   .folio-on-dark-soft { color: #e4d5c4 !important; }
-  @media only screen and (max-width: 680px) {
-    .folio-frame { padding: 14px 8px !important; }
-    .folio-mat { padding: 6px !important; }
+  @media only screen and (min-width: 600px) and (max-width: 899px) {
+    .folio-shell-phone { max-width: 640px !important; }
+    .folio-pad { padding-left: 28px !important; padding-right: 28px !important; }
+    .folio-title { font-size: 28px !important; }
+  }
+  @media only screen and (min-width: 900px) {
+    .layout-phone { display: none !important; max-height: 0 !important; overflow: hidden !important; }
+    .layout-laptop { display: block !important; max-height: none !important; overflow: visible !important; }
+  }
+  @media only screen and (max-width: 599px) {
+    .folio-frame { padding: 12px 8px !important; }
     .folio-pad { padding-left: 16px !important; padding-right: 16px !important; }
-    .folio-title { font-size: 22px !important; line-height: 1.3 !important; }
-    .folio-body { font-size: 15px !important; }
-    .folio-shell { width: 100% !important; }
-    .folio-social { display: block !important; width: 100% !important; }
-    .folio-col {
-      display: block !important;
-      width: 100% !important;
-      max-width: 100% !important;
-    }
-    .folio-photo-col,
-    .folio-photo,
-    .folio-side {
-      display: none !important;
-      width: 0 !important;
-      max-width: 0 !important;
-      max-height: 0 !important;
-      overflow: hidden !important;
-      font-size: 0 !important;
-      line-height: 0 !important;
-      padding: 0 !important;
-    }
+    .folio-title { font-size: 26px !important; line-height: 1.25 !important; }
+    .folio-body { font-size: 17px !important; line-height: 1.55 !important; }
     .folio-cta {
       display: block !important;
       width: 100% !important;
