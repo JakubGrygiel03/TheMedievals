@@ -14,25 +14,40 @@ const host = CANONICAL_HOST;
 export type FolioFrame = "full" | "bands" | "header" | "sides";
 
 function bandImg(file: string) {
-  return `<img class="folio-band" src="${site}/email/${file}" width="640" alt="" style="display:block;width:100%;max-width:640px;height:auto;border:0;outline:none;text-decoration:none;" />`;
+  return `<img class="folio-band" src="${site}/email/${file}" width="645" alt="" style="display:block;width:645px;max-width:100%;height:auto;margin:0 auto;border:0;outline:none;text-decoration:none;" />`;
 }
 
-function sideImg(file: string) {
-  return `<img src="${site}/email/${file}" width="36" alt="" style="display:block;width:36px;height:auto;border:0;outline:none;text-decoration:none;" />`;
+function sideCell(file: string, background: string) {
+  const url = `${site}/email/${file}`;
+  return `<td class="folio-side" rowspan="3" width="40" valign="top" background="${url}" style="width:40px;padding:0;background-color:${background};background-image:url('${url}');background-repeat:repeat-y;background-position:center top;">&nbsp;</td>`;
 }
 
-function floralChrome(inner: string) {
+function floralChrome(inner: string, dark = false) {
+  const suffix = dark ? "-dark.png" : ".png";
+  const background = dark ? "#100e0c" : c.parchment;
   return `<tr>
-      <td colspan="3" style="padding:0;font-size:0;line-height:0;">${bandImg("border-top.png")}</td>
+      ${sideCell(`border-left${suffix}`, background)}
+      <td align="center" style="padding:0;font-size:0;line-height:0;background:${background};">${bandImg(`border-top${suffix}`)}</td>
+      ${sideCell(`border-right${suffix}`, background)}
     </tr>
     <tr>
-      <td class="folio-side" width="36" valign="top" style="width:36px;padding:8px 0 0 0;font-size:0;line-height:0;">${sideImg("border-left.png")}</td>
-      <td valign="top">${inner}</td>
-      <td class="folio-side" width="36" valign="top" style="width:36px;padding:8px 0 0 0;font-size:0;line-height:0;">${sideImg("border-right.png")}</td>
+      <td valign="top" style="background:${background};">${inner}</td>
     </tr>
     <tr>
-      <td colspan="3" style="padding:0;font-size:0;line-height:0;">${bandImg("border-bottom.png")}</td>
+      <td align="center" style="padding:0;font-size:0;line-height:0;background:${background};">${bandImg(`border-bottom${suffix}`)}</td>
     </tr>`;
+}
+
+function withEnsemble(content: string) {
+  return `
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;">
+      <tr>
+        <td class="folio-photo-col" width="300" valign="middle" style="width:300px;padding:16px 8px 16px 14px;">
+          <img class="folio-photo" src="${site}/email/ensemble.jpg" width="300" alt="Zespół The Medievals" style="display:block;width:300px;max-width:100%;height:auto;border:0;" />
+        </td>
+        <td class="folio-col" valign="top">${content}</td>
+      </tr>
+    </table>`;
 }
 
 function shell(options: {
@@ -47,8 +62,10 @@ function shell(options: {
   wide?: boolean;
   /** Skip the centered title block; the body draws its own heading. */
   bare?: boolean;
+  /** Laptop composition: dark card, photo beside the text. */
+  dark?: boolean;
 }) {
-  const shellWidth = 640;
+  const shellWidth = 960;
 
   const badge = options.sample
     ? `<p class="folio-badge" style="margin:0 0 14px;padding:7px 12px;background:${c.parchmentDeep};border:1px solid ${c.ruleStrong};color:${c.vermilion};font-size:11px;letter-spacing:0.14em;text-transform:uppercase;text-align:center;">
@@ -119,8 +136,8 @@ function shell(options: {
       </tr>
     </table>`;
 
-  const inner = options.bare ? bareInner : standardInner;
-  const cardBg = c.parchment;
+  const inner = options.bare ? bareInner : withEnsemble(standardInner);
+  const cardBg = options.dark ? "#100e0c" : c.parchment;
 
   return `<!DOCTYPE html>
 <html lang="pl" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -156,9 +173,9 @@ function shell(options: {
         <![endif]-->
         <table role="presentation" class="folio-shell" width="100%" cellpadding="0" cellspacing="0" style="width:100%;max-width:${shellWidth}px;border:1px solid ${c.ruleStrong};">
           <tr>
-            <td class="folio-mat" style="padding:0;background:${c.parchment};">
-              <table role="presentation" class="folio-card" width="100%" cellpadding="0" cellspacing="0" style="width:100%;max-width:${shellWidth}px;background:${cardBg};border:0;">
-                ${floralChrome(inner)}
+            <td class="folio-mat${options.dark ? " folio-mat-dark" : ""}" style="padding:0;background:${cardBg};">
+              <table role="presentation" class="folio-card${options.dark ? " folio-card-dark" : ""}" width="100%" cellpadding="0" cellspacing="0" style="width:100%;max-width:${shellWidth}px;background:${cardBg};border:0;">
+                ${floralChrome(inner, options.dark)}
               </table>
             </td>
           </tr>
@@ -257,37 +274,36 @@ function widePortraitCard() {
   const copy = paragraphs
     .map(
       (paragraph) =>
-        `<p class="folio-ink" style="margin:0 0 12px;font-size:15px;line-height:1.45;color:${c.ink};text-align:center;">${escapeHtml(paragraph)}</p>`,
+        `<p class="folio-on-dark" style="margin:0 0 14px;font-size:16px;line-height:1.45;color:#f4efe6;text-align:center;">${escapeHtml(paragraph)}</p>`,
     )
     .join("");
 
   const link = (href: string, label: string) =>
-    `<a class="folio-link" href="${href}" style="color:${c.vermilion};text-decoration:none;font-size:12px;line-height:1.35;">${escapeHtml(label)}</a>`;
+    `<a class="folio-on-dark" href="${href}" style="color:#f4efe6;text-decoration:none;font-size:13px;line-height:1.4;">${escapeHtml(label)}</a>`;
 
   return `
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;">
       <tr>
-        <td class="folio-col" width="42%" valign="top" style="width:42%;padding:16px 8px 12px 14px;">
+        <td class="folio-photo-col" width="42%" valign="top" style="width:42%;padding:16px 8px 12px 14px;">
           <img class="folio-photo" src="${site}/email/ensemble.jpg" width="320" alt="The Medievals" style="display:block;width:100%;max-width:340px;height:auto;border:0;margin:0 auto;" />
         </td>
-        <td class="folio-col" width="58%" valign="middle" style="width:58%;padding:18px 18px 10px 10px;">
-          <h1 class="folio-ink" style="margin:0 0 14px;font-family:Georgia,'Times New Roman',serif;font-size:32px;line-height:1.1;font-weight:700;text-align:center;color:${c.ink};">
+        <td class="folio-col" width="58%" valign="middle" style="width:58%;padding:18px 22px 12px 12px;background:#100e0c;">
+          <h1 class="folio-on-dark" style="margin:0 0 16px;font-family:Georgia,'Times New Roman',serif;font-size:40px;line-height:1.05;font-weight:700;text-align:center;color:#fff8ee;">
             The Medievals
           </h1>
           ${copy}
         </td>
       </tr>
       <tr>
-        <td class="folio-social" colspan="2" align="center" style="padding:4px 16px 8px;">
-          <p class="folio-ink-soft" style="margin:0;text-align:center;font-size:13px;line-height:1.8;color:${c.inkSoft};">
-            ${link(siteConfig.social.instagram, "Instagram @the_medievals_official")}
-            <span style="color:#c9a24a;"> · </span>
-            ${link(siteConfig.social.facebook, "Facebook @TheMedievalsofficial")}<br />
-            ${link(telHref(), phoneLabel)}
-            <span style="color:#c9a24a;"> · </span>
-            ${link(siteConfig.social.youtube, "YouTube @themedievals")}
+        <td class="folio-photo-col" align="center" style="padding:8px 8px 12px;background:#100e0c;">
+          <p class="folio-on-dark" style="margin:0;text-align:center;font-size:13px;line-height:1.7;color:#f4efe6;">
+            ${link(siteConfig.social.instagram, "@the_medievals_official")}<br />
+            ${link(siteConfig.social.facebook, "@TheMedievalsofficial")}<br />
+            ${link(telHref(), phoneLabel)}<br />
+            ${link(siteConfig.social.youtube, "@themedievals")}
           </p>
         </td>
+        <td style="background:#100e0c;">&nbsp;</td>
       </tr>
     </table>`;
 }
@@ -308,6 +324,7 @@ export function buildOfferEmail(
         frame: "bands",
         wide: true,
         bare: true,
+        dark: true,
         ctaLabel: "Zapytaj o termin",
         bodyHtml: widePortraitCard(),
       }),
@@ -374,7 +391,7 @@ export function buildOfferEmail(
         goldAccent: true,
         frame: "bands",
         bodyHtml: `
-          <p class="folio-body folio-ink" style="margin:0;font-size:16px;line-height:1.7;color:${c.ink};text-align:center;">
+          <p class="folio-body folio-ink" style="margin:0 0 22px;font-size:16px;line-height:1.7;color:${c.ink};text-align:center;">
             Jeśli macie już datę i miejsce — odezwijcie się jednym mailem. Odpowiadamy w ciągu 48 godzin.
           </p>
 
