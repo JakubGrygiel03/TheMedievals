@@ -14,34 +14,30 @@ const host = CANONICAL_HOST;
 export type FolioFrame = "full" | "bands" | "header" | "sides";
 
 function cornerImg(file: string) {
-  return `<img src="${site}/email/${file}" width="48" height="38" alt="" style="display:block;width:48px;height:38px;border:0;outline:none;text-decoration:none;" />`;
+  return `<img src="${site}/email/${file}" width="48" alt="" style="display:block;width:48px;height:auto;border:0;outline:none;text-decoration:none;" />`;
 }
 
 function sideImg(file: string) {
   return `<img src="${site}/email/${file}" width="48" alt="" style="display:block;width:48px;height:auto;border:0;outline:none;text-decoration:none;" />`;
 }
 
-function floralChrome(inner: string, wide = false) {
-  const vineCount = wide ? 4 : 3;
-  const sideBg = wide ? "#140e0c" : c.panel;
-  const leftVine = Array.from({ length: vineCount }, () => sideImg("border-left.png")).join("");
-  const rightVine = Array.from({ length: vineCount }, () => sideImg("border-right.png")).join("");
+function floralChrome(inner: string) {
   const band = (file: string) =>
-    `<img src="${site}/email/${file}" alt="" style="display:block;width:100%;height:38px;border:0;outline:none;text-decoration:none;" />`;
+    `<img src="${site}/email/${file}" width="544" alt="" style="display:block;width:544px;max-width:100%;height:auto;border:0;outline:none;text-decoration:none;" />`;
 
   return `<tr>
       <td width="48" valign="top" style="width:48px;padding:0;font-size:0;line-height:0;">${cornerImg("corner-tl.png")}</td>
-      <td style="padding:0;font-size:0;line-height:0;">${band("border-top-mid.png")}</td>
+      <td width="544" valign="top" style="width:544px;padding:0;font-size:0;line-height:0;">${band("border-top-mid.png")}</td>
       <td width="48" valign="top" style="width:48px;padding:0;font-size:0;line-height:0;">${cornerImg("corner-tr.png")}</td>
     </tr>
     <tr>
-      <td class="folio-side" width="48" valign="top" style="width:48px;padding:0;font-size:0;line-height:0;background:${sideBg};">${leftVine}</td>
-      <td valign="top">${inner}</td>
-      <td class="folio-side" width="48" valign="top" style="width:48px;padding:0;font-size:0;line-height:0;background:${sideBg};">${rightVine}</td>
+      <td class="folio-side" width="48" valign="top" style="width:48px;padding:0;font-size:0;line-height:0;">${sideImg("border-left.png")}</td>
+      <td width="544" valign="top" style="width:544px;">${inner}</td>
+      <td class="folio-side" width="48" valign="top" style="width:48px;padding:0;font-size:0;line-height:0;">${sideImg("border-right.png")}</td>
     </tr>
     <tr>
       <td width="48" valign="bottom" style="width:48px;padding:0;font-size:0;line-height:0;">${cornerImg("corner-bl.png")}</td>
-      <td style="padding:0;font-size:0;line-height:0;">${band("border-bottom-mid.png")}</td>
+      <td width="544" valign="bottom" style="width:544px;padding:0;font-size:0;line-height:0;">${band("border-bottom-mid.png")}</td>
       <td width="48" valign="bottom" style="width:48px;padding:0;font-size:0;line-height:0;">${cornerImg("corner-br.png")}</td>
     </tr>`;
 }
@@ -59,7 +55,7 @@ function shell(options: {
   /** Skip the centered title block; the body draws its own heading. */
   bare?: boolean;
 }) {
-  const shellWidth = options.wide ? 1040 : 880;
+  const shellWidth = 640;
 
   const badge = options.sample
     ? `<p class="folio-badge" style="margin:0 0 14px;padding:7px 12px;background:${c.parchmentDeep};border:1px solid ${c.ruleStrong};color:${c.vermilion};font-size:11px;letter-spacing:0.14em;text-transform:uppercase;text-align:center;">
@@ -131,7 +127,7 @@ function shell(options: {
     </table>`;
 
   const inner = options.bare ? bareInner : standardInner;
-  const cardBg = options.wide ? "#140e0c" : c.panel;
+  const cardBg = c.parchment;
 
   return `<!DOCTYPE html>
 <html lang="pl" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -165,11 +161,11 @@ function shell(options: {
         <!--[if mso]>
         <table role="presentation" width="${shellWidth}" cellpadding="0" cellspacing="0"><tr><td>
         <![endif]-->
-        <table role="presentation" class="folio-shell${options.wide ? " folio-shell-wide" : ""}" width="100%" cellpadding="0" cellspacing="0" style="width:100%;max-width:${shellWidth}px;border:1px solid ${options.wide ? "#3a2418" : c.ruleStrong};">
+        <table role="presentation" class="folio-shell" width="640" cellpadding="0" cellspacing="0" style="width:640px;max-width:100%;border:1px solid ${c.ruleStrong};">
           <tr>
-            <td class="folio-mat${options.wide ? " folio-mat-dark" : ""}" style="padding:${options.wide ? "8px" : "10px"};background:${options.wide ? "#1c1410" : c.parchment};">
-              <table role="presentation" class="folio-card${options.wide ? " folio-card-dark" : ""}" width="100%" cellpadding="0" cellspacing="0" style="width:100%;background:${cardBg};border:1px solid ${options.wide ? "#3a2418" : c.rule};">
-                ${floralChrome(inner, options.wide)}
+            <td class="folio-mat" style="padding:0;background:${c.parchment};">
+              <table role="presentation" class="folio-card" width="640" cellpadding="0" cellspacing="0" style="width:640px;max-width:100%;background:${cardBg};border:0;">
+                ${floralChrome(inner)}
               </table>
             </td>
           </tr>
@@ -268,12 +264,12 @@ function widePortraitCard() {
   const copy = paragraphs
     .map(
       (paragraph) =>
-        `<p class="folio-on-dark" style="margin:0 0 12px;font-size:15px;line-height:1.45;color:#f4efe6;text-align:center;">${escapeHtml(paragraph)}</p>`,
+        `<p class="folio-ink" style="margin:0 0 12px;font-size:15px;line-height:1.45;color:${c.ink};text-align:center;">${escapeHtml(paragraph)}</p>`,
     )
     .join("");
 
   const link = (href: string, label: string) =>
-    `<a class="folio-on-dark" href="${href}" style="color:#f4efe6;text-decoration:none;font-size:12px;line-height:1.35;">${escapeHtml(label)}</a>`;
+    `<a class="folio-link" href="${href}" style="color:${c.vermilion};text-decoration:none;font-size:12px;line-height:1.35;">${escapeHtml(label)}</a>`;
 
   return `
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;">
@@ -282,7 +278,7 @@ function widePortraitCard() {
           <img class="folio-photo" src="${site}/email/ensemble.jpg" width="320" alt="The Medievals" style="display:block;width:100%;max-width:340px;height:auto;border:0;margin:0 auto;" />
         </td>
         <td class="folio-col" width="58%" valign="middle" style="width:58%;padding:18px 18px 10px 10px;">
-          <h1 class="folio-on-dark" style="margin:0 0 14px;font-family:Georgia,'Times New Roman',serif;font-size:36px;line-height:1.05;font-weight:700;text-align:center;color:#fff8ee;">
+          <h1 class="folio-ink" style="margin:0 0 14px;font-family:Georgia,'Times New Roman',serif;font-size:32px;line-height:1.1;font-weight:700;text-align:center;color:${c.ink};">
             The Medievals
           </h1>
           ${copy}
@@ -290,7 +286,7 @@ function widePortraitCard() {
       </tr>
       <tr>
         <td class="folio-social" colspan="2" align="center" style="padding:4px 16px 8px;">
-          <p class="folio-on-dark-soft" style="margin:0;text-align:center;font-size:13px;line-height:1.8;color:#e4d5c4;">
+          <p class="folio-ink-soft" style="margin:0;text-align:center;font-size:13px;line-height:1.8;color:${c.inkSoft};">
             ${link(siteConfig.social.instagram, "Instagram @the_medievals_official")}
             <span style="color:#c9a24a;"> · </span>
             ${link(siteConfig.social.facebook, "Facebook @TheMedievalsofficial")}<br />
